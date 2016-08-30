@@ -2,10 +2,13 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #E9E9E9;
 }
+/* HEADER */
 nav.navbar {
   border-radius: 0px;
   border-bottom: 1px solid #E9E9E9;
+  padding-left: 0px;
 }
 nav .blog-logo {
   font-family: 'Poiret One', cursive;
@@ -16,10 +19,16 @@ nav .blog-social-buttons {
   font-size: 1.5em;
 }
 
-
 @media (min-width: 544px) {
-  .container {
-    margin-top: 20px;
+  .blog-container {
+    min-height: 76vh;
+    padding-top: 30px;
+  }
+  .wrapper {
+    width: 98vw;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: white;
   }
   nav .blog-links {
     clear: right;
@@ -28,6 +37,12 @@ nav .blog-social-buttons {
 
 }
 @media (max-width: 544px) {
+  .blog-container {
+    min-height: 65vh;
+  }
+  .wrapper {
+    background-color: white;
+  }
   nav .blog-links button {
     float: right;
   }
@@ -38,9 +53,12 @@ nav .blog-social-buttons {
 @media (min-width: 544px) {
   nav.navbar {
     height: 80px;
+    margin-top: -30px;
   }
   nav .blog-logo .navbar-brand {
     font-size: 50px;
+    line-height: 1em;
+    margin-top: 12px
   }
   nav .blog-links {
     margin-top: 36px;
@@ -50,10 +68,11 @@ nav .blog-social-buttons {
 @media (min-width: 768px) {
   nav.navbar {
     height: 100px;
+    margin-top: 0px;
   }
   nav .blog-logo .navbar-brand {
     font-size: 90px;
-    margin-top: -33px
+    margin-top: -10px
   }
   nav .blog-links {
     margin-top: 0px;
@@ -61,4 +80,23 @@ nav .blog-social-buttons {
   nav .blog-social-buttons {
     padding-bottom: 12px;
   }
+}
+
+/* FOOTER */
+footer {
+  background-color: #18232F;
+  display: block;
+  height: auto;
+  color: #E9E9E9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.blog-footer-social-buttons {
+  float: left;
+  font-size: 2em;
+}
+.blog-footer-text {
+  float: right;
+  max-width: 70%;
+  margin-top: 4px;
 }
