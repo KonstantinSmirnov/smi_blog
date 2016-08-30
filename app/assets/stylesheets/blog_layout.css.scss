@@ -1,0 +1,64 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Poiret+One';
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+nav.navbar {
+  border-radius: 0px;
+  border-bottom: 1px solid #E9E9E9;
+}
+nav .blog-logo {
+  font-family: 'Poiret One', cursive;
+}
+nav .blog-social-buttons {
+  display: block;
+  float: right;
+  font-size: 1.5em;
+}
+
+
+@media (min-width: 544px) {
+  .container {
+    margin-top: 20px;
+  }
+  nav .blog-links {
+    clear: right;
+    float: right;
+  }
+
+}
+@media (max-width: 544px) {
+  nav .blog-links button {
+    float: right;
+  }
+  .navbar-toggleable-xs {
+    clear:both;
+  }
+}
+@media (min-width: 544px) {
+  nav.navbar {
+    height: 80px;
+  }
+  nav .blog-logo .navbar-brand {
+    font-size: 50px;
+  }
+  nav .blog-links {
+    margin-top: 36px;
+  }
+
+}
+@media (min-width: 768px) {
+  nav.navbar {
+    height: 100px;
+  }
+  nav .blog-logo .navbar-brand {
+    font-size: 90px;
+    margin-top: -33px
+  }
+  nav .blog-links {
+    margin-top: 0px;
+  }
+  nav .blog-social-buttons {
+    padding-bottom: 12px;
+  }
+}
