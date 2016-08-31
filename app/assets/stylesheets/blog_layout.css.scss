@@ -4,6 +4,15 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #E9E9E9;
 }
+a {
+  color: #18232F;
+}
+.active a {
+  color: #DE691A;
+}
+a:hover {
+  color: #DE691A;
+}
 /* HEADER */
 nav.navbar {
   border-radius: 0px;
@@ -14,6 +23,9 @@ nav.navbar {
 }
 nav .blog-logo {
   font-family: 'Poiret One', cursive;
+  :hover {
+    color: none;
+  }
 }
 nav .blog-social-buttons {
   display: block;
@@ -92,6 +104,9 @@ footer {
   color: #E9E9E9;
   padding-top: 30px;
   padding-bottom: 30px;
+  a {
+    color: #E9E9E9;
+  }
 }
 .blog-footer-social-buttons {
   float: left;
