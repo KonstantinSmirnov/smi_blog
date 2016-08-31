@@ -9,6 +9,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <div class="container blog-container">
+        <%= render :partial => 'shared/header' %>
+        <%= yield %>
+      </div>
+      <%= render :partial => 'shared/footer' %>
+    </div>
   </body>
+  
 </html>
