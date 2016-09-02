@@ -20,6 +20,14 @@
         <li class="nav-item <%= 'active' if controller?("about") %>">
           <%= link_to "About", about_path, { :class => 'nav-link' } %>
         </li>
+        <% if admin_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Admin", '#', { :class => 'nav-link' } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign out", destroy_admin_session_path, { method: :delete, data: { confirm: 'Are you sure to sign out?' }, :class => 'nav-link' } %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

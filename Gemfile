@@ -52,3 +52,6 @@ gem 'foundation-icons-sass-rails'
 # database mongoDB
 gem 'mongoid', github: 'mongodb/mongoid'
 gem 'mongoid_alize'
+
+# authentification
+gem 'devise'
