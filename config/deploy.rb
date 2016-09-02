@@ -3,6 +3,10 @@ lock '3.6.1'
 
 set :application, 'smi_blog'
 set :repo_url, 'git@github.com:KonstantinSmirnov/smi_blog.git'
+set :rbenv_ruby, '2.3.1'
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+
+
 
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
