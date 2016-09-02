@@ -6,6 +6,7 @@ set :repo_url, 'git@github.com:KonstantinSmirnov/smi_blog.git'
 set :rbenv_ruby, '2.3.1'
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 
+set :user,  'deployer'
 
 
 set :puma_threads,    [4, 16]
@@ -35,7 +36,7 @@ set :puma_init_active_record, false  # Change to false when not using ActiveReco
 # set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{.env config/mongoid.yml }
+set :linked_files, %w{.env config/mongoid.yml config/secrets.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
