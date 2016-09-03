@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   get 'articles/index', as: 'articles'
   get 'about/show', as: 'about'
+
+  namespace :admin do
+    get 'dashboard/index', as: 'dashboard'
+    get 'articles/index', as: 'articles'
+    get 'social/index', as: 'social'
+  end
 end
