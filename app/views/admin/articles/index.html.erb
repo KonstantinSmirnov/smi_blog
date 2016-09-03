@@ -3,6 +3,30 @@
     <%= render :partial => 'shared/admin/left_panel' %>
   </div>
   <div class="col-md-10">
-    There are articles
+    <%= render 'shared/flash' %>
+    <%= link_to "Add", new_admin_article_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
+    <br><br>
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @articles.each do |article| %>
+          <tr>
+            <th><%= article.title %></th>
+            <th>Status</th>
+            <th>
+              <%= link_to "Edit", edit_admin_article_path(article), class: 'btn btn-outline-primary btn-sm' %>
+              <%= link_to "Delete", admin_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger btn-sm' %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
   </div>
 </div>

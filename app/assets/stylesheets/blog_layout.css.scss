@@ -20,6 +20,9 @@ body {
 .btn {
   border-radius: 0px;
 }
+.alert {
+  border-radius: 0px;
+}
 .form-control {
   border-radius: 0px;
   border-color: #18232F;
@@ -39,7 +42,7 @@ nav.navbar {
   border-bottom: 1px solid #18232F;
   padding-left: 0px;
   padding-right: 0px;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 nav .blog-logo {
   font-family: 'Poiret One', cursive;
@@ -124,6 +127,7 @@ footer {
   color: #E9E9E9;
   padding-top: 30px;
   padding-bottom: 30px;
+  margin-top: 20px;
   a {
     color: #fff;
   }
@@ -172,4 +176,5 @@ footer {
 /* ADMIN */
 .admin-menu .nav-item.active .nav-link {
   border: 1px solid #18232F;
+  border-radius: 0px;
 }

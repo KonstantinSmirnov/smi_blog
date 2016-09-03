@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard/index', as: 'dashboard'
-    get 'articles/index', as: 'articles'
+    resources :articles
     get 'social/index', as: 'social'
   end
 end

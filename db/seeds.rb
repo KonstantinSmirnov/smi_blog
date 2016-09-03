@@ -12,3 +12,8 @@ user.email = 'test@test.com'
 user.password = '123123'
 user.password_confirmation = '123123'
 user.save!
+
+article1 = Article.new
+article1.title = "tehre is a title"
+article1.description = "there is a short description"
+article1.save!
