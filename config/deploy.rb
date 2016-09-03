@@ -8,6 +8,8 @@ set :rbenv_type, :user # or :system, depends on your rbenv setup
 
 set :user,  'deployer'
 
+# do not ask password on a local mashine when deploy
+set :ssh_options, {:forward_agent => true}
 
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
