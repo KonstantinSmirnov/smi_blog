@@ -1,12 +1,11 @@
-
-    <ul class="nav nav-pills nav-stacked">
-      <li class="nav-item <%= 'active' if controller?("admin/dashboard") %>">
-        <%= link_to "Dashboard", admin_dashboard_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item <%= 'active' if controller?("admin/articles") %>">
-        <%= link_to "Articles", admin_articles_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item <%= 'active' if controller?("admin/social") %>">
-        <%= link_to "Social", admin_social_path, class: 'nav-link' %>
-      </li>
-    </ul>
+<ul class="nav nav-pills nav-stacked admin-menu">
+  <li class="nav-item <%= 'active' if controller?("admin/dashboard") %>">
+    <%= link_to "Dashboard", admin_dashboard_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item <%= 'active' if controller?("admin/articles") %>">
+    <%= link_to "Articles", admin_articles_path, class: 'nav-link' %>
+  </li>
+  <li class="nav-item <%= 'active' if controller?("admin/social") %>">
+    <%= link_to "Social", admin_social_path, class: 'nav-link' %>
+  </li>
+</ul>
