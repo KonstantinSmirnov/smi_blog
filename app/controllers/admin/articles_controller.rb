@@ -1,6 +1,10 @@
 class Admin::ArticlesController < Admin::DashboardController
   def index
-    @articles = Article.all
+    @articles = Article.all.reverse
+  end
+
+  def show
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -43,6 +47,6 @@ class Admin::ArticlesController < Admin::DashboardController
   private
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, :content)
   end
 end

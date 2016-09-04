@@ -49,6 +49,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 gem 'foundation-icons-sass-rails'
 
+# markdown
+gem 'redcarpet'
+
 # database mongoDB
 gem 'mongoid', github: 'mongodb/mongoid'
 gem 'mongoid_alize'

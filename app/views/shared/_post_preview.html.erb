@@ -1,25 +1,23 @@
 <div class="blog-post-preview">
-    <img src="http://placehold.it/1120x630" class="img-fluid" alt="Responsive image">
-    <br>
-    <h2>Lorem Ipsum</h2>
-    <div class="post-header">
-        <span class="section"><a href="#">Lifestyle</a></span>
-        <span>by <a href="#">Konstantin</a></span>
-        <span><i class="fi-calendar"></i> August 31, 2016</span>
-        <span>Tags: <a href="#">colors</a></span>
-        <br>
-        <span><a href="#"><i class="fi-comment"></i> 3 Comments</a></span>
-    </div>
-    <p>
-        Lorem ipsum dolor sit amet, paulo laudem nec et, ut prima expetenda disputando has, no tamquam legendos sea. Sed ne meis graece omnium, ad diceret intellegebat consequuntur sea. Pri eu graeco officiis, mei nullam probatus in. Id eos magna complectitur concludaturque. Per at putent electram, consul senserit has no. In simul nonumes vis, ut offendit electram sed.
-    </p>
-    <div class="post-footer">
-        <%= link_to "Continue Reading", '#', {:class => 'continue'} %>
-        <div class="share">
-            Share: 
-            <a href="#"><i class="fi-social-facebook"></i></a>
-            <a href="#"><i class="fi-social-twitter"></i></a>
-            <a href="#"><i class="fi-social-pinterest"></i></a>
-        </div>
-    </div>
+  <h2><%= link_to "#{object.title}", article_path(object) %></h2>
+  <div class="post-header">
+      <span class="section"><a href="#">Lifestyle</a></span>
+      <span>by <a href="#">Konstantin</a></span>
+      <span><i class="fi-calendar"></i> August 31, 2016</span>
+      <span>Tags: <a href="#">colors</a></span>
+      <br>
+      <span><a href="#"><i class="fi-comment"></i> 3 Comments</a></span>
+  </div>
+  <p>
+    <%= markdown(object.description) %>
+  </p>
+  <div class="post-footer">
+      <%= link_to "Continue Reading", article_path(object), {:class => 'continue'} %>
+      <div class="share">
+          Share:
+          <a href="#"><i class="fi-social-facebook"></i></a>
+          <a href="#"><i class="fi-social-twitter"></i></a>
+          <a href="#"><i class="fi-social-pinterest"></i></a>
+      </div>
+  </div>
 </div>

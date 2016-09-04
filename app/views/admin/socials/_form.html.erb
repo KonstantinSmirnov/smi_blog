@@ -1,4 +1,7 @@
 <%= form_for [:admin, @social] do |f| %>
+  <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
+  <%= link_to "Back to socials", admin_socials_path, class: 'btn btn-outline-primary btn-sm' %>
+  <br><br>
   <% if @social.errors.any? %>
     <div class="alert alert-danger">
       <h5 class="alert-heading"><%= pluralize(@social.errors.count, "error") %> prohibited this item from being saved:</h5>
@@ -18,7 +21,4 @@
     <%= f.label :link %>
     <%= f.text_field :link, class: 'form-control' %>
   </div>
-  <%= f.submit "Save", class: 'btn btn-primary' %>
-  <%= link_to "Back to socials", admin_socials_path, class: 'btn btn-outline-primary' %>
-
 <% end %>
