@@ -4,14 +4,15 @@
   </div>
   <div class="col-md-10">
     <%= render 'shared/flash' %>
-    <%= link_to "Add", new_admin_article_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
-    <br><br>
     <table class="table">
       <thead class="thead-default">
         <tr>
           <th>Title</th>
           <th>Status</th>
-          <th>Options</th>
+          <th>
+            Options
+            <%= link_to "Add", new_admin_article_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
+          </th>
         </tr>
       </thead>
       <tbody>

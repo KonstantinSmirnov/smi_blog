@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= render :partial => 'shared/admin/left_panel' %>
+  </div>
+  <div class="col-md-10">
+    <%= render 'shared/flash' %>
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Icon</th>
+          <th>Icon-text</th>
+          <th>Link</th>
+          <th>
+            Options
+            <%= link_to 'Add', new_admin_social_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @socials.each do |social| %>
+          <tr>
+            <th><i class='fi-<%= "#{social.icon_text}" %>'></i></th>
+            <th><%= social.icon_text %></th>
+            <th><%= social.link %></th>
+            <th>
+              <%= link_to "Edit", edit_admin_social_path(social), class: 'btn btn-outline-primary btn-sm' %>
+              <%= link_to "Delete", admin_social_path(social), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<%= form_for [:admin, @social] do |f| %>
+  <% if @social.errors.any? %>
+    <div class="alert alert-danger">
+      <h5 class="alert-heading"><%= pluralize(@social.errors.count, "error") %> prohibited this item from being saved:</h5>
+      <ul>
+        <% @social.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :icon_text %><br>
+    <%= f.text_field :icon_text, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :link %>
+    <%= f.text_field :link, class: 'form-control' %>
+  </div>
+  <%= f.submit "Save", class: 'btn btn-primary' %>
+  <%= link_to "Back to socials", admin_socials_path, class: 'btn btn-outline-primary' %>
+
+<% end %>

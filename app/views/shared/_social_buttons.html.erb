@@ -1,5 +1,5 @@
-<a href="#"><i class="fi-social-facebook"></i></a>
-<a href="#"><i class="fi-social-linkedin"></i></a>
-<a href="#"><i class="fi-social-github"></i></a>
-<a href="#"><i class="fi-social-skype"></i></a>
-<a href="#"><i class="fi-social-instagram"></i></a>
+<% if @social_icons %>
+  <% @social_icons.each do |icon| %>
+    <a href="<%= icon.link %>" target="_blank"><i class="fi-<%= icon.icon_text %>"></i></a>
+  <% end %>
+<% end %>
