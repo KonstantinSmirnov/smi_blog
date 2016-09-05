@@ -21,7 +21,7 @@
 
 // ARTICLES
 
-// add <img> class .img-fluid (bootstrap4) to put them inside page
+// add <img> class .img-fluid (bootstrap4) to make them response
 var ready;
 ready = function() {
       $('.blog-article img').addClass('img-fluid');
