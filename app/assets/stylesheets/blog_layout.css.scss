@@ -148,9 +148,9 @@ footer {
 
 /* POST */
 
-.blog-post-preview {
+.blog-article {
   margin-bottom: 20px;
-  .blog-post-preview-footer {
+  .blog-article-footer {
     border-bottom: 1px solid #18232F;
     .continue {
       background-color: #18232F;
@@ -162,21 +162,22 @@ footer {
       color: gray;
     }
   }
-}
-.post-header {
-  color: gray;
-  font-size: 0.8em;
-  margin-bottom: 10px;
-  span {
-    margin-right: 10px;
-  }
-  a {
+  .blog-article-header {
     color: gray;
-  }
-  .section {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    span {
+      margin-right: 10px;
+    }
+    a {
+      color: gray;
+    }
+    .section {
 
+    }
   }
 }
+
 /* ADMIN */
 .admin-menu .nav-item.active .nav-link {
   border: 1px solid #18232F;

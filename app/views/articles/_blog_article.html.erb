@@ -1,5 +1,4 @@
-<div id="blog-post">
-  <div class="blog-post-preview">
+  <div class="blog-article">
     <h2>
       <% if params[:action] == "show" %>
         <%= object.title %>
@@ -10,7 +9,7 @@
         [<%= link_to "Edit", edit_admin_article_path(object) %>]
       <% end %>
     </h2>
-    <div class="post-header">
+    <div class="blog-article-header">
       <span class="section"><a href="#">Lifestyle</a></span>
       <span>by <a href="#">Konstantin</a></span>
       <span><i class="fi-calendar"></i> <%= object.published_at.strftime("%b %d, %Y") %></span>
@@ -31,7 +30,7 @@
         <a href="#"><i class="fi-social-pinterest"></i></a>
       </div>
     <% else %>
-      <div class="blog-post-preview-footer">
+      <div class="blog-article-footer">
         <%= link_to "Continue Reading", article_path(object), {:class => 'continue'} %>
         <div class="share">
           Share:
@@ -42,4 +41,3 @@
       </div>
     <% end %>
   </div>
-</div>
