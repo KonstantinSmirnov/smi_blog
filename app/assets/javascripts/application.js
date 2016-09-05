@@ -22,9 +22,3 @@
 // ARTICLES
 
 // add <img> class .img-fluid (bootstrap4) to make them response
-var ready;
-ready = function() {
-      $('.blog-article img').addClass('img-fluid');
-}
-$(document).ready(ready);
-$(document).on('turbolinks:load', ready)
