@@ -47,6 +47,6 @@ class Admin::ArticlesController < Admin::DashboardController
   private
 
   def article_params
-    params.require(:article).permit(:title, :description, :content)
+    params.require(:article).permit(:status, :title, :description, :content)
   end
 end

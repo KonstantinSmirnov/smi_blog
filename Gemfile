@@ -55,6 +55,8 @@ gem 'redcarpet'
 # database mongoDB
 gem 'mongoid', github: 'mongodb/mongoid'
 gem 'mongoid_alize'
+# add enums in mongodb
+gem 'mongoid-enum', github: 'monster-media/mongoid-enum' # original source has no support for mongoid 6 currently. github: 'thetron/mongoid-enum'
 
 # authentification
 gem 'devise'

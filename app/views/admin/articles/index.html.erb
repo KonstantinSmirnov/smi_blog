@@ -19,7 +19,7 @@
         <% @articles.each do |article| %>
           <tr>
             <td><%= link_to "#{article.title}", admin_article_path(article) %></td>
-            <td>Status</td>
+            <td><%= article.status.capitalize() %></td>
             <td>
               <%= link_to "Edit", edit_admin_article_path(article), class: 'btn btn-outline-primary btn-sm' %>
               <%= link_to "Delete", admin_article_path(article), :method => :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger btn-sm' %>

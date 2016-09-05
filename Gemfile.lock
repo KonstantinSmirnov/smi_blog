@@ -6,6 +6,13 @@ GIT
       activemodel (~> 5.0)
       mongo (~> 2.3)
 
+GIT
+  remote: git://github.com/monster-media/mongoid-enum.git
+  revision: 270323f3d71d837e04e55a0cae83b537722819b9
+  specs:
+    mongoid-enum (0.4.0)
+      mongoid (>= 6.0.0.beta)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -234,6 +241,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mongoid!
+  mongoid-enum!
   mongoid_alize
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
