@@ -1,7 +1,12 @@
 <div class="row">
   <div class="col-md-9">
     <div class="blog-post-preview">
-      <h2><%= @article.title %></h2>
+      <h2>
+        <%= @article.title %>
+        <% if admin_signed_in? %>
+          [<%= link_to "Edit", edit_admin_article_path(@article) %>]
+        <% end %>
+      </h2>
       <div class="post-header">
           <span class="section"><a href="#">Lifestyle</a></span>
           <span>by <a href="#">Konstantin</a></span>
