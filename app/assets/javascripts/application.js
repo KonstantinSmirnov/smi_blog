@@ -15,3 +15,16 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+
+
+// ARTICLES
+
+// add <img> class .img-fluid (bootstrap4) to put them inside page
+var ready;
+ready = function() {
+      $('#blog-post img').addClass('img-fluid');
+}
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready)

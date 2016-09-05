@@ -1,24 +1,26 @@
-<div class="row">
-  <div class="col-md-9">
-    <% @articles.shift(2).each do |article| %>
-      <%= render :partial => 'shared/post_preview', :locals => { :object => article } %>
-    <% end %>
-    <div class="row">
-      <div class="col-lg-6">
-        <% @articles.drop(2).select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
-          <%= render :partial => 'shared/post_preview', :locals => { :object => article } %>
-        <% end %>
-      </div>
-      <div class="col-lg-6">
-        <% @articles.drop(2).select.with_index{|_,i| (i+1) % 2 == 0}.each do |article| %>
-          <%= render :partial => 'shared/post_preview', :locals => { :object => article } %>
-        <% end %>
+<div id="blog-post">
+  <div class="row">
+    <div class="col-md-9">
+      <% @articles.shift(2).each do |article| %>
+        <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
+      <% end %>
+      <div class="row">
+        <div class="col-lg-6">
+          <% @articles.drop(2).select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
+            <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
+          <% end %>
+        </div>
+        <div class="col-lg-6">
+          <% @articles.drop(2).select.with_index{|_,i| (i+1) % 2 == 0}.each do |article| %>
+            <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
-    <%= render :partial => 'shared/categories' %>
-    <%= render :partial => 'shared/subscribe' %>
-    <%= render :partial => 'shared/aboutme' %>
+    <div class="col-md-3">
+      <%= render :partial => 'shared/categories' %>
+      <%= render :partial => 'shared/subscribe' %>
+      <%= render :partial => 'shared/aboutme' %>
+    </div>
   </div>
 </div>

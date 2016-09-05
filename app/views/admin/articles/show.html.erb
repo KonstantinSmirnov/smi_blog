@@ -6,29 +6,6 @@
     <%= link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-outline-primary btn-sm' %>
     <%= link_to "Back to articles", admin_articles_path, class: 'btn btn-outline-primary btn-sm' %>
     <br><br>
-    <div class="">
-      <h2><%= @article.title %></h2>
-      <div class="post-header">
-          <span class="section"><a href="#">Lifestyle</a></span>
-          <span>by <a href="#">Konstantin</a></span>
-          <span><i class="fi-calendar"></i> August 31, 2016</span>
-          <span>Tags: <a href="#">colors</a></span>
-      </div>
-      <p>
-        <%= markdown(@article.description) %>
-      </p>
-      <p>
-        <%= markdown(@article.content) %>
-      </p>
-    </div>
-
-
-
-
-
-
-
-
-
+    <%= render :partial => 'shared/blog_post', :locals => { :object => @article } %>
   </div>
 </div>
