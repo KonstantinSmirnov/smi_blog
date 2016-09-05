@@ -1,17 +1,14 @@
 <div id="blog-post">
   <div class="row">
     <div class="col-md-9">
-      <% @articles.shift(2).each do |article| %>
-        <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
-      <% end %>
       <div class="row">
         <div class="col-lg-6">
-          <% @articles.drop(2).select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
+          <% @articles.select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
             <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
           <% end %>
         </div>
         <div class="col-lg-6">
-          <% @articles.drop(2).select.with_index{|_,i| (i+1) % 2 == 0}.each do |article| %>
+          <% @articles.select.with_index{|_,i| (i+1) % 2 == 0}.each do |article| %>
             <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
           <% end %>
         </div>
