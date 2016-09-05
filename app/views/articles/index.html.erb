@@ -1,6 +1,6 @@
 <div id="blog-post">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-9 col-lg-10">
       <div class="row">
         <div class="col-lg-6">
           <% @articles.select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
@@ -14,10 +14,9 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-lg-2">
       <%= render :partial => 'shared/categories' %>
       <%= render :partial => 'shared/subscribe' %>
-      <%= render :partial => 'shared/aboutme' %>
     </div>
   </div>
 </div>
