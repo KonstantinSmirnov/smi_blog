@@ -17,7 +17,7 @@
   
   <div class="form-group">
     <%= f.label :status %>
-    <%= f.select :status, {Draft: :draft, Published: :published} %>
+    <%= f.select :status, {Draft: :draft, Published: :published} %>  <%= "on #{@article.published_at}" if @article.published_at != nil %>
   </div>
   
   <div class="form-group">
