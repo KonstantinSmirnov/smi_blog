@@ -6,6 +6,7 @@ class Article
   field :title, type: String
   field :description, type: String
   field :content, type: String
+  field :published_at, type: Date
   
   enum :status, [:draft, :published], default: :draft
 

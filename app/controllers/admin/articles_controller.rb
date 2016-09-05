@@ -30,6 +30,15 @@ class Admin::ArticlesController < Admin::DashboardController
     @article = Article.find(params[:id])
 
     if @article.update_attributes(article_params)
+      
+      if @article.published?
+        @article.published_at = Date.today
+        @article.save!
+      elsif @article.draft?
+        @article.published_at = nil
+        @article.save!
+      end
+      
       flash.now[:success] = "Changes were saved"
       render 'edit'
     else
