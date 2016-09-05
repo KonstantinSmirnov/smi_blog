@@ -7,6 +7,7 @@ class Article
   field :description, type: String
   field :content, type: String
   field :published_at, type: Date
+  field :views, type: Integer, default: 0
   
   enum :status, [:draft, :published], default: :draft
 

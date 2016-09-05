@@ -5,5 +5,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:format])
+    @article.update_attribute("views", @article.views + 1)
   end
 end

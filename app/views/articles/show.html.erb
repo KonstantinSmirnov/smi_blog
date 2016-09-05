@@ -13,8 +13,7 @@
           <span><i class="fi-calendar"></i> August 31, 2016</span>
           <span>Tags: <a href="#">colors</a></span>
           <br>
-          <span><a href="#"><i class="fi-comment"></i> 3 Comments</a></span>
-      </div>
+          <span><i class="fi-eye"></i> <%= @article.views %> | <a href="#"><i class="fi-comment"></i> 3 Comments</a></span>      </div>
       <p>
         <%= markdown(@article.description) %>
       </p>

@@ -6,7 +6,7 @@
       <span><i class="fi-calendar"></i> <%= object.published_at.strftime("%b %d, %Y") if object.published_at != nil %></span>
       <span>Tags: <a href="#">colors</a></span>
       <br>
-      <span><a href="#"><i class="fi-comment"></i> 3 Comments</a></span>
+      <span><i class="fi-eye"></i> <%= object.views %> | <a href="#"><i class="fi-comment"></i> 3 Comments</a></span>
   </div>
   <p>
     <%= markdown(object.description) %>
