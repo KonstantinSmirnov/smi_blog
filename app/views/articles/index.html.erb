@@ -4,12 +4,12 @@
       <div class="row">
         <div class="col-lg-6">
           <% @articles.select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
-            <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
+            <%= render :partial => 'articles/blog_article', :locals => { :object => article } %>
           <% end %>
         </div>
         <div class="col-lg-6">
           <% @articles.select.with_index{|_,i| (i+1) % 2 == 0}.each do |article| %>
-            <%= render :partial => 'shared/blog_post', :locals => { :object => article } %>
+            <%= render :partial => 'articles/blog_article', :locals => { :object => article } %>
           <% end %>
         </div>
       </div>

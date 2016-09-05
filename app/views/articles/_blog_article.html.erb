@@ -13,7 +13,7 @@
     <div class="post-header">
       <span class="section"><a href="#">Lifestyle</a></span>
       <span>by <a href="#">Konstantin</a></span>
-      <span><i class="fi-calendar"></i> August 31, 2016</span>
+      <span><i class="fi-calendar"></i> <%= object.published_at.strftime("%b %d, %Y") %></span>
       <span>Tags: <a href="#">colors</a></span>
       <br>
       <span><i class="fi-eye"></i> <%= object.views %> | <a href="#"><i class="fi-comment"></i> 3 Comments</a></span>      </div>
