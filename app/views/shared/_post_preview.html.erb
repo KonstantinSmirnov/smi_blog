@@ -3,7 +3,7 @@
   <div class="post-header">
       <span class="section"><a href="#">Lifestyle</a></span>
       <span>by <a href="#">Konstantin</a></span>
-      <span><i class="fi-calendar"></i> <%= object.published_at.strftime("%b %d, %Y") %></span>
+      <span><i class="fi-calendar"></i> <%= object.published_at.strftime("%b %d, %Y") if object.published_at != nil %></span>
       <span>Tags: <a href="#">colors</a></span>
       <br>
       <span><a href="#"><i class="fi-comment"></i> 3 Comments</a></span>
