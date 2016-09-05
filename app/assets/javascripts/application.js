@@ -12,13 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
-
-
-
-
-// ARTICLES
-
-// add <img> class .img-fluid (bootstrap4) to make them response
