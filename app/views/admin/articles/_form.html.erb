@@ -2,6 +2,7 @@
   <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
   <%= link_to "Preview", admin_article_path(@article), class: 'btn btn-outline-primary btn-sm' if action?("edit") or action?("update") %>
   <%= link_to "Back to articles", admin_articles_path, class: 'btn btn-outline-primary btn-sm' %>
+  <%= link_to "Delete", admin_article_path(@article), :method => :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger btn-sm' if action?("edit") or action?("update") %>
   <br><br>
   <% if @article.errors.any? %>
     <div class="alert alert-danger">
