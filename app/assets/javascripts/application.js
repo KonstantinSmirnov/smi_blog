@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+    $('.blog-article img').addClass('img-fluid');
+});
