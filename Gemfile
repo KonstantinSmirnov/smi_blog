@@ -48,6 +48,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # styling
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 gem 'foundation-icons-sass-rails'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 
 # markdown
 gem 'redcarpet'
