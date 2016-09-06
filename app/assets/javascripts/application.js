@@ -15,7 +15,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).on('turbolinks:load', function() {
-    $('.blog-article img').addClass('img-fluid');
-});
