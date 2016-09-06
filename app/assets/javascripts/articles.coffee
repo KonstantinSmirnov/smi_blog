@@ -1,3 +1,3 @@
 jQuery ($) ->
    $(document).on "turbolinks:load", ->
-       $('.blog-article img').addClass('img-fluid')
+       $(".blog-article img").addClass("img-fluid")
