@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_filter :load_social_icons
+  before_filter :initialize_app
 
   private
 
-  def load_social_icons
-    @social_icons = Social.all
+  def initialize_app
+    @social_icons_list = Social.all
+    @categories_list = Category.all
   end
 end

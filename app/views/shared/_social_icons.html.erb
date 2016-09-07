@@ -1,5 +1,5 @@
-<% if @social_icons %>
-  <% @social_icons.each do |icon| %>
+<% if @social_icons_list %>
+  <% @social_icons_list.each do |icon| %>
     <a href="<%= icon.link %>" target="_blank"><i class="fi-<%= icon.icon_text %>"></i></a>
   <% end %>
 <% end %>
