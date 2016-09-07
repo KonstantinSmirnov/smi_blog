@@ -3,6 +3,30 @@
     <%= render :partial => 'shared/admin/left_panel' %>
   </div>
   <div class="col-md-9 col-lg-10">
-    there are categories
+    <%= render 'shared/flash' %>
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Category</th>
+          <th>Articles count</th>
+          <th>
+            Options
+            <%= link_to 'Add', new_admin_category_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.name %></td>
+            <td>0</td>
+            <td>
+              <%= link_to "Edit", edit_admin_category_path(category), class: 'btn btn-outline-primary btn-sm' %>
+              <%= link_to "Delete", admin_category_path(category), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

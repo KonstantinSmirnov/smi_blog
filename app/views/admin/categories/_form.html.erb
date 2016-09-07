@@ -1,0 +1,20 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
+  <%= link_to "Back to categories", admin_categories_path, class: 'btn btn-outline-primary btn-sm' %>
+  <br><br>
+  <% if @category.errors.any? %>
+    <div class="alert alert-danger">
+      <h5 class="alert-heading"><%= pluralize(@category.errors.count, "error") %> prohibited this item from being saved:</h5>
+      <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control', :autocomplete => 'off' %>
+  </div>
+<% end %>
