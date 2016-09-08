@@ -8,6 +8,7 @@
       <thead class="thead-default">
         <tr>
           <th>Title</th>
+          <th>Category</th>
           <th>Status</th>
           <th>Publication date</th>
           <th>Views</th>
@@ -21,8 +22,9 @@
         <% @articles.each do |article| %>
           <tr>
             <td><%= link_to "#{article.title}", admin_article_path(article) %></td>
+            <td><%= article.category.nil? ? "(none)" : "#{ article.category.name }" %></td>
             <td><%= article.status.capitalize() %></td>
-            <td><%= article.published_at %></td>
+            <td><%= article.published_on %></td>
             <td><%= article.views %></td>
             <td>
               <%= link_to "Edit", edit_admin_article_path(article), class: 'btn btn-outline-primary btn-sm' %>

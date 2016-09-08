@@ -10,9 +10,15 @@
       <% end %>
     </h2>
     <div class="blog-article-header">
-      <span class="section"><a href="#">Lifestyle</a></span>
+      <span class="section">
+        <% if object.category %>
+          <%= link_to "#{object.category.name}", '#' %>
+        <% else %>
+          No category
+        <% end %>
+      </span>
       <span>by <a href="#">Konstantin</a></span>
-      <span><i class="fi-calendar"></i> <%= object.published_at.strftime("%b %d, %Y") %></span>
+      <span><i class="fi-calendar"></i> <%= object.published_on.strftime("%b %d, %Y") %></span>
       <span>Tags: <a href="#">colors</a></span>
       <br>
       <span><i class="fi-eye"></i> <%= object.views %> | <a href="#"><i class="fi-comment"></i> 3 Comments</a></span>      </div>

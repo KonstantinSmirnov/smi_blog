@@ -51,15 +51,15 @@ class Admin::ArticlesController < Admin::DashboardController
   private
 
   def article_params
-    params.require(:article).permit(:status, :title, :description, :content)
+    params.require(:article).permit(:status, :title, :description, :content, :category_id)
   end
   
   def update_date_of_publication(article)
     if article.published?
-      article.published_at = Date.today
+      article.published_on = Date.today
       article.save!
     elsif article.draft?
-      article.published_at = nil
+      article.published_on = nil
       article.save!
     end
   end

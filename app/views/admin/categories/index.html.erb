@@ -19,7 +19,7 @@
         <% @categories.each do |category| %>
           <tr>
             <td><%= category.name %></td>
-            <td>0</td>
+            <td><%= category.articles.count %></td>
             <td>
               <%= link_to "Edit", edit_admin_category_path(category), class: 'btn btn-outline-primary btn-sm' %>
               <%= link_to "Delete", admin_category_path(category), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
