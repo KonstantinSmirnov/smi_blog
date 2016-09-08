@@ -7,7 +7,7 @@ class Article
   field :title, type: String
   field :description, type: String
   field :content, type: String
-  field :published_on, type: Date
+  field :published_on, type: DateTime
   field :views, type: Integer, default: 0
   field :category_id, type: Integer
 

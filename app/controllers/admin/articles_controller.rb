@@ -56,7 +56,7 @@ class Admin::ArticlesController < Admin::DashboardController
   
   def update_date_of_publication(article)
     if article.published?
-      article.published_on = Date.today
+      article.published_on = DateTime.now if article.published_on == nil
       article.save!
     elsif article.draft?
       article.published_on = nil

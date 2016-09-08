@@ -24,7 +24,7 @@
             <td><%= link_to "#{article.title}", admin_article_path(article) %></td>
             <td><%= article.category.nil? ? "(none)" : "#{ article.category.name }" %></td>
             <td><%= article.status.capitalize() %></td>
-            <td><%= article.published_on %></td>
+            <td><%= article.published_on.strftime("%d.%m.%g at %H:%M") %></td>
             <td><%= article.views %></td>
             <td>
               <%= link_to "Edit", edit_admin_article_path(article), class: 'btn btn-outline-primary btn-sm' %>
