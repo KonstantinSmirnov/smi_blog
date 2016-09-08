@@ -1,10 +1,24 @@
 class Admin::ArticlesController < Admin::DashboardController
   def index
-    if params[:filter_category] && params[:filter_category] != ''
-      @articles = Article.where(:category => Category.find(params[:filter_category])).reverse
+
+    filter = Hash.new
+
+    if params[:commit] == 'Filter' && (params[:filter_category] != '' || params[:filter_status] != '')
+      if !params[:filter_category].blank?
+        filter.store(:category_fields, {:name => params[:filter_category]})
+      end
+      if !params[:filter_status].blank?
+        filter.store(:status, params[:filter_status])
+      end
+      puts filter
+      @articles = Article.where(filter).order('created_at DESC')  
     else
       @articles = Article.all.reverse
     end
+
+    
+    
+    
   end
 
   def show
