@@ -2,7 +2,7 @@
   <div class="card-block">
     <h4 class="card-title">Categories</h4>
     <% @categories_list.each do |category| %>
-      <p class="card-text"><%= link_to "#{category.name}", category_path(category) %></p>
+      <p class="card-text <%= 'active' if category_active?(category) %>"><%= link_to "#{category.name}", category_path(category) %></p>
     <% end %>
   </div>
 </div>

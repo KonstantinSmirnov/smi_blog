@@ -4,6 +4,16 @@
   </div>
   <div class="col-md-9 col-lg-10">
     <%= render 'shared/flash' %>
+    
+    <form class="form-inline">
+      <%= form_tag '', :method => :get do %>
+        <div class="form-group">
+          <%= label_tag :category %>
+          <%= select_tag :filter_category, options_from_collection_for_select(Category.all, "id", "name"), include_blank: true, class: 'form-control form-control-sm' %>
+        </div>
+        <%= submit_tag 'Filter', class: 'btn btn-primary btn-sm' %>
+      <% end %>
+    </form>
     <table class="table">
       <thead class="thead-default">
         <tr>

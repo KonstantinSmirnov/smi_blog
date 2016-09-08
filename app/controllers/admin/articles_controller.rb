@@ -1,6 +1,10 @@
 class Admin::ArticlesController < Admin::DashboardController
   def index
-    @articles = Article.all.reverse
+    if params[:filter_category] && params[:filter_category] != ''
+      @articles = Article.where(:category => Category.find(params[:filter_category])).reverse
+    else
+      @articles = Article.all.reverse
+    end
   end
 
   def show
