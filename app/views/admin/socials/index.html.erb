@@ -17,16 +17,24 @@
         </tr>
       </thead>
       <tbody>
-        <% @socials.each do |social| %>
+        <% if @socials.empty? %>
           <tr>
-            <td><i class='fi-<%= "#{social.icon_text}" %>'></i></td>
-            <td><%= social.icon_text %></td>
-            <td><%= social.link %></td>
-            <td>
-              <%= link_to "Edit", edit_admin_social_path(social), class: 'btn btn-outline-primary btn-sm' %>
-              <%= link_to "Delete", admin_social_path(social), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+            <td colspan="6">
+              There are no social icons yet.
             </td>
           </tr>
+        <% else %>
+          <% @socials.each do |social| %>
+            <tr>
+              <td><i class='fi-<%= "#{social.icon_text}" %>'></i></td>
+              <td><%= social.icon_text %></td>
+              <td><%= social.link %></td>
+              <td>
+                <%= link_to "Edit", edit_admin_social_path(social), class: 'btn btn-outline-primary btn-sm' %>
+                <%= link_to "Delete", admin_social_path(social), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
