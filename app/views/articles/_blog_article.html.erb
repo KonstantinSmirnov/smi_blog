@@ -1,6 +1,6 @@
   <div class="blog-article">
     <h2>
-      <% if params[:action] == "show" %>
+      <% if params[:controller] == "articles" && params[:action] == "show" %>
         <%= object.title %>
       <% else %>
         <%= link_to "#{object.title}", article_path(object) %>
@@ -12,7 +12,7 @@
     <div class="blog-article-header">
       <span class="section">
         <% if object.category %>
-          <%= link_to "#{object.category.name}", '#' %>
+          <%= link_to "#{object.category.name}", category_path(object.category) %>
         <% else %>
           No category
         <% end %>
@@ -25,7 +25,7 @@
     <p>
       <%= markdown(object.description) %>
     </p>
-    <% if params[:action] == "show" %>
+    <% if params[:controller] == "articles" && params[:action] == "show" %>
       <p>
         <%= markdown(object.content) %>
       </p>
