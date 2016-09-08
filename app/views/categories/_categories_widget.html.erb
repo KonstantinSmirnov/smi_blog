@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Categories</h4>
+    <% if @categories_list.empty? %>
+      <p>
+        There are no categories yet
+      </p>
+    <% else %>
+      <% @categories_list.each do |category| %>
+        <p class="card-text <%= 'active' if category_active?(category) %>"><%= link_to "#{category.name}", category_path(category) %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
