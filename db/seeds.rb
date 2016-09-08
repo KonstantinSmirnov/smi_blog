@@ -12,13 +12,3 @@ user.email = 'test@test.com'
 user.password = '123123'
 user.password_confirmation = '123123'
 user.save!
-
-article1 = Article.new
-article1.title = "tehre is a title"
-article1.description = "there is a short description"
-article1.save!
-
-facebook_icon = Social.new
-facebook_icon.icon_text = 'social-facebook'
-facebook_icon.link = 'http://facebook.com'
-facebook_icon.save!
