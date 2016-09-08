@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
 
   def initialize_app
     @social_icons_list = Social.all
-    @categories_list = Category.all
+    @categories_list = Category.all - Category.where(name: '(no category)')
   end
 end

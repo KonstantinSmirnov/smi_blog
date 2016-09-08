@@ -12,3 +12,7 @@ user.email = 'test@test.com'
 user.password = '123123'
 user.password_confirmation = '123123'
 user.save!
+
+default_category = Category.new
+default_category.name = "(no category)"
+default_category.save!

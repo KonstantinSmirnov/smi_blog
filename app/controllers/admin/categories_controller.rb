@@ -25,21 +25,34 @@ class Admin::CategoriesController < Admin::DashboardController
   def update
     @category = Category.find(params[:id])
 
-    if @category.update_attributes(category_params)
-      flash.now[:success] = "Changes were saved"
-      render 'edit'
+    if @category.name != "(no category)"
+      if @category.update_attributes(category_params)
+        flash.now[:success] = "Changes were saved"
+        render 'edit'
+      else
+        render 'edit'
+      end
     else
+      flash.now[:danger] = "Impossible to update (no category)!"
       render 'edit'
     end
   end
 
   def destroy
     @category = Category.find(params[:id])
-    if @category.destroy
-      flash[:success] = "Category was deleted"
-      redirect_to admin_categories_path
+    if @category.name != "(no category)"
+      @articles = Article.where(category: @category)
+      @default_category = Category.where(name: '(no category)')
+      if @category.destroy
+        @articles.map {|a| a.update_attribute(:category, Category.where(name: '(no category)').first)}
+        flash[:success] = "Category was deleted"
+        redirect_to admin_categories_path
+      else
+        flash[:danger] = "Category can not be deleted!"
+        redirect_to admin_categories_path
+      end
     else
-      flash[:danger] = "Category with articles can not be deleted!"
+      flash[:danger] = "Impossible to delete (no category)!"
       redirect_to admin_categories_path
     end
   end

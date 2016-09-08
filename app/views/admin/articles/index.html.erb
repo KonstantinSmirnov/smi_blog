@@ -47,7 +47,7 @@
               <td><%= article.published_on.strftime("%d.%m.%g at %H:%M") if article.published_on %></td>
               <td><%= article.views %></td>
               <td>
-                <%= link_to "Edit", edit_admin_article_path(article), class: 'btn btn-outline-primary btn-sm' %>
+                <%= link_to "Edit", edit_admin_article_path(article), class: "btn btn-outline-primary btn-sm" %>
                 <%= link_to "Delete", admin_article_path(article), :method => :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger btn-sm' %>
               </td>
             </tr>

@@ -25,9 +25,9 @@ module ApplicationHelper
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
-  
+
   def category_active?(category)
-    if params[:format]
+    if params[:controller] == "categories" && params[:format]
       @category = Category.find(params[:format])
       @category == category ? true : false
     end
