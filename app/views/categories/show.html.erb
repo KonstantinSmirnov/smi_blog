@@ -5,7 +5,7 @@
         <h5>Articles by category: <%= @category.name %></h5>
         <br>
         <% if @articles.empty? %>
-          <h5>There are no articles in this category yet.</h5>
+          <p>There are no articles in this category yet.</p>
         <% end %>
       </div>
       <% if !@articles.empty? %>
