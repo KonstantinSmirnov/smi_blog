@@ -14,10 +14,9 @@
         <% if object.category %>
           <%= link_to "#{object.category.name}", category_path(object.category) %>
         <% else %>
-          No category
+          (none)
         <% end %>
       </span>
-      <span>by <a href="#">Konstantin</a></span>
       <span><i class="fi-calendar"></i> <%= object.published_on.strftime("%b %d, %Y") %></span>
       <span>Tags: <a href="#">colors</a></span>
       <br>

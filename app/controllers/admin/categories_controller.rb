@@ -42,7 +42,6 @@ class Admin::CategoriesController < Admin::DashboardController
     @category = Category.find(params[:id])
     if @category.name != "(no category)"
       @articles = Article.where(category: @category)
-      @default_category = Category.where(name: '(no category)')
       if @category.destroy
         @articles.map {|a| a.update_attribute(:category, Category.where(name: '(no category)').first)}
         flash[:success] = "Category was deleted"
