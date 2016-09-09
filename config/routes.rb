@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     resources :articles
     resources :socials
     resources :categories
+    resources :tags
   end
 end
