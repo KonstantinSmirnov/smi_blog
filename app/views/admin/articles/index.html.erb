@@ -14,7 +14,7 @@
           <%= label_tag :status %>:
           <%= select_tag :filter_status, options_for_select(Article::STATUS, params[:filter_status]), include_blank: true, class: 'form-control form-control-sm' %>
         </div>
-        <%= submit_tag 'Filter', class: 'btn btn-primary btn-sm' %>
+        <%= submit_tag 'Filter', class: 'btn btn-primary btn-sm blog-inline-button' %>
       <% end %>
     </form>
     <table class="table">
