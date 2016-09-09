@@ -197,3 +197,23 @@ footer {
   border: 1px solid #18232F;
   border-radius: 0px;
 }
+
+/* PAGINATION*/
+.pagination {
+  em.current, span.disabled {
+    border: 1px solid #18232F;
+    padding: 5px;
+  }
+  a {
+    border: 1px solid #18232F;
+    background-color: #18232F;
+    color: #E9E9E9;
+    padding: 5px;
+    &:hover {
+      text-decoration: none;
+      border-color: #DE691A;
+      background-color: #DE691A;
+    }
+  }
+  
+}

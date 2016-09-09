@@ -52,6 +52,13 @@
               </td>
             </tr>
           <% end %>
+          <tr>
+            <td colspan="6">
+              <div class="text-xs-center">
+                <%= will_paginate @articles, :previous_label => '<', :next_label => '>' %>
+              </div>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>

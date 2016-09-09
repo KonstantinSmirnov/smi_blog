@@ -8,9 +8,9 @@ class Admin::ArticlesController < Admin::DashboardController
       if !params[:filter_status].blank?
         filter.store(:status, params[:filter_status])
       end
-      @articles = Article.where(filter).order('created_at DESC')
+      @articles = Article.where(filter).order('created_at DESC').paginate(:page => params[:page], :per_page => 25 )
     else
-      @articles = Article.all.reverse
+      @articles = Article.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 25 )
     end
   end
 

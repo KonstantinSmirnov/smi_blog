@@ -51,6 +51,8 @@ gem 'foundation-icons-sass-rails'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+# pagination
+gem "will_paginate_mongoid"
 
 # markdown
 gem 'redcarpet'

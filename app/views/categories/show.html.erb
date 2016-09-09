@@ -21,6 +21,9 @@
         </div>
       <% end %>
     </div>
+    <div class="text-xs-center">
+      <%= will_paginate @articles, :previous_label => '<', :next_label => '>' %>
+    </div>
   </div>
   <div class="col-md-3 col-lg-2">
     <%= render :partial => 'categories/categories_widget' %>
