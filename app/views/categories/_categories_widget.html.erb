@@ -7,7 +7,7 @@
       </p>
     <% else %>
       <% @categories_list.each do |category| %>
-        <p class="card-text <%= 'active' if category_active?(category) %>"><%= link_to "#{category.name}", category_path(category) %></p>
+        <p class="card-text <%= 'active' if category_active?(category) %>"><%= link_to "#{category["name"]}", category_path(category) %></p>
       <% end %>
     <% end %>
   </div>

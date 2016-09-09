@@ -25,10 +25,10 @@
         <% else %>
           <% @categories.each do |category| %>
             <tr>
-              <td><%= category.name %></td>
-              <td><%= category.articles.count %></td>
+              <td><%= category["name"] %></td>
+              <td><%= category["articles_fields"].count %></td>
               <td>
-                <% category.name == "(no category)" ? disabled = 'disabled' : disabled = '' %>
+                <% category["name"] == "(no category)" ? disabled = 'disabled' : disabled = '' %>
                 <%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-outline-primary btn-sm #{disabled}" %>
                 <%= link_to "Delete", admin_category_path(category), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm #{disabled}" %>
               </td>

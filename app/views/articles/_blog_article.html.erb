@@ -1,9 +1,9 @@
   <div class="blog-article">
     <h2>
       <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
-        <%= object.title %>
+        <%= object["title"] %>
       <% else %>
-        <%= link_to "#{object.title}", article_path(object) %>
+        <%= link_to "#{object["title"]}", article_path(object) %>
       <% end %>
       <% if admin_signed_in? %>
         [<%= link_to "Edit", edit_admin_article_path(object) %>]
@@ -12,21 +12,21 @@
     <div class="blog-article-header">
       <span class="section">
         <% if object.category %>
-          <%= link_to "#{object.category.name}", category_path(object.category) %>
+          <%= link_to "#{object["category_fields"]["name"]}", category_path(object.category) %>
         <% else %>
           (none)
         <% end %>
       </span>
-      <span><i class="fi-calendar"></i> <%= object.published_on.strftime("%b %d, %Y") %></span>
+      <span><i class="fi-calendar"></i> <%= object["published_on"].strftime("%b %d, %Y") %></span>
       <span>Tags: <a href="#">colors</a></span>
       <br>
-      <span><i class="fi-eye"></i> <%= object.views %> | <a href="#"><i class="fi-comment"></i> 3 Comments</a></span>      </div>
+      <span><i class="fi-eye"></i> <%= object["views"] %> | <a href="#"><i class="fi-comment"></i> 3 Comments</a></span>      </div>
     <p>
-      <%= markdown(object.description) %>
+      <%= markdown(object["description"]) %>
     </p>
     <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
       <p>
-        <%= markdown(object.content) %>
+        <%= markdown(object["content"]) %>
       </p>
       <div class="share">
         Share:

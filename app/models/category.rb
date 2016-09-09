@@ -7,5 +7,7 @@ class Category
   validates :name, length: { minimum: 1 }, uniqueness: true
 
   has_many :articles
+  
+  alize :articles, :title
 
 end
