@@ -215,7 +215,7 @@ footer {
       background-color: #DE691A;
     }
   }
-  
+
 }
 
 /* ABOUT */
@@ -236,18 +236,15 @@ footer {
       }
     }
 }
-/* landing */
-.main-heading {
-  font-family: 'Open sans', sans-serif;
-  font-weight: 300;
+/* LANDING */
+.sec-about p {
   text-align: center;
-  letter-spacing: 9px;
-  text-transform: uppercase;
 }
+
 .sec-main {
   position: relative;
-  height: 560px;
-  background: url(https://source.unsplash.com/kVf7VRgg4p8/1920x1080) no-repeat center center;
+  height: 150px;
+  background: url(http://www.planwallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg) no-repeat center center;
   background-size: cover;
 
   &:after {
@@ -271,6 +268,9 @@ footer {
   margin: auto;
   height: 40px;
   color: #fff;
+  padding-left: 100px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
 }
 .sec-services i {
   font-size: 4em;
