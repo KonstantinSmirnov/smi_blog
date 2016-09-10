@@ -57,6 +57,10 @@ gem "will_paginate_mongoid"
 # markdown
 gem 'redcarpet'
 
+# images
+gem "paperclip", "~> 5.0.0"
+gem "mongoid-paperclip"
+
 # database mongoDB
 gem 'mongoid', github: 'mongodb/mongoid'
 gem 'mongoid_alize'

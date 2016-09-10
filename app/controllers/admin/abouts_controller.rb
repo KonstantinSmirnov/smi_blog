@@ -33,6 +33,6 @@ class Admin::AboutsController < Admin::DashboardController
   private
 
   def about_params
-    params.require(:about).permit(:top_block_content)
+    params.require(:about).permit(:top_block_content, :about_foto)
   end
 end
