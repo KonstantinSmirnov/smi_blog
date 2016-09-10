@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     resources :socials
     resources :categories
     resources :tags
+    resources :abouts, except: [:index, :destroy]
   end
 end

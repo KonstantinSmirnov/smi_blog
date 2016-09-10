@@ -16,4 +16,7 @@
   <li class="nav-item <%= 'active' if controller?("admin/tags") %>">
     <%= link_to "Tags", admin_tags_path, class: 'nav-link' %>
   </li>
+  <li class="nav-item <%= 'active' if controller?("admin/abouts") %>">
+    <%= link_to "About", About.first.nil? ? new_admin_about_path : edit_admin_about_path(Admin.first), class: 'nav-link' %>
+  </li>
 </ul>

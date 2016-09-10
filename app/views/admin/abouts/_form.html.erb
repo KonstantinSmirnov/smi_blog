@@ -1,0 +1,20 @@
+<%= form_for [:admin, @about] do |f| %>
+  <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
+  <br><br>
+  <% if @about.errors.any? %>
+    <div class="alert alert-danger">
+      <h5 class="alert-heading"><%= pluralize(@about.errors.count, "error") %> prohibited this item from being saved:</h5>
+      <ul>
+        <% @about.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :top_block_content %><br>
+    <%= f.text_area :top_block_content, rows:10, class: 'form-control', :autocomplete => 'off' %>
+  </div>
+
+<% end %>

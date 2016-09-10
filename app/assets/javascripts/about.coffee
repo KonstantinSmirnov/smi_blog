@@ -3,7 +3,7 @@ jQuery ($) ->
     code1 = () ->
       $(".element1 .type").typed(
         strings: ["Hello!",
-                  "Let me open you this page.",
+                  "Let me open this page.",
                   "open -a Smiplay projects/blog/about/show.html.erb"
                   ],
         typeSpeed: 5,
@@ -30,5 +30,5 @@ jQuery ($) ->
     setTimeout(code1, 1000)
     setTimeout(show_element_2, 8000)
     setTimeout(code2, 8000)
-    setTimeout(remove_blog_about_code, 9500)
-    setTimeout(show_section_about, 10000)
+    setTimeout(remove_blog_about_code, 10000)
+    setTimeout(show_section_about, 11000)

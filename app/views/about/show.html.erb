@@ -24,16 +24,7 @@
 <section class="section-about hided">
   <div class="row">
     <div class="about-text col-md-7">
-      <h1>
-        Welcome here!
-      </h1>
-      <p>
-        My name is Konstantin, Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo.
-        Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo.
-      </p>
-      <p>
-        Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo.
-      </p>
+      <%= markdown(@about.top_block_content) if @about %>
     </div>
   </div>
 </section>
