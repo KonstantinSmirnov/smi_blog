@@ -8,8 +8,8 @@ class Admin::AboutsController < Admin::DashboardController
     @about = About.new(about_params)
 
     if @about.save
-      flash[:success] = "Item has been created"
-      redirect_to admin_abouts_path
+      flash.now[:success] = "Item has been created"
+      render 'edit'
     else
       render 'new'
     end
