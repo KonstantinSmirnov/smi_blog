@@ -5,7 +5,7 @@ class About
   field :top_block_content, type: String
   has_mongoid_attached_file :about_foto,
     :styles => {
-    :original => ['1920x1680>', :jpg],
+    :original => ['1000>', :jpg],
     :preview  => ['100x100>',   :jpg]
   }
 
