@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'home#index'
+  root 'home_page#index'
 
   get 'articles/index', as: 'articles'
   get 'articles/show', as: 'article'
@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     resources :categories
     resources :tags
     resources :abouts, except: [:index, :destroy]
+    resources :home_pages, except: [:index, :destroy]
   end
 end
