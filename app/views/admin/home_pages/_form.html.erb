@@ -20,7 +20,11 @@
   </div>
   <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title, rows:10, class: 'form-control', :autocomplete => 'off' %>
+    <%= f.text_field :title, class: 'form-control', :autocomplete => 'off' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :about %>
+    <%= f.text_area :about, rows: 10, class: 'form-control', :autocomplete => 'off' %>
   </div>
 
 <% end %>

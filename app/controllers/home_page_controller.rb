@@ -1,5 +1,5 @@
 class HomePageController < ApplicationController
-  def index
+  def show
     @home_page = HomePage.first
   end
 end

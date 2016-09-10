@@ -33,6 +33,6 @@ class Admin::HomePagesController < Admin::DashboardController
   private
 
   def home_page_params
-    params.require(:home_page).permit(:title, :title_background)
+    params.require(:home_page).permit(:title, :title_background, :about)
   end
 end

@@ -1,9 +1,13 @@
 <% provide(:title, "About") %>
-<section class="section-about">
-  <%= image_tag @about.about_foto.url(:original), class: 'background-img' if @about.about_foto %>
-  <div class="row">
-    <div class="about-text col-md-7">
-      <%= markdown(@about.top_block_content) if @about.top_block_content %>
+<% if @about %>
+  <section class="section-about">
+    <%= image_tag @about.about_foto.url(:original), class: 'background-img' %>
+    <div class="row">
+      <div class="about-text col-md-7">
+        <%= markdown(@about.top_block_content) %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<% else %>
+  <h1>About page is not set up. Please create one.</h1>
+<% end %>

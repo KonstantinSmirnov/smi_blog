@@ -1,0 +1,131 @@
+<% provide(:title, "Home") %>
+
+<% if @home_page %>
+  <section class="sec-main text-xs-center">
+    <%= image_tag @home_page.title_background.url(:original), class: 'background-img' %>
+    <h1 class="main-heading"><%= @home_page.title %></h1>
+  </section>
+  <br>
+  <section id="about" class="sec-about">
+    <div class="container text-xs-center">
+      <h1>About</h1>
+      <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+          <%= markdown(@home_page.about) %>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <br>
+  </section>
+  <section id="services" class="sec-services">
+    <div class="container text-xs-center">
+      <h1>Services</h1>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <i class="fi-paint-bucket"></i>
+
+          <h2 class="h3">Beautiful Design</h2>
+
+          <p>Every website is beautiful, unique and tailored to suit your needs and requirements.</p>
+        </div>
+
+        <div class="col-sm-4">
+          <i class="fi-laptop"></i>
+
+          <h2 class="h3">Clean Code</h2>
+
+          <p>All websites are written in valid and clean HTML5 / CSS3 &amp; JavaScript (jQuery).</p>
+        </div>
+
+        <div class="col-sm-4">
+          <i class="fi-tablet-portrait"></i>
+
+          <h2 class="h3">Always Responsive</h2>
+
+          <p>All websites are responsive. They will look great on desktop, tablets and mobile phones too.</p>
+        </div>
+      </div>
+      <hr />
+
+    </div>
+  </section>
+  <section id="folio" class="sec-folio">
+    <div class="container text-xs-center">
+      <h1>Previous Work</h1>
+
+      <div class="row">
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/Oog0wehKxYs/450x450" alt="By Håkon Sataøen" />
+        </div>
+
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/EfpOiZvPbT4/450x450" alt="By Samuel Zeller" />
+        </div>
+
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/2aoVQXwLf3g/450x450" alt="By Scott Webb" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/o2KD7JtqTlk/450x450" alt="By Has Bonk" />
+        </div>
+
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/TV2ET43jK0w/450x450" alt="By Scott Webb" />
+        </div>
+
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/lZ2LB1s_z7s/450x450" alt="By Daniel Lozano Valdés" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/o4qL4FuwN6I/450x450" alt="By Anthony DELANOIX" />
+        </div>
+
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/ej7RYC0ED_c/450x450" alt="By Patrick Pilz" />
+        </div>
+
+        <div class="col-md-4">
+          <img class="center-block" src="https://source.unsplash.com/0G1r-Cg0zS8/450x450" alt="By Vita Vilcina" />
+        </div>
+      </div>
+      <hr />
+
+    </div>
+  </section>
+
+  <section id="testimonials" class="sec-testimonials">
+    <div class="container text-xs-center">
+      <h1>Clients said</h1>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <p class="text-center">"Alex did great job when designing our website. It was pleasure to work with him and I'm sure we will hire him again."</p>
+
+          <p class="text-right">&mdash; Marc Andressen</p>
+        </div>
+
+        <div class="col-sm-4">
+          <p class="text-center">"Alex proved to be truly creative designer who is able to create just stunning design I immediately fell in love with!"</p>
+
+          <p class="text-right">&mdash; Emily Cooper</p>
+        </div>
+
+        <div class="col-sm-4">
+          <p class="text-center">"I have worked with several different people and it always seemed like a pain—luckily I found Alex Devero. Thank you Alex!"</p>
+
+          <p class="text-right">&mdash; Scott Grubber</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<% else %>
+  <h1>Home page is not set up. Please create one.</h1>
+<% end %>
