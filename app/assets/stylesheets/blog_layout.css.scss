@@ -223,22 +223,6 @@ footer {
 
 /* ABOUT */
 
-.blog-about-code {
-  padding-left: 1em;
-  padding-top: 1em;
-  width: 100%;
-  height: 100%;
-  font-family: Monaco, Consolas, "Lucida Console", monospace;
-  background-color: #18232F;
-  color: #1EFF00;
-  a {
-    color: #1EFF00;
-    text-decoration: none;
-    &:hover, &:focus {
-      text-decoration: underline;
-      }
-    }
-}
 .section-about {
   position: relative;
   height: 400px;

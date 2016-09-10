@@ -1,18 +1,6 @@
 <% provide(:title, "About") %>
 
-<div class="blog-about-code">
-  <div class='element1'>
-    <p>
-      <span class="prompt">
-        smi:~ smi$
-      </span>
-      <span class="type">
-      </span>
-    </p>
-  </div>
-</div>
-
-<section class="section-about hided">
+<section class="section-about">
   <div class="row">
     <div class="about-text col-md-7">
       <%= markdown(@about.top_block_content) if @about %>
