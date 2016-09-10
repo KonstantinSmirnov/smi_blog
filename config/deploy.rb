@@ -39,7 +39,7 @@ set :puma_init_active_record, false  # Change to false when not using ActiveReco
 
 ## Linked Files & Directories (Default None):
 set :linked_files, %w{.env config/mongoid.yml config/secrets.yml}
-set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
+set :linked_dirs, %w{public/system}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
