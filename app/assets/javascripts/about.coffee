@@ -20,5 +20,5 @@ jQuery ($) ->
       $(".section-about").fadeIn()
 
     setTimeout(code1, 1000)
-    setTimeout(remove_blog_about_code, 9000)
-    setTimeout(show_section_about, 10000)
+    setTimeout(remove_blog_about_code, 10000)
+    setTimeout(show_section_about, 12000)
