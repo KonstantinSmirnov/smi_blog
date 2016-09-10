@@ -1,8 +1,9 @@
 <% provide(:title, "Home") %>
 
+
 <section class="sec-main text-xs-center">
-  <%= image_tag @home_page.title_background.url(:original), class: 'background-img' %>
-  <h1 class="main-heading"><%= @home_page.title %></h1>
+  <%= image_tag @home_page.title_background.url(:original), class: 'background-img' if @home_page.title_background %>
+  <h1 class="main-heading"><%= @home_page.title if @home_page.title %></h1>
 </section>
 <br>
 <section id="about" class="sec-about">
