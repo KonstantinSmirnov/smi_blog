@@ -1,13 +1,8 @@
-<h3>Change email</h3>
+<% provide(:title, "Edit settings") %>
 
-<hr>
-<h3>Common SEO tags</h3>
-<hr>
-<h3>Header?</h3>
+<h3>Update password</h3>
 
 <%= form_for [:admin, @admin], url: admin_settings_update_password_path, method: :patch do |f| %>
-  <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
-  <%= link_to "Back to settings", admin_settings_path, class: 'btn btn-outline-primary btn-sm' %>
   <br><br>
   <% if @admin.errors.any? %>
     <div class="alert alert-danger">
@@ -24,11 +19,38 @@
       <%= f.text_field :current_password, class: 'form-control', :autocomplete => 'off' %>
     </div>
   <div class="form-group">
-    <%= f.label :password %><br>
+    <%= f.label :password, "New password" %><br>
     <%= f.text_field :password, class: 'form-control', :autocomplete => 'off' %>
   </div>
   <div class="form-group">
     <%= f.label :password_confirmation %><br>
     <%= f.text_field :password_confirmation, class: 'form-control', :autocomplete => 'off' %>
   </div>
+  <%= f.submit "Save", class: 'btn btn-outline-primary' %>
 <% end %>
+<hr>
+<h3>Update email</h3>
+
+<%= form_for [:admin, @admin], url: admin_settings_update_email_path, method: :patch do |f| %>
+  <br><br>
+  <% if @admin.errors.any? %>
+    <div class="alert alert-danger">
+      <h5 class="alert-heading"><%= pluralize(@admin.errors.count, "error") %> prohibited this item from being saved:</h5>
+      <ul>
+        <% @admin.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="form-group">
+      <%= f.label :current_password %>
+      <%= f.text_field :current_password, class: 'form-control', :autocomplete => 'off' %>
+    </div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: 'form-control', :autocomplete => 'off' %>
+  </div>
+  <%= f.submit "Save", class: 'btn btn-outline-primary' %>
+<% end %>
+<hr>

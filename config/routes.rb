@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get 'settings/index', as: 'settings'
     namespace :settings do
       patch 'password/update', as: 'update_password'
+      patch 'email/update', as: 'update_email'
     end
     
   end
