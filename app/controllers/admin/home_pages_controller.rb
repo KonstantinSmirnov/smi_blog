@@ -45,7 +45,8 @@ class Admin::HomePagesController < Admin::DashboardController
           :about_title,
           :about_content,
           :services_title,
-          :services_attributes => [:id, :icon, :title, :content, :_destroy]
+          :services_attributes => [:id, :icon, :title, :content, :_destroy],
+          :projects_title
     )
   end
 end

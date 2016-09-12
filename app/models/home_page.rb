@@ -10,7 +10,6 @@ class HomePage
     :preview  => ['100x100>',   :jpg]
   }
   validates :title,
-            :title_backgroung,
             presence: true
   validates_attachment_content_type :title_backgroung,
             :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/,
@@ -29,8 +28,10 @@ class HomePage
             presence: true
   accepts_nested_attributes_for :services, :allow_destroy => true
 
-
-  # SECTION 4 (Previous work)
+  # SECTION 4 (Last projects)
+  field :projects_title, type: String
+  validates :projects_title,
+            presence: true
 
   # SECTION 5 (Clients said)
 
