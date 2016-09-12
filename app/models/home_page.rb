@@ -1,6 +1,7 @@
 class HomePage
   include Mongoid::Document
   include Mongoid::Paperclip
+  include Mongoid::Alize
 
   # SECTION 1 (Title)
   field :title, type: String
@@ -25,14 +26,14 @@ class HomePage
   field :services_title, type: String
   validates :services_title,
             presence: true
-  has_many :services
+  embeds_many :services
   accepts_nested_attributes_for :services, :allow_destroy => true
 
+  
   # SECTION 4 (Last projects)
   field :projects_title, type: String
   validates :projects_title,
             presence: true
   has_many :projects
-  # SECTION 5 (Clients said)
 
 end

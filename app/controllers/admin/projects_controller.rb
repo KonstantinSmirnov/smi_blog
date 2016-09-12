@@ -10,7 +10,7 @@ class Admin::ProjectsController < Admin::DashboardController
 
   def create
     @home_page = HomePage.first
-    @project = @home_page.projects.new(project_params)
+    @project = @home_page.projects.create(project_params)
 
     if @project.save
       flash[:success] = "Project has been created"

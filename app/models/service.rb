@@ -6,6 +6,6 @@ class Service
   field :content, type: String
   validates :icon, :title, :content, presence: true
 
-  belongs_to :home_page, :inverse_of => :services
+  embedded_in :home_page, :inverse_of => :services
 
 end
