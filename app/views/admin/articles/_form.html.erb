@@ -17,11 +17,11 @@
   
   <div class="form-group">
     <%= f.label :status %>
-    <%= f.select :status, Article::STATUS %>  <%= "on #{@article["published_on"].strftime("%d.%m.%g at %H:%M")}" if @article.published_on != nil %>
+    <%= f.select :status, Article::STATUS, class: 'form-control form-control-sm' %>  <%= "on #{@article["published_on"].strftime("%d.%m.%g at %H:%M")}" if @article.published_on != nil %>
   </div>
   <div class=form-group>
     <%= f.label :category %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'form-control form-control-sm') %>
   </div>
   <div class="form-group">
     <%= f.label :title %>
