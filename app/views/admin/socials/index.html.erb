@@ -1,42 +1,36 @@
-<div class="row">
-  <div class="col-md-3 col-lg-2">
-    <%= render :partial => 'shared/admin/left_panel' %>
-  </div>
-  <div class="col-md-9 col-lg-10">
-    <%= render 'shared/flash' %>
-    <table class="table">
-      <thead class="thead-default">
+<% provide(:title, "Socials") %>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Icon</th>
+      <th>Icon-text</th>
+      <th>Link</th>
+      <th>
+        Options
+        <%= link_to 'Add', new_admin_social_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @socials.empty? %>
+      <tr>
+        <td colspan="6">
+          <p>There are no social icons yet.</p>
+        </td>
+      </tr>
+    <% else %>
+      <% @socials.each do |social| %>
         <tr>
-          <th>Icon</th>
-          <th>Icon-text</th>
-          <th>Link</th>
-          <th>
-            Options
-            <%= link_to 'Add', new_admin_social_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
-          </th>
+          <td><i class='fi-<%= "#{social["icon_text"]}" %>'></i></td>
+          <td><%= social["icon_text"] %></td>
+          <td><%= social["link"] %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_social_path(social), class: 'btn btn-outline-primary btn-sm' %>
+            <%= link_to "Delete", admin_social_path(social), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <% if @socials.empty? %>
-          <tr>
-            <td colspan="6">
-              <p>There are no social icons yet.</p>
-            </td>
-          </tr>
-        <% else %>
-          <% @socials.each do |social| %>
-            <tr>
-              <td><i class='fi-<%= "#{social["icon_text"]}" %>'></i></td>
-              <td><%= social["icon_text"] %></td>
-              <td><%= social["link"] %></td>
-              <td>
-                <%= link_to "Edit", edit_admin_social_path(social), class: 'btn btn-outline-primary btn-sm' %>
-                <%= link_to "Delete", admin_social_path(social), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
-              </td>
-            </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,67 +1,60 @@
-<div class="row">
-  <div class="col-md-3 col-lg-2">
-    <%= render :partial => 'shared/admin/left_panel' %>
-  </div>
-  <div class="col-md-9 col-lg-10">
-    <%= render 'shared/flash' %>
-    <form class="form-inline">
-      <%= form_tag '', :method => :get do %>
-        <div class="form-group">
-          <%= label_tag :category %>:
-          <%= select_tag :filter_category, options_from_collection_for_select(Category.all, "id", "name", params[:filter_category]), include_blank: true, class: 'form-control form-control-sm custom-dropdown' %>
-        </div>
-        <div class="form-group">
-          <%= label_tag :status %>:
-          <%= select_tag :filter_status, options_for_select(Article::STATUS, params[:filter_status]), include_blank: true, class: 'form-control form-control-sm' %>
-        </div>
-        <%= submit_tag 'Filter', class: 'btn btn-primary btn-sm blog-inline-button' %>
-      <% end %>
-    </form>
-    <table class="table">
-      <thead class="thead-default">
-        <tr>
-          <th>Title</th>
-          <th>Category</th>
-          <th>Status</th>
-          <th>Publication date</th>
-          <th>Views</th>
-          <th>
-            Options
-            <%= link_to "Add", new_admin_article_path, class: 'btn btn-outline-primary pull-lg-right btn-sm' %>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% if @articles.empty? %>
-          <tr>
-            <td colspan="6">
-              <p>There are no articles.</p>
-            </td>
-          </tr>
-        <% else %>
-          <% @articles.each do |article| %>
-            <tr>
-              <td><%= link_to "#{article["title"]}", admin_article_path(article) %></td>
-              <td><%= article["category_fields"] ? "#{ article["category_fields"]["name"]}" : "(none)" %></td>
-              <td><%= article["status"].capitalize() %></td>
-              <td><%= article["published_on"].strftime("%d.%m.%g at %H:%M") if article["published_on"] %></td>
-              <td><%= article["views"] %></td>
-              <td>
-                <%= link_to "Edit", edit_admin_article_path(article), class: "btn btn-outline-primary btn-sm" %>
-                <%= link_to "Delete", admin_article_path(article), :method => :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger btn-sm' %>
-              </td>
-            </tr>
-          <% end %>
-          <tr>
-            <td colspan="6">
-              <div class="text-xs-center">
-                <%= will_paginate @articles, :previous_label => '<', :next_label => '>' %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<% provide(:title, "Articles") %>
 
-  </div>
-</div>
+<form class="form-inline">
+  <%= form_tag '', :method => :get do %>
+    <div class="form-group">
+      <%= label_tag :category %>:
+      <%= select_tag :filter_category, options_from_collection_for_select(Category.all, "id", "name", params[:filter_category]), include_blank: true, class: 'form-control form-control-sm custom-dropdown' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :status %>:
+      <%= select_tag :filter_status, options_for_select(Article::STATUS, params[:filter_status]), include_blank: true, class: 'form-control form-control-sm' %>
+    </div>
+    <%= submit_tag 'Filter', class: 'btn btn-primary btn-sm blog-inline-button' %>
+  <% end %>
+</form>
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th>Publication date</th>
+      <th>Views</th>
+      <th>
+        Options
+        <%= link_to "Add", new_admin_article_path, class: 'btn btn-outline-primary pull-lg-right btn-sm' %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @articles.empty? %>
+      <tr>
+        <td colspan="6">
+          <p>There are no articles.</p>
+        </td>
+      </tr>
+    <% else %>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to "#{article["title"]}", admin_article_path(article) %></td>
+          <td><%= article["category_fields"] ? "#{ article["category_fields"]["name"]}" : "(none)" %></td>
+          <td><%= article["status"].capitalize() %></td>
+          <td><%= article["published_on"].strftime("%d.%m.%g at %H:%M") if article["published_on"] %></td>
+          <td><%= article["views"] %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_article_path(article), class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to "Delete", admin_article_path(article), :method => :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="6">
+          <div class="text-xs-center">
+            <%= will_paginate @articles, :previous_label => '<', :next_label => '>' %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

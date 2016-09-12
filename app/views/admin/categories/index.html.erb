@@ -1,41 +1,35 @@
-<div class="row">
-  <div class="col-md-3 col-lg-2">
-    <%= render :partial => 'shared/admin/left_panel' %>
-  </div>
-  <div class="col-md-9 col-lg-10">
-    <%= render 'shared/flash' %>
-    <table class="table">
-      <thead class="thead-default">
+<% provide(:title, "Categories") %>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Category</th>
+      <th>Articles count</th>
+      <th>
+        Options
+        <%= link_to 'Add', new_admin_category_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @categories.empty? %>
+      <tr>
+        <td colspan="6">
+          <p>There are no categories yet.</p>
+        </td>
+      </tr>
+    <% else %>
+      <% @categories.each do |category| %>
         <tr>
-          <th>Category</th>
-          <th>Articles count</th>
-          <th>
-            Options
-            <%= link_to 'Add', new_admin_category_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
-          </th>
+          <td><%= category["name"] %></td>
+          <td><%= category["articles_fields"].count %></td>
+          <td>
+            <% category["name"] == "(no category)" ? disabled = 'disabled' : disabled = '' %>
+            <%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-outline-primary btn-sm #{disabled}" %>
+            <%= link_to "Delete", admin_category_path(category), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm #{disabled}" %>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <% if @categories.empty? %>
-          <tr>
-            <td colspan="6">
-              <p>There are no categories yet.</p>
-            </td>
-          </tr>
-        <% else %>
-          <% @categories.each do |category| %>
-            <tr>
-              <td><%= category["name"] %></td>
-              <td><%= category["articles_fields"].count %></td>
-              <td>
-                <% category["name"] == "(no category)" ? disabled = 'disabled' : disabled = '' %>
-                <%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-outline-primary btn-sm #{disabled}" %>
-                <%= link_to "Delete", admin_category_path(category), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm #{disabled}" %>
-              </td>
-            </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
