@@ -1,5 +1,6 @@
 class Admin::SettingsController < AdminController
-    def indes
-        
-    end
+  def index
+    @admin = current_admin
+  end
+    
 end

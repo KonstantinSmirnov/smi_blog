@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resource :home_page, except: [:index, :destroy]
     get '/add_service' => 'home_pages#add_service', as: 'add_service'
     resources :projects
-    resources :settings
+    get 'settings/index', as: 'settings'
+    namespace :settings do
+      patch 'password/update', as: 'update_password'
+    end
+    
   end
 end

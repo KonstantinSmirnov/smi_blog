@@ -15,7 +15,6 @@ class Article
 
   validates :title, :description, :content, length: { minimum: 1 }
   
-
   belongs_to :category
   alize :category, :name
 
