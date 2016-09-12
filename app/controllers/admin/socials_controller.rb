@@ -1,4 +1,4 @@
-class Admin::SocialsController < Admin::DashboardController
+class Admin::SocialsController < AdminController
   def index
     @socials = Social.all
   end

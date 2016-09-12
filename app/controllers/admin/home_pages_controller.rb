@@ -1,4 +1,4 @@
-class Admin::HomePagesController < Admin::DashboardController
+class Admin::HomePagesController < AdminController
 
   def new
     @home_page = HomePage.new

@@ -1,4 +1,4 @@
-class Admin::AboutsController < Admin::DashboardController
+class Admin::AboutsController < AdminController
 
   def new
     @about = About.new

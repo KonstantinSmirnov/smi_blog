@@ -1,4 +1,4 @@
-class Admin::ArticlesController < Admin::DashboardController
+class Admin::ArticlesController < AdminController
   def index
     filter = Hash.new
     if params[:commit] == 'Filter' && (params[:filter_category] != '' || params[:filter_status] != '')
