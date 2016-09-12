@@ -1,0 +1,8 @@
+<div class="col-md-4">
+  <%= image_tag object.image.url(:original), class: 'background-img' %>
+  <div class="row">
+    <div class="project-text">
+      <%= markdown(object.title) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-3 col-lg-2">
+    <%= render :partial => 'shared/admin/left_panel' %>
+  </div>
+  <div class="col-md-9 col-lg-10">
+    <%= render 'shared/flash' %>
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Title</th>
+          <th>
+            Options
+            <%= link_to 'Add', new_admin_project_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @projects.empty? %>
+          <tr>
+            <td colspan="6">
+              <p>There are no projects yet.</p>
+            </td>
+          </tr>
+        <% else %>
+          <% @projects.each do |project| %>
+            <tr>
+              <td><%= project["title"] %></td>
+              <td>
+                <%= link_to "Edit", edit_admin_project_path(project), class: 'btn btn-outline-primary btn-sm' %>
+                <%= link_to "Delete", admin_project_path(project), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

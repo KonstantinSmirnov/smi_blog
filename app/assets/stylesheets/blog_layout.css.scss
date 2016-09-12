@@ -303,10 +303,26 @@ footer {
 .sec-services i {
   font-size: 4em;
 }
-.sec-folio .row {
-  margin-bottom: 3em;
-}
 
-.sec-folio img {
-  max-width: 100%;
+.sec-folio {
+
+  .background-img {
+    display: block;
+    max-width: 100%;
+    height: auto; // Should be the same height as parent
+    margin-bottom: 30px;
+  }
+}
+.project-text {
+  height: 400px;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  float: left;
+  z-index: 2;
+  color: #fff;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }

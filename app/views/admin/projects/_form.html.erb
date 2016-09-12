@@ -1,0 +1,26 @@
+<%= form_for [:admin, @project] do |f| %>
+  <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
+  <%= link_to "Back to projects", admin_projects_path, class: 'btn btn-outline-primary btn-sm' %>
+  <br><br>
+  <% if @project.errors.any? %>
+    <div class="alert alert-danger">
+      <h5 class="alert-heading"><%= pluralize(@project.errors.count, "error") %> prohibited this item from being saved:</h5>
+      <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= image_tag(@project.image.url(:preview)) if @project.image %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image%>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_area :title, rows: 5, class: 'form-control', :autocomplete => 'off' %>
+  </div>
+<% end %>

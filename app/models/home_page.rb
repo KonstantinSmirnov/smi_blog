@@ -23,16 +23,16 @@ class HomePage
             presence: true
   # SECTION 3 (Services)
   field :services_title, type: String
-  has_many :services
   validates :services_title,
             presence: true
+  has_many :services
   accepts_nested_attributes_for :services, :allow_destroy => true
 
   # SECTION 4 (Last projects)
   field :projects_title, type: String
   validates :projects_title,
             presence: true
-
+  has_many :projects
   # SECTION 5 (Clients said)
 
 end
