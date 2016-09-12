@@ -21,12 +21,16 @@
   <section id="services" class="sec-services">
     <div class="container text-xs-center">
       <h1><%= @home_page.services_title %></h1>
-
-      <div class="row">
-        <% @home_page.services.each do |service| %>
-          <%= render :partial => 'service', :locals => { :object => service } %>
-        <% end %>
-      </div>
+      
+      <% if @home_page.services.any? %>
+        <div class="row">
+          <% @home_page.services.each do |service| %>
+            <%= render :partial => 'service', :locals => { :object => service } %>
+          <% end %>
+        </div>
+      <% else %>
+        <h5>There are no services yet. Please add one.</h5>
+      <% end %>
       <hr />
 
     </div>
@@ -34,13 +38,14 @@
   <section class="sec-folio">
     <div class="container text-xs-center">
       <h1><%= @home_page.projects_title %></h1>
-
-      <% @home_page.projects.each_slice(3).each do |projects_row| %>
+      <% if @home_page.projects.any? %>
         <div class="row">
-          <% projects_row.each do |project| %>
-            <%= render :partial => 'project', :locals => { :object => project } %>
+          <% @home_page.projects.each do |project| %>
+              <%= render :partial => 'project', :locals => { :object => project } %>
           <% end %>
         </div>
+      <% else %>
+        <h5>There are no projects yet. Please add one.</h5>
       <% end %>
     </div>
   </section>

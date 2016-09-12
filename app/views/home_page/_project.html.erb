@@ -1,8 +1,7 @@
-<div class="col-md-4">
-  <%= image_tag object.image.url(:original), class: 'background-img' %>
-  <div class="row">
-    <div class="project-text">
-      <%= markdown(object.title) %>
-    </div>
+<div class="col-sm-6 col-md-4 project-preview">
+  <div class="card">
+    <%= image_tag object.image.url(:original), class: 'card-img-top' %>
+    <h3 class="card-title"><%= object.title %></h3>
   </div>
 </div>
+

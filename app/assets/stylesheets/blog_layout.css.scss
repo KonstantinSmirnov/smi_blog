@@ -7,6 +7,9 @@ body {
 .hided {
   display: none;
 }
+.shadowed {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
 .card {
   border-radius: 0px;
   border: none;
@@ -304,25 +307,13 @@ footer {
   font-size: 4em;
 }
 
-.sec-folio {
-
-  .background-img {
-    display: block;
-    max-width: 100%;
-    height: auto; // Should be the same height as parent
-    margin-bottom: 30px;
+.project-preview {
+  img {
+    width: 100%;
+    border-radius: 0px;
   }
-}
-.project-text {
-  height: 400px;
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  float: left;
-  z-index: 2;
-  color: #fff;
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  .card-title {
+    padding-top: 15px;
+  }
+  padding-bottom: 15px;
 }
