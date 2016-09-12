@@ -45,6 +45,12 @@
     <% end %>
   </div>
   <%= link_to "Add service", admin_add_service_path, class: 'btn btn-outline-primary btn-sm', remote: true if @home_page.persisted? %>
+  <hr>
+  <h3>Projects</h3>
+  <div class="form-group">
+    <%= f.label :projects_title %>
+    <%= f.text_field :projects_title, class: 'form-control' %>
+  </div>
   <br>
   <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
 
