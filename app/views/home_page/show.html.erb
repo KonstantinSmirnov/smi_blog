@@ -2,16 +2,16 @@
 
 <% if @home_page %>
   <section class="sec-main text-xs-center">
-    <%= image_tag @home_page.title_background.url(:original), class: 'background-img' %>
+    <%= image_tag @home_page.title_backgroung.url(:original), class: 'background-img' %>
     <h1 class="main-heading"><%= @home_page.title %></h1>
   </section>
   <br>
-  <section id="about" class="sec-about">
+  <section class="sec-about">
     <div class="container text-xs-center">
-      <h1>About</h1>
+      <h1><%= @home_page.about_title %></h1>
       <div class="row">
         <div class="col-sm-8 offset-sm-2">
-          <%= markdown(@home_page.about) %>
+          <%= markdown(@home_page.about_content) %>
         </div>
       </div>
       <hr />
@@ -20,32 +20,12 @@
   </section>
   <section id="services" class="sec-services">
     <div class="container text-xs-center">
-      <h1>Services</h1>
+      <h1><%= @home_page.services_title %></h1>
 
       <div class="row">
-        <div class="col-sm-4">
-          <i class="fi-paint-bucket"></i>
-
-          <h2 class="h3">Beautiful Design</h2>
-
-          <p>Every website is beautiful, unique and tailored to suit your needs and requirements.</p>
-        </div>
-
-        <div class="col-sm-4">
-          <i class="fi-laptop"></i>
-
-          <h2 class="h3">Clean Code</h2>
-
-          <p>All websites are written in valid and clean HTML5 / CSS3 &amp; JavaScript (jQuery).</p>
-        </div>
-
-        <div class="col-sm-4">
-          <i class="fi-tablet-portrait"></i>
-
-          <h2 class="h3">Always Responsive</h2>
-
-          <p>All websites are responsive. They will look great on desktop, tablets and mobile phones too.</p>
-        </div>
+        <% @home_page.services.each do |service| %>
+          <%= render :partial => 'service', :locals => { :object => service } %>
+        <% end %>
       </div>
       <hr />
 

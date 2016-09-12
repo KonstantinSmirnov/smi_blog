@@ -2,6 +2,7 @@ class Admin::HomePagesController < Admin::DashboardController
 
   def new
     @home_page = HomePage.new
+    @home_page.services.build
   end
 
   def create
@@ -21,7 +22,6 @@ class Admin::HomePagesController < Admin::DashboardController
 
   def update
     @home_page = HomePage.first
-
     if @home_page.update_attributes(home_page_params)
       flash.now[:success] = "Changes were saved"
       render 'edit'
@@ -30,9 +30,22 @@ class Admin::HomePagesController < Admin::DashboardController
     end
   end
 
+  def add_service
+    respond_to do |format|
+        format.js
+    end
+  end
+
   private
 
   def home_page_params
-    params.require(:home_page).permit(:title, :title_background, :about)
+    params.require(:home_page).permit(
+          :title,
+          :title_backgroung,
+          :about_title,
+          :about_content,
+          :services_title,
+          :services_attributes => [:id, :icon, :title, :content, :_destroy]
+    )
   end
 end

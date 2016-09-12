@@ -11,20 +11,41 @@
       </ul>
     </div>
   <% end %>
+  <h3>Header</h3>
   <div class="form-group">
-    <%= image_tag(@home_page.title_background.url(:preview)) if @home_page.title_background %>
+    <%= image_tag(@home_page.title_backgroung.url(:preview)) if @home_page.title_backgroung %>
   </div>
   <div class="form-group">
-    <%= f.label :title_background %>
-    <%= f.file_field :title_background%>
+    <%= f.label :title_backgroung %>
+    <%= f.file_field :title_backgroung%>
   </div>
   <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: 'form-control', :autocomplete => 'off' %>
   </div>
+  <hr>
+  <h3>About</h3>
   <div class="form-group">
-    <%= f.label :about %>
-    <%= f.text_area :about, rows: 10, class: 'form-control', :autocomplete => 'off' %>
+    <%= f.label :about_title %>
+    <%= f.text_field :about_title, class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= f.label :about_content %>
+    <%= f.text_area :about_content, rows: 5, class: 'form-control', :autocomplete => 'off' %>
+  </div>
+  <hr>
+  <h3>Services</h3>
+  <div class="form-group">
+    <%= f.label :services_title %>
+    <%= f.text_field :services_title, class: 'form-control' %>
+  </div>
+  <div id="services_list">
+    <%= f.fields_for :services  do |builder| %>
+      <%= render 'service_fields', :f => builder %>
+    <% end %>
+  </div>
+  <%= link_to "Add service", admin_add_service_path, class: 'btn btn-outline-primary btn-sm', remote: true if @home_page.persisted? %>
+  <br>
+  <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
 
 <% end %>

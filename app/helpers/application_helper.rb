@@ -1,7 +1,7 @@
 module ApplicationHelper
-  
+
   def title
-    
+
   end
 
   def controller?(*controller)

@@ -1,0 +1,12 @@
+<%
+  @home_page = HomePage.first
+  new_service = @home_page.services.build
+  form_for [:admin, @home_page] do |f|
+    f.fields_for(:services, new_service) do |builder|
+      @builder = builder
+    end
+  end
+
+%>
+
+$("#services_list").append("<%= j render partial: 'service_fields', locals: {f: @builder, id: Time.now()} %>");
