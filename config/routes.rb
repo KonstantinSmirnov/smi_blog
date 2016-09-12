@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :tags
     resource :about_page, except: [:index, :destroy]
-    resources :home_pages, except: [:index, :destroy]
+    resource :home_page, except: [:index, :destroy]
     resources :projects
     get '/add_service' => 'home_pages#add_service', as: 'add_service'
   end

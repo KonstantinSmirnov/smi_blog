@@ -1,4 +1,4 @@
-<%= form_for [:admin, @home_page] do |f| %>
+<%= form_for [:admin, @home_page], url: admin_home_page_path do |f| %>
   <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
   <br><br>
   <% if @home_page.errors.any? %>
