@@ -1,4 +1,4 @@
-class About
+class AboutPage
   include Mongoid::Document
   include Mongoid::Paperclip
 

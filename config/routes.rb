@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'articles/index', as: 'articles'
   get 'articles/show', as: 'article'
   get 'categories/show', as: 'category'
-  get 'about/show', as: 'about'
+  get 'about_page/show', as: 'about_page'
 
 
   namespace :admin do
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :socials
     resources :categories
     resources :tags
-    resources :abouts, except: [:index, :destroy]
+    resource :about_page, except: [:index, :destroy]
     resources :home_pages, except: [:index, :destroy]
     resources :projects
     get '/add_service' => 'home_pages#add_service', as: 'add_service'
