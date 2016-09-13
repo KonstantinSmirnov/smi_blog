@@ -1,7 +1,5 @@
-<h5>Create new comment:</h5>
-<div id="new_comment_alert">
-  
-</div>
+<div id="new_comment_alert"></div>
+
 <%= form_for [@article, @new_comment], remote: true do |f| %>
   <div class="form-group">
     <%= f.text_field :author_name, placeholder: 'Name', class: 'form-control', :autocomplete => 'off', id: 'new_comment_author' %>
@@ -9,7 +7,7 @@
   <div class="form-group">
     <%= f.text_area :text, rows: 3, placeholder: 'Your comment', class: 'form-control', :autocomplete => 'off', id: 'new_comment_text' %>
   </div>
-    <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
+    <%= f.submit "Comment", class: 'btn btn-outline-primary' %>
 <% end %>
 <br>
 <h5>Comments:</h5>
