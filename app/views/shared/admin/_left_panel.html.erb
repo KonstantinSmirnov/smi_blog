@@ -28,4 +28,7 @@
   <li class="nav-item <%= 'active' if controller?("admin/settings") %>">
     <%= link_to "Settings", admin_settings_path, class: 'nav-link' %>
   </li>
+  <li class="nav-item <%= 'active' if controller?("admin/comments") %>">
+    <%= link_to "Comments", admin_comments_path, class: 'nav-link' %>
+  </li>
 </ul>

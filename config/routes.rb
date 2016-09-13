@@ -3,17 +3,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home_page#show'
 
-  #get 'articles/index', as: 'articles'
-  #get 'articles/show', as: 'article'
   get 'categories/show', as: 'category'
   get 'about_page/show', as: 'about_page'
   resources :articles, only: [:index, :show] do
-    resources :comments, except: [:edit, :destroy]
+    resources :comments, only: [:create]
   end
 
   namespace :admin do
     get 'dashboard/index', as: 'dashboard'
     resources :articles
+    resources :comments, only: [:index]
     resources :socials
     resources :categories
     resources :tags

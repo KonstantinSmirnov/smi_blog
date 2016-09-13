@@ -17,7 +17,7 @@
         <li class="nav-item <%= 'active' if controller?("articles") %>">
           <%= link_to "Blog", articles_path, { :class => 'nav-link' } %>
         </li>
-        <li class="nav-item <%= 'active' if controller?("about") %>">
+        <li class="nav-item <%= 'active' if controller?("about_page") %>">
           <%= link_to "About", about_page_path, { :class => 'nav-link' } %>
         </li>
         <% if admin_signed_in? %>

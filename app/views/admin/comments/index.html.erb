@@ -1,0 +1,37 @@
+<% provide(:title, "Comments") %>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Article</th>
+      <th>Author</th>
+      <th>Comment</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @comments.empty? %>
+      <tr>
+        <td colspan="6">
+          <p>There are no comments yet.</p>
+        </td>
+      </tr>
+    <% else %>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= link_to "#{comment.article.title}", admin_article_path(comment.article) %></td>
+          <td><%= comment["author_name"] %></td>
+          <td><%= comment["text"] %></td>
+          <td><%= comment["status"].capitalize() %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="6">
+          <div class="text-xs-center">
+            <%= will_paginate @articles, :previous_label => '<', :next_label => '>' %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
