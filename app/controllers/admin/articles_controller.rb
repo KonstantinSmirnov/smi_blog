@@ -16,6 +16,8 @@ class Admin::ArticlesController < AdminController
 
   def show
     @article = Article.find(params[:id])
+    @comments = @article.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10 )
+    @new_comment = @article.comments.build
   end
 
   def new

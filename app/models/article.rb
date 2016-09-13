@@ -17,5 +17,7 @@ class Article
   
   belongs_to :category
   alize :category, :name
+  
+  has_many :comments
 
 end

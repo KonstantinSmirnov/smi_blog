@@ -32,7 +32,7 @@ class Admin::HomePagesController < AdminController
 
   def add_service
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 

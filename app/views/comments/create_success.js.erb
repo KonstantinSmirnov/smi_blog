@@ -1,0 +1,5 @@
+$("#new_comment_alert").html("<%= j render :partial => 'comments/alert', :locals => { :alert => "success", :text => "Comment was added!" } %>").slideDown().delay("3000").slideUp();
+$("#comments_block").prepend("<%= j render :partial => 'comments/comment', :locals => { :object => @new_comment } %>").hide().fadeIn();
+$("#<%= @new_comment.id %>").css({'background-color':'#5cb85c'}).animate({'background-color':'#fff'}, 2000);
+$("#new_comment_author").val('');
+$("#new_comment_text").val('');

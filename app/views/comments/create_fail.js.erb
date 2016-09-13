@@ -1,0 +1,1 @@
+$("#new_comment_alert").html("<%= j render :partial => 'comments/alert', :locals => { :alert => "danger", :text => "Comment was not created. Please check if all fields filled correct." } %>").slideDown().delay("3000").slideUp();
