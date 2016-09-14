@@ -65,6 +65,10 @@ select:not([multiple]) {
 
 a {
   color: $dark;
+  -webkit-transition:color 0.2s ease-in-out;
+  -moz-transition:color 0.2s ease-in-out;
+  -o-transition:color 0.2s ease-in-out;
+  transition:color 0.2s ease-in-out;
 }
 .active a {
   color: $medium;
@@ -73,7 +77,29 @@ a:hover {
   color: $medium;
   text-decoration: none;
 }
+input.form-control:focus,
+textarea.form-control:focus {
+  -webkit-transition:border-color 0.2s ease-in-out;
+  -moz-transition:border-color 0.2s ease-in-out;
+  -o-transition:border-color 0.2s ease-in-out;
+  transition:border-color 0.2s ease-in-out;
+}
+.btn:hover {
+  -webkit-transition:border-color 0.2s ease-in-out;
+  -moz-transition:border-color 0.2s ease-in-out;
+  -o-transition:border-color 0.2s ease-in-out;
+  transition:border-color 0.2s ease-in-out;
 
+  -webkit-transition:background-color 0.2s ease-in-out;
+  -moz-transition:background-color 0.2s ease-in-out;
+  -o-transition:background-color 0.2s ease-in-out;
+  transition:background-color 0.2s ease-in-out;
+
+  -webkit-transition:color 0.2s ease-in-out;
+  -moz-transition:color 0.2s ease-in-out;
+  -o-transition:color 0.2s ease-in-out;
+  transition:color 0.2s ease-in-out;
+}
 /* TABLES */
 table {
   margin-bottom: 1em;
@@ -209,6 +235,10 @@ footer {
       padding: 3px 20px;
       &:hover {
         background-color: $medium;
+        -webkit-transition:background-color 0.2s ease-in-out;
+        -moz-transition:background-color 0.2s ease-in-out;
+        -o-transition:background-color 0.2s ease-in-out;
+        transition:background-color 0.2s ease-in-out;
       }
     }
     .share {
