@@ -11,7 +11,6 @@
     <small><span id="message_counter"></span></small>
 <% end %>
 <br>
-<h5>Comments:</h5>
 <div id="comments_block">
   <% @comments.each do |comment| %>
     <%= render :partial => 'comments/comment', :locals => { :object => comment } %>
