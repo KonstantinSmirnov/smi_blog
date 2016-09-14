@@ -26,7 +26,11 @@
       </span>
     </div>
     <p>
-      <%= markdown(object["description"]) %>
+      <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
+        <%= markdown(object["description"]) %>
+      <% else %>
+        <%= link_to raw(markdown(object["description"])), article_path(object) %>
+      <% end %>
     </p>
     <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
       <p>

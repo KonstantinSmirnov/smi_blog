@@ -71,6 +71,7 @@ a {
 }
 a:hover {
   color: $medium;
+  text-decoration: none;
 }
 
 /* TABLES */
@@ -208,7 +209,6 @@ footer {
       padding: 3px 20px;
       &:hover {
         background-color: $medium;
-        text-decoration: none;
       }
     }
     .share {
