@@ -22,7 +22,9 @@
           <td><%= image_tag image.image(:preview) %></td>
           <td><%= image.description %></td>
           <td>
-            <button type="button" name="button" onclick='alert("<%= URI(request.url) + image.image(:original) if image.persisted? %>")' class="btn btn-outline-primary btn-sm">Get url</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#image_url_modal" onclick="$('#image_url').html('<%= URI(request.url) + image.image(:original) if image.persisted? %>')">
+              Get url
+            </button>
           </td>
           <td><%= link_to "#{image['article_fields']['title']}", edit_admin_article_path(image['article_id']) %></td>
         </tr>
@@ -37,3 +39,24 @@
     <% end %>
   </tbody>
 </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="image_url_modal" tabindex="-1" role="dialog" aria-labelledby="imageUrlModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Image url:</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" id="image_url"></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
