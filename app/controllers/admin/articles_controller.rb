@@ -18,6 +18,8 @@ class Admin::ArticlesController < AdminController
     @article = Article.find(params[:id])
     @comments = @article.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10 )
     @new_comment = @article.comments.build
+    cookies[:opened_article_id] = params[:id]
+    cookies[:article_opened_at] = Time.now.to_i
   end
 
   def new
