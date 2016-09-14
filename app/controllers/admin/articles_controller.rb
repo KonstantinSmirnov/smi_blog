@@ -54,6 +54,12 @@ class Admin::ArticlesController < AdminController
     end
   end
 
+  def add_image
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
@@ -64,7 +70,13 @@ class Admin::ArticlesController < AdminController
   private
 
   def article_params
-    params.require(:article).permit(:status, :title, :description, :content, :category_id)
+    params.require(:article).permit(:status,
+                                    :title,
+                                    :description,
+                                    :content,
+                                    :category_id,
+                                    :images_attributes => [:id, :description, :image, :_destroy]
+                                    )
   end
 
   def update_date_of_publication(article)

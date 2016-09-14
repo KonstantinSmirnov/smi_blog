@@ -14,10 +14,12 @@ class Article
   enum :status, [:draft, :published], default: :draft
 
   validates :title, :description, :content, length: { minimum: 1 }
-  
+
   belongs_to :category
   alize :category, :name
-  
+
   has_many :comments
+  has_many :images
+  accepts_nested_attributes_for :images, :allow_destroy => true
 
 end

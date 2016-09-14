@@ -1,0 +1,12 @@
+<%
+  @article = Article.find(params[:article_id])
+  new_image = @article.images.build
+  form_for [:admin, @article] do |f|
+    f.fields_for(:images, new_image, :child_index => Time.now.to_i) do |builder|
+      @builder = builder
+    end
+  end
+
+%>
+
+$("#images_list").append("<%= j render partial: 'image_fields', locals: {f: @builder} %>");

@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard/index', as: 'dashboard'
-    resources :articles
+    resources :articles do
+      resources :images
+      get '/add_image' => 'articles#add_image', as: 'add_image'
+    end
     resources :comments, only: [:index]
     resources :socials
     resources :categories
@@ -25,6 +28,6 @@ Rails.application.routes.draw do
       patch 'password/update', as: 'update_password'
       patch 'email/update', as: 'update_email'
     end
-    
+
   end
 end

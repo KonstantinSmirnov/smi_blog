@@ -14,7 +14,7 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="form-group">
     <%= f.label :status %>
     <%= f.select :status, Article::STATUS, class: 'form-control form-control-sm' %>  <%= "on #{@article["published_on"].strftime("%d.%m.%g at %H:%M")}" if @article.published_on != nil %>
@@ -35,6 +35,13 @@
     <%= f.label :content, "Content (MD)" %>
     <%= f.text_area :content, class: 'form-control', rows: 20, :autocomplete => 'off' %>
   </div>
+  <div id="images_list">
+    <%= f.fields_for :images  do |builder| %>
+      <%= render 'image_fields', :f => builder %>
+    <% end %>
+  </div>
+  <%= link_to "Add image", admin_article_add_image_path(@article), class: 'btn btn-outline-primary btn-sm', remote: true if @article.persisted? %>
+  <hr>
   <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
   <%= link_to "Preview", admin_article_path(@article), class: 'btn btn-outline-primary btn-sm' if action?("edit") or action?("update") %>
   <%= link_to "Back to articles", admin_articles_path, class: 'btn btn-outline-primary btn-sm' %>
