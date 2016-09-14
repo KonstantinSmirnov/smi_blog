@@ -65,6 +65,8 @@ gem 'redcarpet'
 # images
 gem "paperclip", "~> 5.0.0"
 gem "mongoid-paperclip"
+# required to rake paperclip:refresh CLASS=Image (convert images format)
+gem 'listen', '~> 3.0.5'
 
 # database mongoDB
 gem 'mongoid', github: 'mongodb/mongoid'
