@@ -1,15 +1,17 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Poiret+One';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300&subset=cyrillic';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono&subset=cyrillic';
+@import 'https://fonts.googleapis.com/css?family=Poiret+One';
 
 // VARIABLES
 $dark: #28394B; //#18232F
 $medium: #F6620E; //#DE691A
-$gray: #ddd;
-$grayDark: #bbb;
+$gray: #ccc;
+$grayDark: #aaa;
 $white: #fff;
 
 body {
-  //font-family: 'Roboto', sans-serif;
-  font-family: "adelle-sans", sans-serif;
+  //font-family: 'Roboto Mono', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #E9E9E9;
   color: $dark;
 }
