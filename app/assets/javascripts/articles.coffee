@@ -1,6 +1,8 @@
 jQuery ($) ->
   $(document).on "turbolinks:load", ->
     $(".blog-article img").addClass("img-fluid")
+    $("table").addClass("m-x-auto")
+    $("img").addClass("m-x-auto")
 
     $("#add_comment").prop "disabled", true
     $("#message_counter").html("enter at least 10 characters")
