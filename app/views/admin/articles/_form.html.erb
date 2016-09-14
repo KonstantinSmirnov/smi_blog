@@ -1,4 +1,4 @@
-<%= form_for [:admin, @article] do |f| %>
+<%= form_for [:admin, @article], html: { multipart: true } do |f| %>
   <%= f.submit "Save", class: 'btn btn-primary btn-sm' %>
   <%= link_to "Preview", admin_article_path(@article), class: 'btn btn-outline-primary btn-sm' if action?("edit") or action?("update") %>
   <%= link_to "Back to articles", admin_articles_path, class: 'btn btn-outline-primary btn-sm' %>
@@ -36,7 +36,7 @@
     <%= f.text_area :content, class: 'form-control', rows: 20, :autocomplete => 'off' %>
   </div>
   <div id="images_list">
-    <%= f.fields_for :images  do |builder| %>
+    <%= f.fields_for :images do |builder| %>
       <%= render 'image_fields', :f => builder %>
     <% end %>
   </div>

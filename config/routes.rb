@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :images
       get '/add_image' => 'articles#add_image', as: 'add_image'
     end
+    resources :images, only: [:index]
     resources :comments, only: [:index]
     resources :socials
     resources :categories

@@ -1,0 +1,35 @@
+<% provide(:title, "Images") %>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Preview</th>
+      <th>Description</th>
+      <th>Article</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @images.empty? %>
+      <tr>
+        <td colspan="6">
+          <p>There are no images yet.</p>
+        </td>
+      </tr>
+    <% else %>
+      <% @images.each do |image| %>
+        <tr>
+          <td><%= image_tag image.image(:preview) %></td>
+          <td><%= image.description %></td>
+          <td><%= link_to "#{image['article_fields']['title']}", edit_admin_article_path(image['article_id']) %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="6">
+          <div class="text-xs-center">
+            <%= will_paginate @images, :previous_label => '<', :next_label => '>' %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
