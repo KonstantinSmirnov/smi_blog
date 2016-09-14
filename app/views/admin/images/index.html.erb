@@ -5,6 +5,7 @@
     <tr>
       <th>Preview</th>
       <th>Description</th>
+      <th>Url</th>
       <th>Article</th>
     </tr>
   </thead>
@@ -20,6 +21,9 @@
         <tr>
           <td><%= image_tag image.image(:preview) %></td>
           <td><%= image.description %></td>
+          <td>
+            <button type="button" name="button" onclick='alert("<%= URI(request.url) + image.image(:original) if image.persisted? %>")' class="btn btn-outline-primary btn-sm">Get url</button>
+          </td>
           <td><%= link_to "#{image['article_fields']['title']}", edit_admin_article_path(image['article_id']) %></td>
         </tr>
       <% end %>
