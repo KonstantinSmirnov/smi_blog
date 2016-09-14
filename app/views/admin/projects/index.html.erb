@@ -3,6 +3,7 @@
 <table class="table">
   <thead class="thead-default">
     <tr>
+      <th>Preview</th>
       <th>Title</th>
       <th>
         Options
@@ -20,6 +21,7 @@
     <% else %>
       <% @projects.each do |project| %>
         <tr>
+          <td><%= image_tag project.image(:preview) %></td>
           <td><%= project["title"] %></td>
           <td>
             <%= link_to "Edit", edit_admin_project_path(project), class: 'btn btn-outline-primary btn-sm' %>
