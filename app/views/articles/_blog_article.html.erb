@@ -20,7 +20,11 @@
       <span><i class="fi-calendar"></i> <%= object["published_on"].strftime("%b %d, %Y") if object["published_on"] %></span>
       <span>Tags: <a href="#">colors</a></span>
       <br>
-      <span><i class="fi-eye"></i> <%= object["views"] %> | <a href="#"><i class="fi-comment"></i> <%= pluralize(object.comments.count, "comment") %></a></span>      </div>
+      <span>
+        <i class="fi-eye"></i> <%= object["views"] %> |
+        <i class="fi-comment"></i> <%= link_to "#{pluralize(object.comments.count, 'comment')}", article_path(object, anchor: 'article_comments') %>
+      </span>
+    </div>
     <p>
       <%= markdown(object["description"]) %>
     </p>
