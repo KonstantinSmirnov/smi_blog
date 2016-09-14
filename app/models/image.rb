@@ -7,9 +7,10 @@ class Image
   field :description, type: String
   field :article_id, type: Integer
   has_mongoid_attached_file :image,
+    :source_file_options => { all: '-background transparent' },
     :styles => {
-    :original => ['1000>', :jpg],
-    :preview  => ['100x100>',   :jpg]
+    :original => ['1000>', :png],
+    :preview  => ['100x100>', :png]
   }
   validates :description, :image, :article_id,
             presence: true
