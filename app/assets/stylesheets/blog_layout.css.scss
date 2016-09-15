@@ -65,6 +65,7 @@ select:not([multiple]) {
 
 a {
   color: $dark;
+  text-decoration: none;
   -webkit-transition:color 0.2s ease-in-out;
   -moz-transition:color 0.2s ease-in-out;
   -o-transition:color 0.2s ease-in-out;
@@ -131,9 +132,6 @@ nav.navbar {
 }
 nav .blog-logo {
   font-family: 'Poiret One', cursive;
-  :hover {
-    color: none;
-  }
 }
 nav .blog-social-buttons {
   display: block;
@@ -244,6 +242,10 @@ footer {
         -o-transition:background-color 0.2s ease-in-out;
         transition:background-color 0.2s ease-in-out;
       }
+      &:focus {
+      background-color: $medium;
+      text-decoration: none;
+      }
     }
     .share {
       float: right;
@@ -261,6 +263,11 @@ footer {
       color: $grayDark;
       &:hover {
         color: $medium;
+        text-decoration: none;
+      }
+      &:focus {
+      color: $medium;
+      text-decoration: none;
       }
     }
   }
@@ -287,6 +294,10 @@ footer {
       text-decoration: none;
       border-color: $medium;
       background-color: $medium;
+    }
+    &:focus {
+      background-color: $medium;
+      text-decoration: none;
     }
   }
 
