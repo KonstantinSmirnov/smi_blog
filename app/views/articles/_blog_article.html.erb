@@ -25,17 +25,13 @@
         <i class="fi-comment"></i> <%= link_to "#{pluralize(object.comments.count, 'comment')}", article_path(object, anchor: 'article_comments') %>
       </span>
     </div>
-    <p>
-      <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
-        <%= markdown(object["description"]) %>
-      <% else %>
-        <%= link_to raw("<div> #{markdown(object["description"])}</div>"), article_path(object) %>
-      <% end %>
-    </p>
     <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
-      <p>
-        <%= markdown(object["content"]) %>
-      </p>
+      <%= markdown(object["description"]) %>
+    <% else %>
+      <%= link_to raw("#{markdown(object["description"])}"), article_path(object) %>
+    <% end %>
+    <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
+      <%= markdown(object["content"]) %>
       <div class="share">
         Share:
         <a href="#"><i class="fi-social-facebook"></i></a>

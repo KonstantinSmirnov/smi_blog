@@ -69,13 +69,17 @@ a {
   -moz-transition:color 0.2s ease-in-out;
   -o-transition:color 0.2s ease-in-out;
   transition:color 0.2s ease-in-out;
+  &:hover {
+    color: $medium;
+    text-decoration: none;
+  }
+  &:focus {
+    color: $medium;
+    text-decoration: none;
+  }
 }
 .active a {
   color: $medium;
-}
-a:hover {
-  color: $medium;
-  text-decoration: none;
 }
 input.form-control:focus,
 textarea.form-control:focus {
