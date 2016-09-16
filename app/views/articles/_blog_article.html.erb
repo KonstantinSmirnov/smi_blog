@@ -26,17 +26,12 @@
       </span>
     </div>
       <% object.images.primary_images.each do |primary_image| %>
-        <%= image_tag primary_image.image.url(:original) %>
+      <%= image_tag primary_image.image.url(:original) %>
       <% end %>
-      <p class="blog-article-description"><%= object["description"] %></p>
+      <p class="blog-article-description"><%= markdown(object["description"]) %></p>
     <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
       <%= markdown(object["content"]) %>
-      <div class="share">
-        Share:
-        <a href="#"><i class="fi-social-facebook"></i></a>
-        <a href="#"><i class="fi-social-twitter"></i></a>
-        <a href="#"><i class="fi-social-pinterest"></i></a>
-      </div>
+      <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
       <hr>
       <div id="article_comments">
         <%= render :partial => 'comments/comments_block' %>
@@ -45,16 +40,7 @@
       <div class="blog-article-footer">
         <%= link_to "Continue Reading", article_path(object), {:class => 'continue'} %>
         <div class="share">
-          Share:
-          <a href="" onclick='share_facebook(
-                    "<%= "#{article_url(object)}" %>",
-                    "<%= "#{object.title}" %>",
-                    "<%= "#{object.description}" %>",
-                    "<%= "#{URI(request.base_url)}#{object.images.primary_images.first.image(:original)}" if object.images.any? %>",
-                    "<%= "SMIPLAY.COM" %>"
-                  )'><i class="fi-social-facebook"></i></a>
-          <a href=""><i class="fi-social-twitter"></i></a>
-          <a href=""><i class="fi-social-pinterest"></i></a>
+          <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
         </div>
       </div>
     <% end %>
