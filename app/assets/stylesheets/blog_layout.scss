@@ -409,9 +409,8 @@ footer {
   .share-button {
     display: inline-block;
     align:right;
-    padding: 3px 10px 0px 10px;
     font-size: 1.3em;
-    background-color: #2D448A;
+    background-color: $dark;
     -webkit-transition:background-color 0.2s ease-in-out;
     -moz-transition:background-color 0.2s ease-in-out;
     -o-transition:background-color 0.2s ease-in-out;
@@ -420,8 +419,22 @@ footer {
       color: $white;
     }
     &:hover {
-      background-color: #105ECF;
+      background-color: $medium;
       cursor: pointer;
+    }
+  }
+  .share-button.facebook {
+    background-color: #2D448A;
+    padding: 3px 11px 0px 11px;
+    &:hover {
+      background-color: #105ECF;
+    }
+  }
+  .share-button.twitter {
+    background-color: #2FB9F1;
+    padding: 3px 7px 0px 7px;
+    &:hover {
+      background-color: #80BED6;
     }
   }
 }
