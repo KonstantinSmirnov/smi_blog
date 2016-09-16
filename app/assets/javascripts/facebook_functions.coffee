@@ -9,7 +9,7 @@ jQuery ($) ->
 #        image       : image
 #       caption     : caption
         name: title
-        link: 'http://smiplay.com/articles/57dbe102d042ac7d7b73b7ab'
+        link: link
         picture: image
         caption: caption
         description: 'Description field'
