@@ -11,7 +11,8 @@ class Image
     :source_file_options => { all: '-background transparent' },
     :styles => {
     :original => ['1000>', :png],
-    :preview  => ['100x100>', :png]
+    :preview  => ['600x600>', :png],
+    :thumbnail => ['100x100>', :png]
     },
     :url => '/system/:class/:attachment/:style/:filename'
   validates :description, :image, :article_id,
@@ -22,6 +23,6 @@ class Image
 
   belongs_to :article
   alize :article, :title
-  
+
   scope :primary_images, -> { where(primary_image: 'true') }
 end
