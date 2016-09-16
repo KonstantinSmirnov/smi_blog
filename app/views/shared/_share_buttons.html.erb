@@ -3,7 +3,7 @@ Share:
           "<%= "#{article_url(object)}" %>",
           "<%= "#{object.title}" %>",
           "<%= "#{object.description}" %>",
-          "<%= "#{URI(request.base_url)}#{object.images.primary_images.first.image(:original)}" if object.images.primary_images.any? %>",
+          "<%= "#{URI(request.base_url)}#{object.images.primary_images.first.image(:preview)}" if object.images.primary_images.any? %>",
           "<%= "SMIPLAY.COM" %>"
         )'><i class="fi-social-facebook"></i></a>
 <a href=""><i class="fi-social-twitter"></i></a>
