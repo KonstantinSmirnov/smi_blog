@@ -32,7 +32,7 @@ class Admin::ArticlesController < AdminController
     if @article.save
       update_date_of_publication(@article)
       flash[:success] = "Article has been created"
-      redirect_to admin_articles_path
+      render 'edit'
     else
       render 'new'
     end
