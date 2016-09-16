@@ -11,7 +11,8 @@ class Image
     :styles => {
     :original => ['1000>', :png],
     :preview  => ['100x100>', :png]
-  }
+    },
+    :url => '/system/:class/:attachment/:style/:filename'
   validates :description, :image, :article_id,
             presence: true
   validates_attachment_content_type :image,

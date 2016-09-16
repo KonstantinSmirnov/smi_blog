@@ -9,7 +9,8 @@ class HomePage
     :styles => {
     :original => ['1000>', :jpg],
     :preview  => ['100x100>',   :jpg]
-  }
+  },
+    :url => '/system/:class/:attachment/:style/:filename'
   validates :title,
             presence: true
   validates_attachment_content_type :title_backgroung,

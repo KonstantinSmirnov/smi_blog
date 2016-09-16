@@ -7,7 +7,8 @@ class Project
     :styles => {
     :original => ['450x450#', :jpg],
     :preview  => ['100x100#',   :jpg]
-  }
+  },
+    :url => '/system/:class/:attachment/:style/:filename'
   
   validates :title, :image, presence: true
   validates_attachment_content_type :image,
