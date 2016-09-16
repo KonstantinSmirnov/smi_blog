@@ -11,5 +11,5 @@ jQuery ($) ->
         name: title
         link: 'http://smiplay.com/articles/57dbe102d042ac7d7b73b7ab'
         picture: image
-        caption: 'This is the caption'
+        caption: caption
         description: 'Description field'

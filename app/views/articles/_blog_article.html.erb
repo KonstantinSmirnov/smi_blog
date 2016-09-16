@@ -51,7 +51,7 @@
                     "<%= "#{article_url(object)}" %>",
                     "<%= "#{object.title}" %>",
                     "<%= "#{URI(request.url)}#{object.images.first.image(:original)}" if object.images.any? %>",
-                    "SMIPLAY.COM"
+                    "<%= "#{request.base_url}" %>"
                   )'><i class="fi-social-facebook"></i></a>
           <a href=""><i class="fi-social-twitter"></i></a>
           <a href=""><i class="fi-social-pinterest"></i></a>
