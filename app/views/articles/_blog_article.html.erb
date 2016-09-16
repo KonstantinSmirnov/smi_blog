@@ -47,8 +47,8 @@
         <%= link_to "Continue Reading", article_path(object), {:class => 'continue'} %>
         <div class="share">
           Share:
-          <a href="" onclick='share_facebook("<%= "#{article_url(object)}" %>")'><i class="fi-social-facebook"></i></a>
-          <a href="http://twitter.com/intent/tweet?status=<%= "Smiplay | #{object.title}" %>+<%= article_url(object) %>"><i class="fi-social-twitter"></i></a>
+          <a href="" onclick='share_facebook("<%= "#{article_url(object)}" %>", "<%= URI(request.url) + object.images.first.image(:original) if object.images.any? %>")'><i class="fi-social-facebook"></i></a>
+          <a href=""><i class="fi-social-twitter"></i></a>
           <a href=""><i class="fi-social-pinterest"></i></a>
         </div>
       </div>
