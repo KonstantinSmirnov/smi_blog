@@ -50,8 +50,9 @@
           <a href="" onclick='share_facebook(
                     "<%= "#{article_url(object)}" %>",
                     "<%= "#{object.title}" %>",
+                    "<%= "#{object.description}" %>",
                     "<%= "#{URI(request.base_url)}#{object.images.first.image(:original)}" if object.images.any? %>",
-                    "<%= "#{URI(request.base_url)}" %>"
+                    "<%= "SMIPLAY.COM" %>"
                   )'><i class="fi-social-facebook"></i></a>
           <a href=""><i class="fi-social-twitter"></i></a>
           <a href=""><i class="fi-social-pinterest"></i></a>
