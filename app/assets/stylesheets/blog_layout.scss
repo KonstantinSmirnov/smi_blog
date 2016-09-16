@@ -232,25 +232,26 @@ footer {
   .blog-article-footer {
     border-bottom: 1px solid $dark;
     .continue {
-      background-color: $dark;
-      color: $white;
-      padding: 3px 20px;
-      &:hover {
+      display: inline-block;
+      a {
+        display: block;
+        background-color: $dark;
+        color: $white;
+        padding: 5px 20px;
+        &:hover {
+          background-color: $medium;
+          -webkit-transition:background-color 0.2s ease-in-out;
+          -moz-transition:background-color 0.2s ease-in-out;
+          -o-transition:background-color 0.2s ease-in-out;
+          transition:background-color 0.2s ease-in-out;
+        }
+        &:focus {
         background-color: $medium;
-        -webkit-transition:background-color 0.2s ease-in-out;
-        -moz-transition:background-color 0.2s ease-in-out;
-        -o-transition:background-color 0.2s ease-in-out;
-        transition:background-color 0.2s ease-in-out;
-      }
-      &:focus {
-      background-color: $medium;
-      text-decoration: none;
+        text-decoration: none;
+        }
       }
     }
-    .share {
-      float: right;
-      color: $dark;
-    }
+
   }
   .blog-article-header {
     color: $grayDark;
@@ -401,7 +402,34 @@ footer {
   padding-bottom: 15px;
 }
 
+.share-buttons-list {
+  display: inline-block;
+  float: right;
+
+  .share-button {
+    display: inline-block;
+    align:right;
+    padding: 3px 10px 0px 10px;
+    font-size: 1.3em;
+    background-color: #2D448A;
+    -webkit-transition:background-color 0.2s ease-in-out;
+    -moz-transition:background-color 0.2s ease-in-out;
+    -o-transition:background-color 0.2s ease-in-out;
+    transition:background-color 0.2s ease-in-out;
+    i {
+      color: $white;
+    }
+    &:hover {
+      background-color: #105ECF;
+      cursor: pointer;
+    }
+  }
+}
+
 /* COMMENTS */
+#article_comments {
+  margin-top: 15px;
+}
 #comments_block {
   h1, h2, h3, h4 {
     font-size: 1.25em;

@@ -31,17 +31,20 @@
       <p class="blog-article-description"><%= markdown(object["description"]) %></p>
     <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
       <%= markdown(object["content"]) %>
-      <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
-      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
+        </div>
+      </div>
       <div id="article_comments">
         <%= render :partial => 'comments/comments_block' %>
       </div>
     <% else %>
       <div class="blog-article-footer">
-        <%= link_to "Continue Reading", article_path(object), {:class => 'continue'} %>
-        <div class="share">
-          <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
+        <div class="continue">
+          <%= link_to "Continue Reading", article_path(object) %>
         </div>
+        <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
       </div>
     <% end %>
   </div>
