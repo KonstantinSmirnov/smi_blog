@@ -25,11 +25,10 @@
         <i class="fi-comment"></i> <%= link_to "#{pluralize(object.comments.count, 'comment')}", article_path(object, anchor: 'article_comments') %>
       </span>
     </div>
-    <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
-      <%= markdown(object["description"]) %>
-    <% else %>
-      <%= link_to raw("#{markdown(object["description"])}"), article_path(object) %>
-    <% end %>
+      <% object.images.primary_images.each do |primary_image| %>
+        <%= image_tag primary_image.image.url(:original) %>
+      <% end %>
+      <p class="blog-article-description"><%= object["description"] %></p>
     <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
       <%= markdown(object["content"]) %>
       <div class="share">
@@ -49,6 +48,8 @@
           Share:
           <a href="" onclick='share_facebook(
                     "<%= "#{article_url(object)}" %>",
+                    "<%= "#{object.title}" %>",
+                    "<%= "#{object.description}" %>",
                     "<%= "#{URI(request.base_url)}#{object.images.first.image(:original)}" if object.images.any? %>",
                     "<%= "SMIPLAY.COM" %>"
                   )'><i class="fi-social-facebook"></i></a>

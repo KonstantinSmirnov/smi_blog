@@ -8,6 +8,10 @@
   <%= f.text_field :description, class: 'form-control' %>
 </div>
 <div class="form-group">
+  <%= f.label :primary_image %>
+  <%= f.check_box :primary_image %>
+</div>
+<div class="form-group">
   <%= URI(request.url) + f.object.image(:original) if f.object.persisted? %>
 </div>
 <% if f.object.persisted? %>

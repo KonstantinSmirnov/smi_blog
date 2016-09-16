@@ -77,7 +77,7 @@ class Admin::ArticlesController < AdminController
                                     :description,
                                     :content,
                                     :category_id,
-                                    :images_attributes => [:id, :description, :image, :_destroy]
+                                    :images_attributes => [:id, :description, :image, :primary_image, :_destroy]
                                     )
   end
 

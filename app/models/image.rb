@@ -6,6 +6,7 @@ class Image
 
   field :description, type: String
   field :article_id, type: Integer
+  field :primary_image, type: Boolean, default: false
   has_mongoid_attached_file :image,
     :source_file_options => { all: '-background transparent' },
     :styles => {
@@ -21,4 +22,6 @@ class Image
 
   belongs_to :article
   alize :article, :title
+  
+  scope :primary_images, -> { where(primary_image: 'true') }
 end
