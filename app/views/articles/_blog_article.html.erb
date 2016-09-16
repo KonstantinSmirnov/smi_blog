@@ -2,7 +2,7 @@
     <meta property="og:title" content=<%= "#{object.title}" %> />
     <meta property="og:description" content=<%= "#{object.description}" %> />
     <meta property="og:url" content=<%= "#{article_url(object)}" %> />
-    <meta property="og:image" content=<%= "#{article_url(object)}" %> />
+    <meta property="og:image" content=<%= "#{URI(request.url)} + #{object.images.first.image(:original)}" if object.images.any? %> />
   </head>
   
   
