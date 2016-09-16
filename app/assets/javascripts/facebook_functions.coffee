@@ -1,11 +1,7 @@
 jQuery ($) ->
   $(document).on "turbolinks:load", ->
     
-    @share_facebook = (caption, link, image, title, description) ->
+    @share_facebook = (link) ->
       FB.ui
         method      : 'feed'
         link        : link
-        caption     : caption
-        image       : image
-        title       : title
-        description : description

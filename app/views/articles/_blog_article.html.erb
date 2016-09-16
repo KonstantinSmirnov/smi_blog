@@ -1,3 +1,11 @@
+  <head>
+    <meta property="og:title" content=<%= "#{object.title}" %> />
+    <meta property="og:description" content=<%= "#{object.description}" %> />
+    <meta property="og:url" content=<%= "#{article_url(object)}" %> />
+    <meta property="og:image" content=<%= "#{article_url(object)}" %> />
+  </head>
+  
+  
   <div class="blog-article">
     <h2>
       <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
@@ -48,11 +56,7 @@
         <div class="share">
           Share:
           <a href="" onclick='share_facebook(
-                    "SMIPLAY.COM",
-                    "<%= "#{article_url(object)}" %>",
-                    "<%= URI(request.url) + object.images.first.image(:original) if object.images.any? %>",
-                    "<%= "#{object.title}" %>",
-                    "<%= "#{object.description}" %>"
+                    "<%= "#{article_url(object)}" %>"
                   )'><i class="fi-social-facebook"></i></a>
           <a href=""><i class="fi-social-twitter"></i></a>
           <a href=""><i class="fi-social-pinterest"></i></a>
