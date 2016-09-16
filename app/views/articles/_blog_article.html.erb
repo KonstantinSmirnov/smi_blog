@@ -47,12 +47,7 @@
         <%= link_to "Continue Reading", article_path(object), {:class => 'continue'} %>
         <div class="share">
           Share:
-          <a href="" onclick='share_facebook(
-                    "<%= "#{article_url(object)}" %>",
-                    "<%= "#{object.title}" %>",
-                    "<%= "#{URI(request.url)}#{object.images.first.image(:original)}" if object.images.any? %>",
-                    "SMIPLAY.COM"
-                  )'><i class="fi-social-facebook"></i></a>
+          <a href="" onclick='share_facebook()'><i class="fi-social-facebook"></i></a>
           <a href=""><i class="fi-social-twitter"></i></a>
           <a href=""><i class="fi-social-pinterest"></i></a>
         </div>
