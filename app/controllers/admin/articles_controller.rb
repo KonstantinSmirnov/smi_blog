@@ -1,4 +1,5 @@
 class Admin::ArticlesController < AdminController
+
   def index
     filter = Hash.new
     if params[:commit] == 'Filter' && (params[:filter_category] != '' || params[:filter_status] != '')
@@ -15,7 +16,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.find_by(:slug => params[:id])
     @comments = @article.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10 )
     @new_comment = @article.comments.build
     cookies[:opened_article_id] = params[:id]
@@ -28,25 +29,22 @@ class Admin::ArticlesController < AdminController
 
   def create
     @article = Article.new(article_params)
-
     if @article.save
       update_date_of_publication(@article)
       flash[:success] = "Article has been created"
-      render 'edit'
+      redirect_to edit_admin_article_path(@article)
     else
       render 'new'
     end
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = Article.find_by(:slug => params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-
+    @article = Article.find_by(:slug => params[:id])
     if @article.update_attributes(article_params)
-
       update_date_of_publication(@article)
 
       flash.now[:success] = "Changes were saved"
@@ -63,7 +61,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.find_by(:slug => params[:id])
     @article.destroy
     flash[:success] = "Article was deleted"
     redirect_to admin_articles_path
@@ -73,6 +71,7 @@ class Admin::ArticlesController < AdminController
 
   def article_params
     params.require(:article).permit(:status,
+                                    :slug,
                                     :title,
                                     :description,
                                     :content,
@@ -90,4 +89,5 @@ class Admin::ArticlesController < AdminController
       article.save!
     end
   end
+
 end

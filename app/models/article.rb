@@ -4,6 +4,7 @@ class Article
   include Mongoid::Enum
   include Mongoid::Alize
 
+  field :slug, type: String
   field :title, type: String
   field :description, type: String
   field :content, type: String
@@ -13,7 +14,8 @@ class Article
 
   enum :status, [:draft, :published], default: :draft
 
-  validates :title, :description, :content, length: { minimum: 1 }
+  validates :slug, :title, :description, :content, presence: true
+  validates :slug, uniqueness: true
 
   belongs_to :category
   alize :category, :name
@@ -21,4 +23,13 @@ class Article
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true
+
+  def to_param
+    slug
+  end
+
+  before_save do
+    self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')
+  end
+
 end
