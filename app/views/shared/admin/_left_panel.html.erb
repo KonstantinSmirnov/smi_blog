@@ -17,7 +17,7 @@
     <%= link_to "All tags", admin_tags_path, class: 'nav-link' %>
   </li>
   <li class="nav-item <%= 'active' if controller?("admin/about_pages") %>">
-    <%= link_to "About", AboutPage.first.nil? ? new_admin_about_page_path : edit_admin_about_page_path, class: 'nav-link' %>
+    <%= link_to "About page", AboutPage.first.nil? ? new_admin_about_page_path : edit_admin_about_page_path, class: 'nav-link' %>
   </li>
   <li class="nav-item <%= 'active' if controller?("admin/home_pages") %>">
     <%= link_to "Home page", HomePage.first.nil? ? new_admin_home_page_path : edit_admin_home_page_path, class: 'nav-link' %>
