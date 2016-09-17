@@ -105,6 +105,7 @@ namespace :deploy do
 
   desc "No ActiveRecord override"
   task :migrate do
+    p "do not migrate!"
   end
 
   before :starting,     :check_revision
