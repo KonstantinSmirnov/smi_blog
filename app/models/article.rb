@@ -1,4 +1,6 @@
 class Article
+  require 'translit'
+
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Enum
@@ -29,7 +31,13 @@ class Article
   end
 
   before_save do
+    self.slug = Translit.convert(self.slug, :english)
     self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')
   end
+
+  #   require 'translit'
+  #
+  # str = "Кириллица"
+  # Translit.convert(str, :english)
 
 end

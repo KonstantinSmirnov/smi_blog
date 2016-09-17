@@ -61,6 +61,8 @@ gem "will_paginate_mongoid"
 
 # markdown
 gem 'redcarpet'
+#translit
+gem 'translit'
 
 # images
 gem "paperclip", "~> 5.0.0"
