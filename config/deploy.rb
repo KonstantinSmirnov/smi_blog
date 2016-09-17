@@ -91,7 +91,7 @@ namespace :deploy do
       end
     end
   end
-  
+
   desc 'Runs rake db:reset'
   task :reset => [:set_rails_env] do
     on primary fetch(:migration_role) do
@@ -101,6 +101,10 @@ namespace :deploy do
         end
       end
     end
+  end
+
+  desc "No ActiveRecord override"
+  task :migrate do
   end
 
   before :starting,     :check_revision
