@@ -26,18 +26,15 @@ class Article
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true
 
+  index slug: 1
+
   def to_param
     slug
   end
 
-  before_save do
+  before_validation do
     self.slug = Translit.convert(self.slug, :english)
     self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')
   end
-
-  #   require 'translit'
-  #
-  # str = "Кириллица"
-  # Translit.convert(str, :english)
 
 end
