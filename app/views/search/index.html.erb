@@ -1,10 +1,32 @@
 <% provide(:title, "Search") %>
 <div class="row">
   <div class="col-md-9 col-lg-10">
-    <h1>Search</h1>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form_tag("/search", method: "get") do %>
+          <div class="input-group input-group-lg">
+            <%= text_field_tag :search_query, params[:search_query], class: 'form-control input-lg', placeholder: 'Write a phrase to search...' %>
+            <span class="input-group-btn">
+              <%= submit_tag "Search", class: 'btn btn-outline-primary' %>
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if !@found_articles.nil? %>
+      <% if @found_articles.count == 0 %>
+        No articles found
+      <% else %>
+        Found <%= @found_articles.count %> articles <br>
+        <% @found_articles.each do |article| %>
+          <%= article.title %>
+        <% end %>
+      <% end %>
+    <% end %>
+
   </div>
   <div class="col-md-3 col-lg-2">
-    <%= render :partial => 'shared/search_widget' %>
     <%= render :partial => 'categories/categories_widget' %>
     <%= render :partial => 'shared/subscribe' %>
   </div>

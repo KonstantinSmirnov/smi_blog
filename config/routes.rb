@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'categories/show',  as: 'category'
   get 'about_page/show',  as: 'about_page'
 
-  get 'search/index',     as: 'search'
+  get '/search' => 'search#index', as: 'search'
 
   resources :articles, only: [:index, :show] do
     resources :comments, only: [:create]
