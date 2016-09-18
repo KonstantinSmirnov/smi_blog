@@ -80,4 +80,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  # Look to routes file if an exception
+  config.exceptions_app = self.routes
 end
