@@ -1,0 +1,19 @@
+<div class="blog-article">
+  <h5>
+      <%= link_to "#{object["title"]}", article_path(object) %>
+    <% if admin_signed_in? %>
+      [<%= link_to "Edit", edit_admin_article_path(object) %>]
+    <% end %>
+  </h5>
+  <div class="blog-article-header">
+    <span class="section">
+      <% if object.category %>
+        <%= link_to "#{object["category_fields"]["name"]}", category_path(object.category) %>
+      <% else %>
+        (none)
+      <% end %>
+    </span>
+    <span><i class="fi-calendar"></i> <%= object["published_on"].strftime("%b %d, %Y") if object["published_on"] %></span>
+  </div>
+  <div><%= markdown(object["description"]) %></div>
+</div>

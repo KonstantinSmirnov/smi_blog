@@ -29,7 +29,7 @@ class Article
 
   index slug: 1
 
-  search_in :title, :description, :content, :category => [:name]
+  search_in :title, :description, :content
 
 
   def to_param

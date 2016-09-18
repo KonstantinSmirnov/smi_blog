@@ -14,14 +14,21 @@
       </div>
     </div>
 
-    <% if !@found_articles.nil? %>
+    <% if defined?(@found_articles) %>
       <% if @found_articles.count == 0 %>
-        No articles found
+        <div class="search-results-counter">
+          <h5>No articles found...</h5>
+        </div>
       <% else %>
-        Found <%= @found_articles.count %> articles <br>
+        <div class="search-results-counter">
+          <h5><%= pluralize(@found_articles.count, "article") %> found:</h5>
+        </div>
         <% @found_articles.each do |article| %>
-          <%= article.title %>
+          <%= render :partial => 'search_result', :locals => { :object => article } %>
         <% end %>
+        <div class="text-xs-center">
+          <%= will_paginate @found_articles, :previous_label => '<', :next_label => '>' %>
+        </div>
       <% end %>
     <% end %>
 
