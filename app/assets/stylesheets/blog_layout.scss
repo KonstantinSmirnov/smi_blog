@@ -426,14 +426,21 @@ footer {
     background-color: #2D448A;
     padding: 3px 11px 0px 11px;
     &:hover {
-      background-color: #105ECF;
+      background-color: $medium;
     }
   }
   .share-button.twitter {
-    background-color: #2FB9F1;
+    background-color: #1D8DEE;
     padding: 3px 7px 0px 7px;
     &:hover {
-      background-color: #80BED6;
+      background-color: $medium;
+    }
+  }
+  .share-button.linkedin {
+    background-color: #1566A7;
+    padding: 3px 8px 0px 8px;
+    &:hover {
+      background-color: $medium;
     }
   }
 }

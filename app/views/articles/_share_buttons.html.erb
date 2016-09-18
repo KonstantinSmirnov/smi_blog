@@ -1,6 +1,3 @@
-
-
-
 <div class="share-buttons-list">
   <span class="share-button facebook" onclick='share_facebook(
           "<%= "#{article_url(object)}" %>",
@@ -10,6 +7,7 @@
           "<%= "SMIPLAY.COM" %>")'>
     <i class="fa fa-facebook"></i>
   </span>
+
   <a href=
       <%= "https://twitter.com/intent/tweet?" +
       "text=#{URI.encode(object.title)}" +
@@ -18,5 +16,15 @@
       "&via=smiplay" %>
   ><span class="share-button twitter">
     <i class="fa fa-twitter"></i>
+  </span></a>
+
+  <a href=
+      <%= "https://www.linkedin.com/shareArticle?mini=true" +
+      "&url=#{article_url(object)}" +
+      "&title=#{URI.encode(object.title)}" +
+      "&description=#{URI.encode(object.description)}" +
+      "&source=#{URI.encode('http://smiplay.com')}" %>
+  ><span class="share-button linkedin">
+    <i class="fa fa-linkedin"></i>
   </span></a>
 </div>

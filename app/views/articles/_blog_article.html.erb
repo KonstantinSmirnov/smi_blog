@@ -33,7 +33,7 @@
       <%= markdown(object["content"]) %>
       <div class="row">
         <div class="col-xs-12">
-          <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
+          <%= render :partial => 'share_buttons', :locals => {:object => object} %>
         </div>
       </div>
       <div id="article_comments">
@@ -44,7 +44,7 @@
         <div class="continue">
           <%= link_to "Continue Reading", article_path(object) %>
         </div>
-        <%= render :partial => 'shared/share_buttons', :locals => {:object => object} %>
+        <%= render :partial => 'share_buttons', :locals => {:object => object} %>
       </div>
     <% end %>
   </div>
