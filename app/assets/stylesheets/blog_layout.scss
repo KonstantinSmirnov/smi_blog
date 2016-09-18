@@ -4,7 +4,7 @@
 
 // VARIABLES
 $dark: #28394B; //#18232F
-$medium: #F6620E; //#DE691A
+$medium: #F76A0D; //#DE691A
 $gray: #ccc;
 $grayDark: #aaa;
 $white: #fff;
@@ -449,4 +449,35 @@ footer {
 }
 #message_counter {
   margin-left: 10px;
+}
+
+/* PAGE NOT FOUND (404) */
+#page_not_found {
+  height: auto;
+  padding-top: 12vh;
+  padding-bottom: 12vh;
+
+  .error-message {
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+  }
+  .four-oh-four {
+    max-width: 400px;
+    margin: auto;
+    }
+  h1 {
+    margin: 0;
+    color: $medium;
+    font-size: 4em;
+    }
+  h2 {
+    margin: 0;
+    padding: 20px 0 30px;
+    }
+  .warning {
+    margin: 0px 0 30px 0;
+    padding: 0px 20px;
+    }
 }

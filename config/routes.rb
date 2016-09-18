@@ -31,4 +31,6 @@ Rails.application.routes.draw do
     end
 
   end
+
+  get '*url' => 'errors#not_found'
 end
