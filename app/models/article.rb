@@ -5,6 +5,7 @@ class Article
   include Mongoid::Timestamps
   include Mongoid::Enum
   include Mongoid::Alize
+  include Mongoid::Search
 
   field :slug, type: String
   field :title, type: String
@@ -27,6 +28,9 @@ class Article
   accepts_nested_attributes_for :images, :allow_destroy => true
 
   index slug: 1
+
+  search_in :title, :description, :content, :category => [:name]
+
 
   def to_param
     slug

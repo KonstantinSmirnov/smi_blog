@@ -73,6 +73,9 @@ gem 'mongoid', github: 'mongodb/mongoid'
 gem 'mongoid_alize'
 # add enums in mongodb
 gem "mongoid-enum-i18n", git: 'https://github.com/nofxx/mongoid-enum.git', require: 'mongoid/enum'
+# mongoid full text search
+gem 'mongoid_search'
+
 # authentification
 gem 'devise'
 
