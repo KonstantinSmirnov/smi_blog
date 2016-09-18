@@ -110,14 +110,14 @@ namespace :deploy do
   task :generate_500_html do
     on roles(:web) do |host|
       public_500_html = File.join(release_path, "public/500.html")
-      execute :curl, "-k", "https://#{host.hostname}/500", "> #{public_500_html}"
+      execute :curl, "-k", "http://#{host.hostname}/500", "> #{public_500_html}"
     end
   end
 
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after :finishing,     :generate_500_html
+  after "deploy:published", :generate_500_html
   #after  :finishing,    :restart
 
 end
