@@ -38,3 +38,8 @@ home_page.services.build(
     content: 'All websites are responsive. They will look great on desktop, tablets and mobile phones too.')
 home_page.projects_title = 'Projects'
 home_page.save!
+
+social_button = Social.new
+social_button.icon_text = 'facebook'
+social_button.link = 'http://facebook.com'
+social_button.save!
