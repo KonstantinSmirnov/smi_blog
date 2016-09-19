@@ -1,5 +1,5 @@
   <div class="blog-article">
-    <h2>
+    <h1>
       <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
         <%= object["title"] %>
       <% else %>
@@ -8,7 +8,7 @@
       <% if admin_signed_in? %>
         [<%= link_to "Edit", edit_admin_article_path(object) %>]
       <% end %>
-    </h2>
+    </h1>
     <div class="blog-article-header">
       <span class="section">
         <% if object.category %>
