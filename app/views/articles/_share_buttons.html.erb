@@ -18,13 +18,12 @@
     <i class="fa fa-twitter"></i>
   </span></a>
 
-  <a target="_blank" href=
-      <%= "https://www.linkedin.com/shareArticle?mini=true" +
-      "&url=#{article_url(object)}" +
-      "&title=#{URI.encode(object.title)}" +
-      "&description=#{URI.encode(object.description)}" +
-      "&source=#{URI.encode('http://smiplay.com')}" %>
-  ><span class="share-button linkedin">
+  <span class="share-button linkedin" onclick='share_linkedin(
+    "<%= "&url=#{article_url(object)}" %>",
+    "<%= "&title=#{URI.encode(object.title)}" %>",
+    "<%= "&summary=#{URI.encode(object.description)}" %>",
+    "<%= "&source=#{URI.encode('http://smiplay.com')}" %>"
+  )'>
     <i class="fa fa-linkedin"></i>
   </span></a>
 </div>
