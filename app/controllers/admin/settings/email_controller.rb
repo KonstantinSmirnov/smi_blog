@@ -28,10 +28,10 @@ before_action :authenticate_admin!
   end
 
   def redirect_to_settings_path
-    if Setting.first.persisted?
-      redirect_to edit_admin_setting_path
-    else
+    if Setting.first.nil?
       redirect_to new_admin_setting_path
+    else
+      redirect_to edit_admin_setting_path
     end
   end
 
