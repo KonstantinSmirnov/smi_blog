@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @article = Article.find(params[:article_id]) 
+    @article = Article.find_by(:slug => params[:article_id]) 
     @new_comment = @article.comments.new(comment_params)
     puts "!!!!! Cookies!"
     puts cookies[:opened_article_id]
