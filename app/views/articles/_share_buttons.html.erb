@@ -12,8 +12,8 @@
       <%= "https://twitter.com/intent/tweet?" +
       "text=#{URI.encode(object.title)}" +
       "&url=#{article_url(object)}" +
-      "&hashtags=#{object.keywords.split(",").first(3).join(',').gsub!(' ', '' )}" +
-      "&via=#{@common_settings.twitter_share_via_account}" %>
+      "&hashtags=#{object.keywords.split(",").first(5).join(',').gsub!(' ', '' )}" +
+      "&via=#{(@common_settings.twitter_share_via_account if @common_settings)}" %>
   ><span class="share-button twitter">
     <i class="fa fa-twitter"></i>
   </span></a>
