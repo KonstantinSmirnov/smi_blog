@@ -40,8 +40,6 @@ class Admin::HomePagesController < AdminController
 
   def home_page_params
     params.require(:home_page).permit(
-          :default_description,
-          :default_keywords,
           :title,
           :title_backgroung,
           :about_title,

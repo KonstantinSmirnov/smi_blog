@@ -4,8 +4,6 @@ class HomePage
   include Mongoid::Alize
 
   # SECTION 1 (Title)
-  field :default_description, type: String
-  field :default_keywords, type: String
   field :title, type: String
   has_mongoid_attached_file :title_backgroung,
     :styles => {
