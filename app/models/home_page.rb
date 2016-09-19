@@ -4,6 +4,8 @@ class HomePage
   include Mongoid::Alize
 
   # SECTION 1 (Title)
+  field :default_description, type: String
+  field :default_keywords, type: String
   field :title, type: String
   has_mongoid_attached_file :title_backgroung,
     :styles => {
@@ -30,7 +32,7 @@ class HomePage
   embeds_many :services
   accepts_nested_attributes_for :services, :allow_destroy => true
 
-  
+
   # SECTION 4 (Last projects)
   field :projects_title, type: String
   validates :projects_title,

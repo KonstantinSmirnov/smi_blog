@@ -8,5 +8,7 @@ class ApplicationController < ActionController::Base
   def initialize_app
     @social_icons_list = Social.all
     @categories_list = Category.all - Category.where(name: '(no category)')
+    @default_description = HomePage.first["default_description"]
+    @default_keywords = HomePage.first["default_keywords"]
   end
 end
