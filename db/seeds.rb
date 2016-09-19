@@ -45,4 +45,5 @@ social_button.save!
 settings = Setting.new
 settings.default_description = 'This is a default description for all pages which have not their own description.'
 settings.default_keywords = 'There, are, default, keywords, on, all, pages, if, they, have, not, their, own, keywords'
+settings.twitter_share_via_account = 'test'
 settings.save!

@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   def initialize_app
     @social_icons_list = Social.all
     @categories_list = Category.all - Category.where(name: '(no category)')
-    @default_description = Setting.first["default_description"]
-    @default_keywords = Setting.first["default_keywords"]
+    @common_settings = Setting.first
   end
 end
