@@ -4,7 +4,7 @@
           "<%= "#{object.title}" %>",
           "<%= "#{object.description}" %>",
           "<%= "#{URI(request.base_url)}#{object.images.primary_images.first.image(:preview)}" if object.images.primary_images.any? %>",
-          "<%= "SMIPLAY.COM" %>")'>
+          "<%= URI(request.base_url) %>")'>
     <i class="fa fa-facebook"></i>
   </span>
 
@@ -22,7 +22,7 @@
     "<%= "&url=#{article_url(object)}" %>",
     "<%= "&title=#{URI.encode(object.title)}" %>",
     "<%= "&summary=#{URI.encode(object.description)}" %>",
-    "<%= "&source=#{URI.encode('http://smiplay.com')}" %>"
+    "<%= "&source=#{URI(request.base_url)}" %>"
   )'>
     <i class="fa fa-linkedin"></i>
   </span></a>
