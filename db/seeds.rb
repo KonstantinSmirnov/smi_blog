@@ -18,6 +18,8 @@ default_category.name = "(no category)"
 default_category.save!
 
 home_page = HomePage.new
+home_page.default_description = 'This is a default description for all pages which have not their own description.'
+home_page.default_keywords = 'There, are, default, keywords, on, all, pages, if, they, have, not, their, own, keywords'
 home_page.title = 'Hello world!'
 home_page.about_title = 'About'
 home_page.about_content = 'Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.'
