@@ -10,11 +10,12 @@ class Image
   has_mongoid_attached_file :image,
     :source_file_options => { all: '-background transparent' },
     :styles => {
-    :original => ['1000>', :png],
-    :preview  => ['600x600>', :png],
-    :thumbnail => ['100x100>', :png]
+    :original => ['1000>'],
+    :preview  => ['600x600>'],
+    :thumbnail => ['100x100>']
     },
-    :url => '/system/:class/:attachment/:style/:filename'
+    :url => '/system/:class/:attachment/:style/:hash.:extension',
+    :hash_secret => "secret"
   validates :description, :image, :article_id,
             presence: true
   validates_attachment_content_type :image,
