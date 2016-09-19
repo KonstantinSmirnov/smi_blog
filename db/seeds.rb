@@ -31,7 +31,7 @@ home_page.services.build(
     title: 'Clean Code',
     content: 'All websites are written in valid and clean HTML5 / CSS3 & JavaScript (jQuery).')
 home_page.services.build(
-    icon: 'tablet-portrait',
+    icon: 'tablet',
     title: 'Always Responsive',
     content: 'All websites are responsive. They will look great on desktop, tablets and mobile phones too.')
 home_page.projects_title = 'Projects'
