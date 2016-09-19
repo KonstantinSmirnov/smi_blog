@@ -10,6 +10,7 @@ class Article
   field :slug, type: String
   field :title, type: String
   field :description, type: String
+  field :keywords, type: String
   field :content, type: String
   field :published_on, type: DateTime
   field :views, type: Integer, default: 0
@@ -17,7 +18,7 @@ class Article
 
   enum :status, [:draft, :published], default: :draft
 
-  validates :slug, :title, :description, :content, presence: true
+  validates :slug, :title, :description, :keywords, :content, presence: true
   validates :slug, uniqueness: true
 
   belongs_to :category

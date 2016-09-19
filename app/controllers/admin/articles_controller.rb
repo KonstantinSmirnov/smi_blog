@@ -74,6 +74,7 @@ class Admin::ArticlesController < AdminController
                                     :slug,
                                     :title,
                                     :description,
+                                    :keywords,
                                     :content,
                                     :category_id,
                                     :images_attributes => [:id, :description, :image, :primary_image, :_destroy]
