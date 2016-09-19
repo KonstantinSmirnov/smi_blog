@@ -19,7 +19,9 @@
       </span>
       <span><i class="fi-calendar"></i> <%= object["published_on"].strftime("%b %d, %Y") if object["published_on"] %></span>
       <span>
-        <i class="fa fa-eye"></i> <%= object["views"] %> |
+        <i class="fa fa-eye"></i> <%= object["views"] %>
+      </span>
+      <span>
         <i class="fa fa-comments"></i> <%= link_to "#{pluralize(object.comments.count, 'comment')}", article_path(object, anchor: 'article_comments') %>
       </span>
     </div>
