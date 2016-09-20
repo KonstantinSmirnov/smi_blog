@@ -7,6 +7,10 @@ class Setting
   field :default_keywords, type: String
   field :twitter_share_via_account, type: String
 
-  validates :default_description, :default_keywords, presence: true
+  validates :website_title,
+            :default_description,
+            :default_keywords,
+            :twitter_share_via_account,
+            presence: true
 
 end
