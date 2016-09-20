@@ -82,7 +82,7 @@ gem 'devise'
 gem 'dotenv-rails'
 
 # development - checking web pages load speed
-gem 'rack-mini-profiler'
+gem 'rack-mini-profiler', require: false
 
 group :development do
   gem 'capistrano-rbenv',   require: false
