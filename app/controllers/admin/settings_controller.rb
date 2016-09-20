@@ -37,6 +37,7 @@ class Admin::SettingsController < AdminController
 
   def settings_params
     params.require(:setting).permit(
+                            :website_title,
                             :default_description,
                             :default_keywords,
                             :twitter_share_via_account

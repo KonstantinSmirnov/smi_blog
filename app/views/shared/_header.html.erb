@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="blog-logo">
-    <%= link_to "SMIPLAY", root_path, class: 'navbar-brand' %>
+    <%= link_to "#{@common_settings.nil? ? 'Title' : @common_settings["website_title"] }", root_path, class: 'navbar-brand' %>
   </div>
   <div class="blog-social-buttons hidden-sm-down">
     <%= render :partial => 'shared/social_icons' %>

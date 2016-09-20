@@ -1,7 +1,11 @@
 module ApplicationHelper
 
-  def title
-
+  def title(title)
+    if Setting.first.nil?
+      "Welcome | #{title}"
+    else
+      "#{Setting.first.website_title} | #{title}"
+    end
   end
 
   def meta_tag(tag, text)
