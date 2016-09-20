@@ -3,13 +3,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home_page#show'
 
-  get 'categories/show',  as: 'category'
   get 'about_page/show',  as: 'about_page'
 
-  get '/search' => 'search#index', as: 'search'
-
-  resources :articles, only: [:index, :show] do
-    resources :comments, only: [:create]
+  scope module: 'blog' do
+    get 'categories/show',  as: 'category'
+    get '/search' => 'search#index', as: 'search'
+    resources :articles, only: [:index, :show] do
+      resources :comments, only: [:create]
+    end
   end
 
   namespace :admin do
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
       patch 'password/update', as: 'update_password'
       patch 'email/update', as: 'update_email'
     end
-
   end
 
   match "/404", :to => "errors#not_found", :via => :all

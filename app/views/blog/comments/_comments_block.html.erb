@@ -13,7 +13,7 @@
 <br>
 <div id="comments_block">
   <% @comments.each do |comment| %>
-    <%= render :partial => 'comments/comment', :locals => { :object => comment } %>
+    <%= render :partial => 'blog/comments/comment', :locals => { :object => comment } %>
   <% end %>
   <div class="text-xs-center">
     <%= will_paginate @comments, :previous_label => '<', :next_label => '>' %>

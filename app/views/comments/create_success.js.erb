@@ -1,4 +1,0 @@
-$("#comments_block").prepend("<%= j render :partial => 'comments/comment', :locals => { :object => @new_comment } %>").hide().fadeIn();
-$("#<%= @new_comment.id %>").css({'background-color':'#f9a06e'}).animate({'background-color':'#fff'}, 2000);
-$("#new_comment_author").val('');
-$("#new_comment_text").val('');

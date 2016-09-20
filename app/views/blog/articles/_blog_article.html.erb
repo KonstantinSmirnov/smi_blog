@@ -4,7 +4,7 @@
 
 <div class="blog-article">
   <h1>
-    <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
+    <% if (params[:controller] == "blog/articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
       <%= object["title"] %>
     <% else %>
       <%= link_to "#{object["title"]}", article_path(object) %>
@@ -26,29 +26,29 @@
       <i class="fa fa-eye"></i> <%= object["views"] %>
     </span>
     <span>
-      <i class="fa fa-comments"></i> <%= link_to "#{pluralize(object.comments.count, 'comment')}", article_path(object, anchor: 'article_comments') %>
+      <i class="fa fa-comments"></i> <%= object.comments.count %>
     </span>
   </div>
     <% object.images.primary_images.each do |primary_image| %>
       <%= image_tag primary_image.image.url( action?("show") ? :original : :preview ) %>
     <% end %>
     <div class="blog-article-description"><%= markdown(object["description"]) %></div>
-  <% if (params[:controller] == "articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
+  <% if (params[:controller] == "blog/articles" || params[:controller] == "admin/articles") && params[:action] == "show" %>
     <%= markdown(object["content"]) %>
     <div class="row">
       <div class="col-xs-12">
-        <%= render :partial => 'articles/share_buttons', :locals => {:object => object} %>
+        <%= render :partial => 'blog/articles/share_buttons', :locals => {:object => object} %>
       </div>
     </div>
     <div id="article_comments">
-      <%= render :partial => 'comments/comments_block' %>
+      <%= render :partial => 'blog/comments/comments_block' %>
     </div>
   <% else %>
     <div class="blog-article-footer">
       <div class="continue">
         <%= link_to "Continue Reading", article_path(object) %>
       </div>
-      <%= render :partial => 'articles/share_buttons', :locals => {:object => object} %>
+      <%= render :partial => 'blog/articles/share_buttons', :locals => {:object => object} %>
     </div>
   <% end %>
 </div>

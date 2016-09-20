@@ -1,11 +1,11 @@
 <% provide(:title, @article["title"]) %>
 <div class="row">
   <div class="col-md-9 col-lg-10">
-    <%= render :partial => 'articles/blog_article', :locals => { :object => @article } %>
+    <%= render :partial => 'blog/articles/blog_article', :locals => { :object => @article } %>
   </div>
   <div class="col-md-3 col-lg-2">
     <%= render :partial => 'shared/search_widget' %>
-    <%= render :partial => 'categories/categories_widget' %>
+    <%= render :partial => 'blog/categories/categories_widget' %>
     <%= render :partial => 'shared/subscribe' %>
   </div>
 </div>

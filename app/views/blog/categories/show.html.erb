@@ -12,12 +12,12 @@
       <% if !@articles.empty? %>
         <div class="col-lg-6">
           <% @articles.select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
-            <%= render :partial => 'articles/blog_article', :locals => { :object => article } %>
+            <%= render :partial => 'blog/articles/blog_article', :locals => { :object => article } %>
           <% end %>
         </div>
         <div class="col-lg-6">
           <% @articles.select.with_index{|_,i| (i+1) % 2 == 0}.each do |article| %>
-            <%= render :partial => 'articles/blog_article', :locals => { :object => article } %>
+            <%= render :partial => 'blog/articles/blog_article', :locals => { :object => article } %>
           <% end %>
         </div>
       <% end %>
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="col-md-3 col-lg-2">
-    <%= render :partial => 'categories/categories_widget' %>
+    <%= render :partial => 'blog/categories/categories_widget' %>
     <%= render :partial => 'shared/subscribe' %>
   </div>
 </div>

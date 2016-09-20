@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Blog::CategoriesController < BlogController
 
   def show
     @category = Category.find(params[:format])

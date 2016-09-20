@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class Blog::ArticlesController < BlogController
   def index
     @articles = Article.published.order(published_on: :desc).paginate(:page => params[:page], :per_page => 10 )
   end

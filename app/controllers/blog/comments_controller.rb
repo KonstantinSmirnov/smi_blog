@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Blog::CommentsController < BlogController
   def create
     @article = Article.find_by(:slug => params[:article_id])
     @new_comment = @article.comments.new(comment_params)
