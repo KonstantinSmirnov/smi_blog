@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-block">
-    <h3 class="card-title">Recent articles</h3>
-    <% if @recent_articles.empty? %>
+    <h3 class="card-title">Popular articles</h3>
+    <% if @popular_articles.empty? %>
       <p>
-        There are no published articles yet
+        There are no popular articles yet
       </p>
     <% else %>
-      <% @recent_articles.each do |article| %>
+      <% @popular_articles.each do |article| %>
       <div class="blog-article">
         <h5 class="card-text"><%= link_to "#{article["title"]}", article_path(article) %></h5>
         <div class="blog-article-header">
