@@ -234,8 +234,14 @@ footer {
 
 .blog-article {
   margin-bottom: 20px;
+  overflow: hidden;
+
   img {
     margin-bottom: 8px;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
   }
   .blog-article-footer {
     .continue {
