@@ -3,4 +3,4 @@
 <%= link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-outline-primary btn-sm' %>
 <%= link_to "Back to articles", admin_articles_path, class: 'btn btn-outline-primary btn-sm' %>
 <br><br>
-<%= render :partial => 'articles/blog_article', :locals => { :object => @article } %>
+<%= render :partial => 'blog/articles/blog_article', :locals => { :object => @article } %>
