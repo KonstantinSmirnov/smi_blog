@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://use.fontawesome.com/f2f87b72d2.js"></script>
-    <meta name='description' content='<%= yield_meta_tag(:description, (@common_settings["default_description"] if @common_settings)) %>' />
-    <meta name='keywords' content='<%= yield_meta_tag(:keywords, (@common_settings["default_keywords"] if @common_settings)) %>' />
-  </head>
+  <%= render :partial => 'layouts/head' %>
 
   <body>
     <div class="wrapper">

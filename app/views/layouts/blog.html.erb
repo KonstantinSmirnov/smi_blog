@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <%= render :partial => 'layouts/head' %>
+
+  <body>
+    <div class="wrapper">
+      <div class="container blog-container">
+        <%= render :partial => 'shared/header' %>
+        <div class="row">
+          <div class="col-md-8 col-lg-9">
+            <%= yield %>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <%= render :partial => 'blog/search/search_widget' if !controller?("blog/search") %>
+            <%= render :partial => 'blog/categories/categories_widget' %>
+            <%= render :partial => 'blog/articles/popular_articles_widget'%>
+          </div>
+        </div>
+      </div>
+      <%= render :partial => 'shared/footer' %>
+    </div>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
+
+</html>

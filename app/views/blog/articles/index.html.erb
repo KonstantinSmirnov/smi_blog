@@ -1,6 +1,4 @@
 <% provide(:title, "Blog") %>
-<div class="row">
-  <div class="col-md-8 col-lg-9">
     <div class="row">
       <% if @articles.empty? %>
         <div class="col-lg-12">
@@ -22,11 +20,3 @@
     <div class="text-xs-center">
       <%= will_paginate @articles, :previous_label => '<', :next_label => '>' %>
     </div>
-  </div>
-  <div class="col-md-4 col-lg-3">
-    <%= render :partial => 'blog/search/search_widget' %>
-    <%= render :partial => 'blog/categories/categories_widget' %>
-    <%= render :partial => 'blog/articles/popular_articles_widget'%>
-    <%= render :partial => 'shared/subscribe' %>
-  </div>
-</div>
