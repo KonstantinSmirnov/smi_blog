@@ -32,7 +32,6 @@ class Article
 
   search_in :title, :description, :content
 
-
   def to_param
     slug
   end
