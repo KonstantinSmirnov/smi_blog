@@ -24,15 +24,15 @@ home_page.about_content = 'Donec sed odio dui. Cras mattis consectetur purus sit
 home_page.services_title = 'Services'
 home_page.services.build(
     icon: 'pencil',
-    title: 'Beautiful Design',
+    title: 'Design',
     content: 'Every website is beautiful, unique and tailored to suit your needs and requirements.')
 home_page.services.build(
     icon: 'laptop',
-    title: 'Clean Code',
+    title: 'Development',
     content: 'All websites are written in valid and clean HTML5 / CSS3 & JavaScript (jQuery).')
 home_page.services.build(
     icon: 'tablet',
-    title: 'Always Responsive',
+    title: 'Support',
     content: 'All websites are responsive. They will look great on desktop, tablets and mobile phones too.')
 home_page.projects_title = 'Projects'
 home_page.save!
