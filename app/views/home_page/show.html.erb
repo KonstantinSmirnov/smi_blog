@@ -37,15 +37,13 @@
   </section>
   <section class="sec-folio">
     <div class="container text-xs-center">
-      <h1><%= @home_page.projects_title %></h1>
       <% if @home_page.projects.any? %>
+        <h1><%= @home_page.projects_title %></h1>
         <div class="row">
           <% @home_page.projects.each do |project| %>
               <%= render :partial => 'project', :locals => { :object => project } %>
           <% end %>
         </div>
-      <% else %>
-        <h5>There are no projects yet. Please add one.</h5>
       <% end %>
     </div>
   </section>
