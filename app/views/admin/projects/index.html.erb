@@ -21,7 +21,7 @@
     <% else %>
       <% @projects.each do |project| %>
         <tr>
-          <td><%= image_tag project.image.thumb('300x200>').url %></td>
+          <td><%= image_tag project.image.thumb('200x200#').url %></td>
           <td><%= project["title"] %></td>
           <td>
             <%= link_to "Edit", edit_admin_project_path(project), class: 'btn btn-outline-primary btn-sm' %>

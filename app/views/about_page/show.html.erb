@@ -1,7 +1,7 @@
 <% provide(:title, "About") %>
 <% if @about %>
   <section class="section-about">
-    <%= image_tag @about.image.thumb('300x200#').url, class: 'background-img' if @about.image_stored? %>
+    <%= image_tag @about.image.thumb('800x300#').url, class: 'background-img' if @about.image_stored? %>
     <div class="row">
       <div class="about-text col-md-7">
         <%= markdown(@about.content) %>
