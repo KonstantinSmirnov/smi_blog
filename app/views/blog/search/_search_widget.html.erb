@@ -4,7 +4,9 @@
       <div class="input-group input-group-md">
         <%= text_field_tag :search_query, params[:search_query], class: 'form-control', placeholder: 'Write something...', :autocomplete => 'off' %>
         <span class="input-group-btn">
-          <%= submit_tag "Search", class: 'btn btn-outline-primary' %>
+          <%= button_tag(type: "submit", class: "btn btn-outline-primary") do %>
+            <i class="fa fa-search"></i>
+          <% end %>        
         </span>
       </div>
     <% end %>
