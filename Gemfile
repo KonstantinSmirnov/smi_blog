@@ -67,6 +67,8 @@ gem 'translit'
 gem "paperclip", "~> 5.0.0"
 gem "mongoid-paperclip"
 
+gem 'dragonfly', '~> 1.0.12'
+
 # database mongoDB
 gem 'mongoid', github: 'mongodb/mongoid'
 gem 'mongoid_alize'

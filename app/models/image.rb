@@ -4,6 +4,7 @@ class Image
   include Mongoid::Paperclip
   include Mongoid::Alize
 
+
   field :description, type: String
   field :article_id, type: Integer
   field :primary_image, type: Boolean, default: false
