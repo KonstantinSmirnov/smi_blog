@@ -2,16 +2,7 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <%= form_tag("/search", method: "get") do %>
-          <div class="input-group input-group-md">
-            <%= text_field_tag :search_query, params[:search_query], class: 'form-control', placeholder: 'Write a phrase to search...', :autocomplete => 'off' %>
-            <span class="input-group-btn">
-              <%= button_tag(type: "submit", class: "btn btn-outline-primary") do %>
-                <i class="fa fa-search"></i>
-              <% end %>              
-            </span>
-          </div>
-        <% end %>
+        <%= render :partial => 'blog/search/search_field' %>
       </div>
     </div>
 
