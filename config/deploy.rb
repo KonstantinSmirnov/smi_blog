@@ -30,7 +30,7 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, false  # Change to false when not using ActiveRecord
 
-set :branch, ENV['BRANCH'] || :master
+#set :branch, ENV['BRANCH'] || :master
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -56,16 +56,16 @@ namespace :puma do
 end
 
 namespace :deploy do
-  desc "Make sure local git is in sync with remote."
-  task :check_revision do
-    on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
-        exit
-      end
-    end
-  end
+  # desc "Make sure local git is in sync with remote."
+  # task :check_revision do
+  #   on roles(:app) do
+  #     unless `git rev-parse HEAD` == `git rev-parse origin/master`
+  #       puts "WARNING: HEAD is not the same as origin/master"
+  #       puts "Run `git push` to sync changes."
+  #       exit
+  #     end
+  #   end
+  # end
 
   desc 'Initial Deploy'
   task :initial do
