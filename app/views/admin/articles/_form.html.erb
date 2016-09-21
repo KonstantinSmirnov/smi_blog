@@ -43,11 +43,6 @@
     <%= f.label :content, "Content (MD)" %>
     <%= f.text_area :content, class: 'form-control', rows: 20, :autocomplete => 'off' %>
   </div>
-  <%= image_tag @article.test_image.thumb('300x200#').url if @article.test_image_stored? %>
-  <div class="form_group">
-    <%= f.label :test_image %>
-    <%= f.file_field :test_image %>
-  </div>
   <div id="images_list">
     <%= f.fields_for :images do |builder| %>
       <%= render 'image_fields', :f => builder %>

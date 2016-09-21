@@ -3,7 +3,7 @@
           "<%= "#{article_url(object)}" %>",
           "<%= "#{object.title}" %>",
           "<%= "#{object.description}" %>",
-          "<%= "#{URI(request.base_url)}#{object.images.primary_images.first.image(:preview)}" if object.images.primary_images.any? %>",
+          "<%= "#{URI(request.base_url)}#{Dragonfly.app.remote_url_for(object.images.primary_images.first.image_uid)}" if object.images.primary_images.any? %>",
           "<%= URI(request.base_url) %>")'>
     <i class="fa fa-facebook"></i>
   </span>

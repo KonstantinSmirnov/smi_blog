@@ -6,11 +6,6 @@ class Article
   include Mongoid::Enum
   include Mongoid::Alize
   include Mongoid::Search
-  extend Dragonfly::Model
-
-  dragonfly_accessor :test_image
-  field :test_image_uid, type: String
-  field :test_image_name, type: String
   
   field :slug, type: String
   field :title, type: String
