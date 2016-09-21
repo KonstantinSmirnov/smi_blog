@@ -1,21 +1,16 @@
 class HomePage
   include Mongoid::Document
-  include Mongoid::Paperclip
   include Mongoid::Alize
+  extend Dragonfly::Model
+
+  dragonfly_accessor :title_backgroung
+  field :title_backgroung_uid, type: String
+  field :title_backgroung_name, type: String
 
   # SECTION 1 (Title)
   field :title, type: String
-  has_mongoid_attached_file :title_backgroung,
-    :styles => {
-    :original => ['1000>', :jpg],
-    :preview  => ['100x100>',   :jpg]
-  },
-    :url => '/system/:class/:attachment/:style/:filename'
   validates :title,
             presence: true
-  validates_attachment_content_type :title_backgroung,
-            :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/,
-            :message => 'file type is not allowed (only jpeg/png/gif images)'
 
   # SECTION 2 (About)
   field :about_title, type: String

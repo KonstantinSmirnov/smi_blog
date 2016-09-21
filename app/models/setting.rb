@@ -1,6 +1,5 @@
 class Setting
   include Mongoid::Document
-  include Mongoid::Paperclip
 
   field :website_title, type: String
   field :default_description, type: String

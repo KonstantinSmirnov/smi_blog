@@ -1,7 +1,6 @@
 <div class="col-sm-6 col-md-4 project-preview">
   <div class="card">
-    <%= image_tag object.image.url(:original), class: 'card-img-top' %>
+    <%= image_tag object.image.thumb('300x200>').url, class: 'card-img-top' %>
     <h3 class="card-title"><%= object.title %></h3>
   </div>
 </div>
-

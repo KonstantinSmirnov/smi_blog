@@ -33,6 +33,6 @@ class Admin::AboutPagesController < AdminController
   private
 
   def about_page_params
-    params.require(:about_page).permit(:content, :about_foto)
+    params.require(:about_page).permit(:content, :image)
   end
 end
