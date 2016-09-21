@@ -159,6 +159,8 @@ GEM
     pkg-config (1.1.7)
     puma (3.6.0)
     rack (2.0.1)
+    rack-cache (1.6.1)
+      rack (>= 0.4)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
     rack-test (0.6.3)
@@ -266,6 +268,7 @@ DEPENDENCIES
   mongoid_alize
   mongoid_search
   puma (~> 3.0)
+  rack-cache
   rack-mini-profiler
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-assets-tether (>= 1.1.0)!

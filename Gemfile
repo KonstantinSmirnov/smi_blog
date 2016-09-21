@@ -66,6 +66,10 @@ gem 'translit'
 # images
 gem 'dragonfly', '~> 1.0.12'
 
+group :production do
+  gem 'rack-cache', :require => 'rack/cache'
+
+end
 # database mongoDB
 gem 'mongoid', github: 'mongodb/mongoid'
 gem 'mongoid_alize'
