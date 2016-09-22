@@ -38,6 +38,12 @@ set :branch, ENV['BRANCH'] || :master
 # set :log_level,     :debug
 # set :keep_releases, 5
 
+#Set up for databases synchronizing
+set :sync_directories, ["public/system"]
+set :sync_backups, 3
+set :db_file, "mongoid.yml"
+set :db_drop, '--drop' # drop database (rewrites everything)
+
 ## Linked Files & Directories (Default None):
 set :linked_files, %w{.env config/mongoid.yml config/secrets.yml}
 set :linked_dirs, %w{public/system}
