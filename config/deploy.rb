@@ -121,11 +121,11 @@ namespace :deploy do
     end
   end
 
-  #before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after "deploy:published", :generate_500_html
-  #after  :finishing,    :restart
+  #before :starting,   :check_revision
+  after  :finishing,   :compile_assets
+  after  :finishing,   :cleanup
+  after  :finishing,   :generate_500_html
+  #after  :finishing,  :restart
 
 end
 
