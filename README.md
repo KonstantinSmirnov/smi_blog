@@ -10,7 +10,9 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
-.env file:
+.env file, placed in rood folder for development environment and in
+/home/(user)/apps/(app_name)/shared/.env
+for production environment (server):
 ```
 DEVISE_SECRET_KEY=
 SECRET_KEY_BASE=
@@ -117,6 +119,7 @@ production:
 
 ### Copy static files (images) from server to local enviroment
   `cap production sync:down:fs`
+
   Dragon files are stored in folder /public/system/dragonfly/production for production environment and in /public/system/dragonfly/development for development environment
 
 ### Copy mongodb database from local environment to server
