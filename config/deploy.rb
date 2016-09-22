@@ -30,7 +30,7 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, false  # Change to false when not using ActiveRecord
 
-#set :branch, ENV['BRANCH'] || :master
+set :branch, ENV['BRANCH'] || :master
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
