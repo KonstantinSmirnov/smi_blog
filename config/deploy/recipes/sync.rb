@@ -1,6 +1,7 @@
 require 'yaml'
 require 'pathname'
 
+
 # Based on http://gist.github.com/111597 http://gist.github.com/339471
 #
 # Capistrano sync.rb task for syncing databases and directories between the
@@ -59,6 +60,27 @@ namespace :sync do
       end
     end
 
+    desc <<-DESC
+      Sync the production files to local
+      DESC
+    task :fs do
+      on roles(:web), :once => true do
+        server = get_host
+        port = get_port
+        Array(fetch(:sync_directories, [])).each do |syncdir|
+          unless File.directory? "#{syncdir}"
+            logger.info "create local '#{syncdir}' folder"
+            Dir.mkdir "#{syncdir}"
+          end
+          logger.info "sync #{syncdir} from #{server}:#{port} to local"
+          destination, base = Pathname.new(syncdir).split
+          system "rsync --verbose --archive --compress --copy-links --delete --stats --rsh='ssh -p #{port}' #{fetch(:user)}@#{server}:#{current_path}/#{syncdir} #{destination.to_s}"
+        end
+
+        logger.info "sync filesystem from the 'production' to local finished"
+      end
+    end
+
   end
 
   #
@@ -87,8 +109,12 @@ namespace :sync do
   #
   # Returns the actual host name to sync and port
   #
-  def host_and_port
-    return roles[:web].servers.first.host, ssh_options[:port] || roles[:web].servers.first.port || 22
+  def get_host
+    roles(:web).server host
+  end
+
+  def get_port
+    host.netssh_options[:port] || host.port || 22
   end
 
   #

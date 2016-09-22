@@ -9,6 +9,12 @@
 server '85.143.213.223', user: 'deployer', roles: [:web, :app, :db], primary: true
 #set :branch,        :staging
 
+# server 'staging.smiplay.com',
+#   roles: %w{web app db},
+#   user: 'deployer',
+#   ssh_options: {
+#
+#   }
 
 
 # role-based syntax
