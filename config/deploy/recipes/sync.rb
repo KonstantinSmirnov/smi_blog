@@ -25,14 +25,6 @@ namespace :sync do
   end
 
   namespace :down do
-    desc <<-DESC
-      Syncs the database and declared directories from the selected 'production' environment
-      to the local development environment. This task simply calls both the 'sync:down:db' and
-      'sync:down:fs' tasks.
-      DESC
-    task :default do
-      db and fs
-    end
 
     desc <<-DESC
       Sync the production database to local
@@ -83,6 +75,37 @@ namespace :sync do
 
   end
 
+  namespace :up do
+    desc <<-DESC
+      Sync the local db to production
+      DESC
+    task :db do
+      on roles(:db), :only => { :primary => true } do
+        username, password, database = database_config('development')
+        dev_database = database
+        filename = "database.#{database}.#{Time.now.strftime '%Y-%m-%d_%H-%M-%S'}.tar.bz2"
+        system "mongodump --db #{database}"
+        system "tar -cjf #{filename} dump/#{database}"
+
+        upload! filename, "#{shared_path}/sync/#{filename}"
+
+        system "rm -f #{filename} | rm -rf dump"
+
+        username, password, database, host = remote_database_config('production')
+        # extract to home dir
+        execute "tar -xjvf #{shared_path}/sync/#{filename}"
+        # clean import
+        execute "mongorestore #{fetch(:db_drop, '')} --db #{database} dump/#{dev_database}"
+        # remove extracted dump
+        execute "rm -rf dump"
+
+        purge_old_backups "database"
+
+        logger.info "sync database from local to the 'production' finished"
+      end
+    end
+  end
+
   #
   # Reads the database credentials from the local config/database.yml file
   # +db+ the name of the environment to get the credentials for
@@ -103,7 +126,7 @@ namespace :sync do
   def remote_database_config(db)
     remote_config = capture("cat #{shared_path}/config/#{fetch(:db_file, 'mongoid.yml')}")
     database = YAML::load(remote_config)
-    return database["#{db}"]['username'], database["#{db}"]['password'], database["#{db}"]['clients']['default']['database'], database["#{db}"]['clients']['default']['hosts'][0]
+    return database["#{db}"]['clients']['default']['username'], database["#{db}"]['clients']['default']['password'], database["#{db}"]['clients']['default']['database'], database["#{db}"]['clients']['default']['hosts'][0]
   end
 
   #
