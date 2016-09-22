@@ -104,6 +104,33 @@ namespace :sync do
         logger.info "sync database from local to the 'production' finished"
       end
     end
+
+    desc <<-DESC
+      Sync the local files to production
+      DESC
+    task :fs do
+      on roles(:web), :once => true do
+        server = get_host
+        port = get_port
+          Array(fetch(:sync_directories, [])).each do |syncdir|
+          destination, base = Pathname.new(syncdir).split
+          if File.directory? "#{syncdir}"
+            # Make a backup
+            logger.info "backup #{syncdir}"
+            execute "tar cjf #{shared_path}/sync/#{base}.#{Time.now.strftime '%Y-%m-%d_%H:%M:%S'}.tar.bz2 #{current_path}/#{syncdir}"
+            purge_old_backups "#{base}"
+          else
+            logger.info "Create '#{syncdir}' directory"
+            execute "mkdir #{current_path}/#{syncdir}"
+          end
+
+          # Sync directory up
+          logger.info "sync #{syncdir} to #{server}:#{port} from local"
+          system "rsync --verbose --archive --compress --keep-dirlinks --delete --stats --rsh='ssh -p #{port}' #{syncdir} #{fetch(:user)}@#{server}:#{current_path}/#{destination.to_s}"
+        end
+        logger.info "sync filesystem from local to the 'production' '#{'production'}' finished"
+      end
+    end
   end
 
   #
