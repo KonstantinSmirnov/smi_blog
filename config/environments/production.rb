@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # activate caching in production:
-  #config.action_dispatch.rack_cache = true
+  config.action_dispatch.rack_cache = true
 
   # Code is not reloaded between requests.
   config.cache_classes = true
