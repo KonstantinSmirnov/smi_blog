@@ -115,6 +115,9 @@ production:
 
 # Synchronizing databases
 
+### Setup
+  `cap production sync:setup`
+
 ### Copy mongodb database from server to local environment
   `cap production sync:down:db`
 
