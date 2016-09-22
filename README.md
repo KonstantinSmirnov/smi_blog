@@ -17,6 +17,7 @@ for production environment (server):
 DEVISE_SECRET_KEY=
 SECRET_KEY_BASE=
 FACEBOOK_APP_ID=
+ENABLE_ROBOTS=(true to enable robots.txt in PROD and false to disable in STAGING)
 ```
 * Database creation
 

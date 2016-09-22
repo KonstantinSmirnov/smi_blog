@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'about_page/show',  as: 'about_page'
 
+  get '/robots.:format' => 'static_pages#robots'
+
   scope module: 'blog' do
     get 'categories/show',  as: 'category'
     get '/search' => 'search#index', as: 'search'
