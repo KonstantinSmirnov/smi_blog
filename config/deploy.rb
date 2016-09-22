@@ -105,6 +105,7 @@ namespace :deploy do
       within release_path do
         with rails_env: fetch(:rails_env) do
           execute :rake, "db:reset"
+          execute "rm -rf #{shared_path}/public/system/*"
         end
       end
     end
