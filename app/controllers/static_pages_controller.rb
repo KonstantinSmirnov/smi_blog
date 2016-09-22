@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def robots
-    respond_to :txt
+    respond_to :text
     expires_in 6.hours, public: true
   end
 end
