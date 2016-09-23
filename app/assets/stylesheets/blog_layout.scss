@@ -399,8 +399,11 @@ footer {
   letter-spacing: 9px;
   text-transform: uppercase;
 }
-.sec-services i {
-  font-size: 4em;
+.sec-services {
+  i {
+    font-size: 4em;
+    margin-bottom: 8px;
+  }
 }
 
 .project-preview {
