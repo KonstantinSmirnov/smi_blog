@@ -44,8 +44,8 @@ module ApplicationHelper
   end
 
   def category_active?(category)
-    if params[:controller] == "blog/categories" && params[:format]
-      @category = Category.find(params[:format])
+    if params[:controller] == "blog/categories" && params[:id]
+      @category = Category.find_by(:slug => params[:id])
       @category == category ? true : false
     end
   end

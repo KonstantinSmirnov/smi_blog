@@ -12,7 +12,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="form-group">
+    <%= f.label :slug %>
+    <%= f.text_field :slug, class: 'form-control', :readonly => true %>
+  </div>
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: 'form-control', :autocomplete => 'off' %>

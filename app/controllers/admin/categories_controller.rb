@@ -19,11 +19,11 @@ class Admin::CategoriesController < AdminController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = Category.find_by(:slug => params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = Category.find_by(:slug => params[:id])
 
     if @category.name != "(no category)"
       if @category.update_attributes(category_params)
@@ -39,7 +39,7 @@ class Admin::CategoriesController < AdminController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = Category.find_by(:slug => params[:id])
     if @category.name != "(no category)"
       @articles = Article.where(category: @category)
       if @category.destroy
@@ -59,6 +59,6 @@ class Admin::CategoriesController < AdminController
   private
 
   def category_params
-    params.require(:category).permit(:name, :articles_count)
+    params.require(:category).permit(:slug, :name, :articles_count)
   end
 end

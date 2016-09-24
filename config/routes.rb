@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/robots.:format' => 'static_pages#robots'
 
   scope module: 'blog' do
-    get 'categories/show',  as: 'category'
+    #get 'categories/show',  as: 'category'
+    get    'categories/:id' => 'categories#show', :as => 'category'
     get '/search' => 'search#index', as: 'search'
     resources :articles, only: [:index, :show] do
       resources :comments, only: [:create]
