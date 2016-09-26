@@ -2,6 +2,7 @@ class HomePage
   include Mongoid::Document
   include Mongoid::Alize
   extend Dragonfly::Model
+  extend Dragonfly::Model::Validations
 
   dragonfly_accessor :title_backgroung
   field :title_backgroung_uid, type: String
@@ -11,6 +12,8 @@ class HomePage
   field :title, type: String
   validates :title,
             presence: true
+  validates_property :format, of: :title_backgroung, in: ['jpeg', 'png', 'gif'],
+                      message: "the formats allowed are: .jpeg, .png, .gif", if: :title_backgroung_changed?
 
   # SECTION 2 (About)
   field :about_title, type: String
