@@ -25,3 +25,4 @@
 //= require facebook_SDK_load
 //= require linkedin_share
 //= require twitter_widget
+//= require resize_videos
