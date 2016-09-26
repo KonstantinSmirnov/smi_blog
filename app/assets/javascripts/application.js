@@ -18,4 +18,10 @@
 //= require local_time
 
 //= require turbolinks
-//= require_tree .
+
+//= require articles
+//= require cable
+//= require facebook_functions
+//= require facebook_SDK_load
+//= require linkedin_share
+//= require twitter_widget
