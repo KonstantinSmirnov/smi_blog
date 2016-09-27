@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
   end
   
   def sitemap
-    @articles = Article.all
+    @articles = Article.published
     respond_to do |format|
       format.xml
     end
