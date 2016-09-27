@@ -60,6 +60,8 @@ gem "will_paginate_mongoid"
 
 # markdown
 gem 'redcarpet'
+# code higlighting
+gem 'rouge'
 #translit
 gem 'translit'
 

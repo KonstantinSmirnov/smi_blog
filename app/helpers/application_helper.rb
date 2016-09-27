@@ -1,4 +1,26 @@
 module ApplicationHelper
+  require 'redcarpet'
+  require 'rouge'
+  require 'rouge/plugins/redcarpet'
+
+  class HTML < Redcarpet::Render::HTML
+    include Rouge::Plugins::Redcarpet # yep, that's it.
+  end
+
+  def markdown(text)
+    renderer = HTML.new(hard_wrap: true, filter_html: false)
+    options = {
+        autolink: true,
+        no_intra_emphasis: true,
+        fenced_code_blocks: true,
+        lax_html_blocks: true,
+        strikethrough: true,
+        superscript: true,
+        space_after_headers: true,
+        tables: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+  end
 
   def title(title)
     if Setting.first.nil?
@@ -26,21 +48,6 @@ module ApplicationHelper
 
   def namespace?(*namespace)
     namespace.include?(params[:controller].split('/').first)
-  end
-
-  def markdown(text)
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: false)
-    options = {
-        autolink: true,
-        no_intra_emphasis: true,
-        fenced_code_blocks: true,
-        lax_html_blocks: true,
-        strikethrough: true,
-        superscript: true,
-        space_after_headers: true,
-        tables: true
-    }
-    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
   def category_active?(category)
