@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get '/robots.:format' => 'static_pages#robots'
 
+  get "sitemap.xml" => "static_pages#sitemap", :format => "xml", :as => :sitemap  
+  
+
   scope module: 'blog' do
     #get 'categories/show',  as: 'category'
     get    'categories/:id' => 'categories#show', :as => 'category'
