@@ -9,7 +9,7 @@ class Category
 
   has_many :articles
 
-  alize :articles, :title,  :published_on
+  alize :articles, :title
 
   index slug: 1
   
