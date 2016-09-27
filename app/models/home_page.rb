@@ -1,5 +1,6 @@
 class HomePage
   include Mongoid::Document
+  include Mongoid::Timestamps
   include Mongoid::Alize
   extend Dragonfly::Model
   extend Dragonfly::Model::Validations

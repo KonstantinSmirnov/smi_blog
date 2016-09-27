@@ -7,6 +7,8 @@ class StaticPagesController < ApplicationController
   end
   
   def sitemap
+    @home_page = HomePage.first
+    @about_page = AboutPage.first
     @articles = Article.published
     respond_to do |format|
       format.xml

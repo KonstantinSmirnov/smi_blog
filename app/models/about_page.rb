@@ -1,5 +1,6 @@
 class AboutPage
   include Mongoid::Document
+  include Mongoid::Timestamps
   extend Dragonfly::Model
   extend Dragonfly::Model::Validations
 
