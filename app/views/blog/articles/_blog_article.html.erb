@@ -1,6 +1,7 @@
-<% meta_tag :description, object["description"].truncate(140) %>
-<% meta_tag :keywords, object["keywords"] %>
-
+<% if params[:controller] == "blog/articles" && params[:action] == "show" %>
+  <% meta_tag :description, object["description"].truncate(140) %>
+  <% meta_tag :keywords, object["keywords"] %>
+<% end %>
 
 <div class="blog-article">
   <h1>
