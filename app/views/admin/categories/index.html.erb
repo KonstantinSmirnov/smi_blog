@@ -5,6 +5,7 @@
     <tr>
       <th>Category</th>
       <th>Articles count</th>
+      <th>Published</th>
       <th>
         Options
         <%= link_to 'Add', new_admin_category_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
@@ -23,6 +24,7 @@
         <tr>
           <td><%= category["name"] %></td>
           <td><%= category["articles_fields"].count %></td>
+          <td><%= category.articles.published.count %></td>
           <td>
             <% category["name"] == "(no category)" ? disabled = 'disabled' : disabled = '' %>
             <%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-outline-primary btn-sm #{disabled}" %>
