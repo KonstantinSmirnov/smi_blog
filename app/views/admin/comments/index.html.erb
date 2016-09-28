@@ -19,7 +19,7 @@
     <% else %>
       <% @comments.each do |comment| %>
         <tr>
-          <td><%= link_to "#{comment.article.title}", admin_article_path(comment.article) %></td>
+          <td><%= (link_to "#{comment.article.title}", admin_article_path(comment.article)) if comment.article %></td>
           <td><%= comment["author_name"] %></td>
           <td><%= comment["text"] %></td>
           <td><%= comment["status"].capitalize() %></td>
