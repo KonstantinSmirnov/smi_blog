@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get '/add_image' => 'articles#add_image', as: 'add_image'
     end
     resources :images, only: [:index]
-    resources :comments, only: [:index]
+    resources :comments, only: [:index, :destroy]
     resources :socials
     resources :categories
     resources :tags

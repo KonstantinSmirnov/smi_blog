@@ -7,6 +7,7 @@
       <th>Author</th>
       <th>Comment</th>
       <th>Status</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,7 @@
           <td><%= comment["author_name"] %></td>
           <td><%= comment["text"] %></td>
           <td><%= comment["status"].capitalize() %></td>
+          <td><%= link_to "Delete", admin_comment_path(comment), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %></td>
         </tr>
       <% end %>
       <tr>
