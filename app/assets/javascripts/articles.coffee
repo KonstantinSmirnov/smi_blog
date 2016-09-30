@@ -1,5 +1,5 @@
 jQuery ($) ->
-  $(document).on "turbolinks:load", ->
+  $(document).on "turbolinks:load ajaxComplete", ->
     $(".blog-article img").addClass("img-fluid")
     $("table").addClass("m-x-auto")
     $("img").addClass("m-x-auto")
@@ -21,5 +21,5 @@ jQuery ($) ->
         $("#message_counter").html("enter at least 10 characters")
     $(".delete_article_tag").on "click", (event) ->
       $(this).prev('input[type=hidden]').val('1')
-      $(this).closest('.article_tag').hide()
+      $(this).closest('.form-group').hide()
       event.preventDefault()

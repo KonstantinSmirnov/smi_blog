@@ -299,11 +299,12 @@ footer {
   color: $grayDark;
   padding: 2px 6px;
   margin-bottom:10px;
-  span {
-    &:hover {
-      color: $dark;
-      cursor: pointer;
-    }
+}
+.delete_article_tag {
+  color: $grayDark;
+  &:hover {
+    color: $dark;
+    cursor: pointer;
   }
 }
 

@@ -44,7 +44,7 @@
     </div>
     <%= link_to "Add tag", admin_article_add_tag_path(@article), class: 'btn btn-outline-primary btn-sm', remote: true if @article.persisted? %>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :description, "Description (MD)" %>
     <%= f.text_area :description, class: 'form-control', rows: 3, :autocomplete => 'off' %>

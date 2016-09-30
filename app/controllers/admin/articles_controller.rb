@@ -54,7 +54,11 @@ class Admin::ArticlesController < AdminController
           # This is a new tag
         end
       end
-      if values["_destroy"] == "1"
+
+      #remove empty tag
+      params[:article][:tags_attributes].delete key if values["name"].blank?
+      
+      if values["_destroy"] == "1" && values["slug"]
         tag = Tag.find_by(:slug => values["slug"])
         if tag.articles.count > 1
           tag.articles.delete(@article)
