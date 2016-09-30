@@ -1,0 +1,16 @@
+<hr>
+<div class="card">
+  <div class="card-block">
+    <h3 class="card-title">Popular tags:</h3>
+    <% if @tags_list.empty? %>
+      <p>
+        There are no tags yet
+      </p>
+    <% else %>
+      <% @tags_list.each do |tag| %>
+        <h5 class="card-text"><%= link_to "#{tag["name"]} (#{tag["articles_count"]})", tag_path(tag) %></h5>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<hr>

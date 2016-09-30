@@ -44,7 +44,8 @@ class Admin::ArticlesController < AdminController
 
   def update
     @article = Article.find_by(:slug => params[:id])
-    params[:article][:tags_attributes].each do |key, values|
+    if params[:article][:tags_attributes]
+      params[:article][:tags_attributes].each do |key, values|
       if !values["slug"]
         if Tag.where(:slug => Translit.convert(values["name"], :english).downcase.gsub(/[^0-9a-z]/i, '-')).exists?
           @article.tags << Tag.find_by(:slug => Translit.convert(values["name"], :english).downcase.gsub(/[^0-9a-z]/i, '-'))
@@ -57,14 +58,15 @@ class Admin::ArticlesController < AdminController
         tag = Tag.find_by(:slug => values["slug"])
         if tag.articles.count > 1
           tag.articles.delete(@article)
+          tag.save
           @article.tags.delete(tag)
           params[:article][:tags_attributes].delete key
-          
-          p "!!!!REMOVED"
+          # tag link removed
         else
-          p "!!!!REMOVED COMPLETELY"
+          # tag completely removed
         end
       end
+    end
     end
     if @article.update_attributes(article_params)
       update_date_of_publication(@article)
@@ -81,7 +83,7 @@ class Admin::ArticlesController < AdminController
       format.js
     end
   end
-  
+
   def add_tag
     respond_to do |format|
       format.js

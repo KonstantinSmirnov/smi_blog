@@ -5,5 +5,6 @@ class BlogController < ApplicationController
 
   def initialize_blog
     @categories_list = Category.all - Category.where(name: '(no category)')
+    @tags_list = Tag.order(articles_count: :desc).limit(5)
   end
 end

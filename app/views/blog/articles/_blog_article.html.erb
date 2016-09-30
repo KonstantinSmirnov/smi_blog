@@ -29,6 +29,14 @@
     <span>
       <i class="fa fa-comments"></i> <%= object.comments.count %>
     </span>
+    <span>
+      <% if object.tags.any? %>
+        Tags:
+        <% object.tags.each_with_index do |tag, index| %>
+          <%= link_to "#{tag["name"]}", tag_path(tag) %><%= "," unless index == object.tags.size - 1 %>
+        <% end %>
+      <% end %>
+    </span>
   </div>
     <% object.images.primary_images.each do |primary_image| %>
       <%= image_tag primary_image.image.thumb( action?("show") ? '1000x650>' : '480x300>' ).url %>

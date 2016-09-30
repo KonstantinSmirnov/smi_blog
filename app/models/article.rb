@@ -6,7 +6,7 @@ class Article
   include Mongoid::Enum
   include Mongoid::Alize
   include Mongoid::Search
-  
+
   field :slug, type: String
   field :title, type: String
   field :description, type: String
@@ -26,11 +26,12 @@ class Article
 
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
-  
+
+  accepts_nested_attributes_for :images, :allow_destroy => true
+
   has_and_belongs_to_many :tags
   alize :tags, :name
 
-  accepts_nested_attributes_for :images, :allow_destroy => true
   accepts_nested_attributes_for :tags, :allow_destroy => true
 
   index slug: 1

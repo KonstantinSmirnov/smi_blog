@@ -22,9 +22,9 @@
     <% else %>
       <% @tags.each do |tag| %>
         <tr>
-          <td><%= tag["name"] %></td>
+          <td><%= link_to "#{tag["name"]}", tag_path(tag) %></td>
           <td><%= tag["slug"] %></td>
-          <td><%= tag["articles_fields"].count %></td>
+          <td><%= tag.articles_count %></td>
           <td>
             <%= link_to "Edit", edit_admin_tag_path(tag), class: 'btn btn-outline-primary btn-sm' %>
             <%= link_to "Delete", admin_tag_path(tag), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>
