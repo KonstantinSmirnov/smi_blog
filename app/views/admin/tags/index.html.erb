@@ -4,6 +4,8 @@
   <thead class="thead-default">
     <tr>
       <th>Name</th>
+      <th>Slug</th>
+      <th>Articles count</th>
       <th>
         Options
         <%= link_to 'Add', new_admin_tag_path, class: 'btn btn-outline-primary btn-sm pull-lg-right' %>
@@ -21,6 +23,8 @@
       <% @tags.each do |tag| %>
         <tr>
           <td><%= tag["name"] %></td>
+          <td><%= tag["slug"] %></td>
+          <td><%= tag["articles_fields"].count %></td>
           <td>
             <%= link_to "Edit", edit_admin_tag_path(tag), class: 'btn btn-outline-primary btn-sm' %>
             <%= link_to "Delete", admin_tag_path(tag), :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %>

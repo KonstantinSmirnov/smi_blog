@@ -26,7 +26,12 @@ class Article
 
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
+  
+  has_and_belongs_to_many :tags
+  alize :tags, :name
+
   accepts_nested_attributes_for :images, :allow_destroy => true
+  accepts_nested_attributes_for :tags, :allow_destroy => true
 
   index slug: 1
 
@@ -34,11 +39,6 @@ class Article
 
   def to_param
     slug
-  end
-
-  before_validation do
-    self.slug = Translit.convert(self.slug, :english)
-    self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')
   end
 
 end

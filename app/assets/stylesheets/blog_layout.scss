@@ -290,6 +290,21 @@ footer {
   }
 }
 
+/* tags */
+.article_tag {
+  display: inline-block;
+  border: 1px solid $grayDark;
+  color: $grayDark;
+  padding: 2px 6px;
+  margin-bottom:10px;
+  span {
+    &:hover {
+      color: $dark;
+      cursor: pointer;
+    }
+  }
+}
+
 /* ADMIN */
 .admin-menu .nav-item.active .nav-link {
   border: 1px solid $gray;

@@ -19,11 +19,11 @@ class Admin::TagsController < AdminController
   end
 
   def edit
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by(:slug => params[:id])
   end
 
   def update
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by(:slug => params[:id])
 
     if @tag.update_attributes(tag_params)
       flash.now[:success] = "Changes were saved"
@@ -34,7 +34,7 @@ class Admin::TagsController < AdminController
   end
 
   def destroy
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by(:slug => params[:id])
     @tag.destroy
     flash[:success] = "tag was deleted"
     redirect_to admin_tags_path

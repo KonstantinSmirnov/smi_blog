@@ -19,3 +19,7 @@ jQuery ($) ->
         $("#add_comment").prop "disabled", true
         $("#message_counter").css("color":"black")
         $("#message_counter").html("enter at least 10 characters")
+    $(".delete_article_tag").on "click", (event) ->
+      $(this).prev('input[type=hidden]').val('1')
+      $(this).closest('.article_tag').hide()
+      event.preventDefault()

@@ -1,0 +1,26 @@
+<% provide(:title, @tag["name"]) %>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h5>Articles by tag: <%= @tag["name"] %></h5>
+        <br>
+        <% if @articles.empty? %>
+          <p>There are no articles in this category yet.</p>
+        <% end %>
+      </div>
+      <% if !@articles.empty? %>
+        <div class="col-lg-6">
+          <% @articles.select.with_index{|_,i| (i+1) % 2 != 0}.each do |article| %>
+            <%= render :partial => 'blog/articles/blog_article', :locals => { :object => article } %>
+          <% end %>
+        </div>
+        <div class="col-lg-6">
+          <% @articles.select.with_index{|_,i| (i+1) % 2 == 0}.each do |article| %>
+            <%= render :partial => 'blog/articles/blog_article', :locals => { :object => article } %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-xs-center">
+      <%= will_paginate @articles, :previous_label => '<', :next_label => '>' %>
+    </div>

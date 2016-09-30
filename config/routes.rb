@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   scope module: 'blog' do
     #get 'categories/show',  as: 'category'
     get    'categories/:id' => 'categories#show', :as => 'category'
+    get    'tags/:id' => 'tags#show', :as => 'tag'
     get '/search' => 'search#index', as: 'search'
     resources :articles, only: [:index, :show] do
       resources :comments, only: [:create]
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     resources :articles do
       resources :images
       get '/add_image' => 'articles#add_image', as: 'add_image'
+      get '/add_tag'   => 'articles#add_tag',   as: 'add_tag'
     end
     resources :images, only: [:index]
     resources :comments, only: [:index, :destroy]

@@ -1,0 +1,11 @@
+<%
+  @article = Article.find_by(:slug => params[:article_id])
+  new_tag = @article.tags.build
+  form_for [:admin, @article] do |f|
+    f.fields_for(:tags, new_tag, :child_index => Time.now.to_i) do |builder|
+      @builder = builder
+    end
+  end
+%>
+
+$("#tags_list").append("<%= j render partial: 'tag_fields', locals: {f: @builder} %>");

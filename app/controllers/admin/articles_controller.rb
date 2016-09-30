@@ -44,6 +44,28 @@ class Admin::ArticlesController < AdminController
 
   def update
     @article = Article.find_by(:slug => params[:id])
+    params[:article][:tags_attributes].each do |key, values|
+      if !values["slug"]
+        if Tag.where(:slug => Translit.convert(values["name"], :english).downcase.gsub(/[^0-9a-z]/i, '-')).exists?
+          @article.tags << Tag.find_by(:slug => Translit.convert(values["name"], :english).downcase.gsub(/[^0-9a-z]/i, '-'))
+          params[:article][:tags_attributes].delete key
+        else
+          # This is a new tag
+        end
+      end
+      if values["_destroy"] == "1"
+        tag = Tag.find_by(:slug => values["slug"])
+        if tag.articles.count > 1
+          tag.articles.delete(@article)
+          @article.tags.delete(tag)
+          params[:article][:tags_attributes].delete key
+          
+          p "!!!!REMOVED"
+        else
+          p "!!!!REMOVED COMPLETELY"
+        end
+      end
+    end
     if @article.update_attributes(article_params)
       update_date_of_publication(@article)
 
@@ -55,6 +77,12 @@ class Admin::ArticlesController < AdminController
   end
 
   def add_image
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def add_tag
     respond_to do |format|
       format.js
     end
@@ -77,7 +105,8 @@ class Admin::ArticlesController < AdminController
                                     :keywords,
                                     :content,
                                     :category_id,
-                                    :images_attributes => [:id, :description, :image, :primary_image, :_destroy]
+                                    :images_attributes => [:id, :description, :image, :primary_image, :_destroy],
+                                    :tags_attributes => [:id, :name, :slug, :_destroy]
                                     )
   end
 
