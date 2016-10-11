@@ -41,5 +41,9 @@ class Article
   def to_param
     slug
   end
-
+  
+  before_validation do
+    self.slug = Translit.convert(self.slug, :english)
+    self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')
+  end
 end
