@@ -9,7 +9,7 @@ class Tag
   field :name, type: String
   field :articles_count, type: Integer, default: 1
 
-  validates :name, :slug, length: { minimum: 1 }
+  validates :name, :slug, uniqueness: true
 
   has_and_belongs_to_many :articles
 
