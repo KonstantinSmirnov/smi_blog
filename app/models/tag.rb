@@ -20,9 +20,7 @@ class Tag
   end
 
   before_validation do
-    if !self.slug
-      self.slug = Translit.convert(self.name, :english).downcase.gsub(/[^0-9a-z]/i, '-')
-    end
+    self.slug = Translit.convert(self.name, :english).downcase.gsub(/[^0-9a-z]/i, '-')
     update_articles_count
   end
 
