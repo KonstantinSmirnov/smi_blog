@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-block">
-    <h3 class="card-title">Popular articles:</h3>
+    <h3 class="card-title">Top <%= @popular_articles.to_a.length %> articles:</h3>
     <% if @popular_articles.empty? %>
       <p>
         There are no popular articles yet
