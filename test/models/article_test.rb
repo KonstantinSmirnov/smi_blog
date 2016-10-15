@@ -32,6 +32,16 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not article2.save, "Saved with used slug. Slug should be unique!"
   end
 
+  test "should replace non-character symbols with dashes" do
+    article = create(:article, slug: '!23this-is$%^a_testcatego23ry?', category: Category.first)
+    assert_equal article.slug, "-23this-is---a-testcatego23ry-"
+  end
+
+  test "should translate slug in english" do
+    article = create(:article, slug: "Это пример категории", category: Category.first)
+    assert_equal article.slug, "jeto-primer-kategorii"
+  end
+
   test "default views should be 0" do
     article = create(:article, slug: "test-views")
     assert article.views == 0, "Default views quantity is not zero."

@@ -5,14 +5,15 @@ class Category
   field :slug, type: String
   field :name, type: String
 
-  validates :slug, :name, length: { minimum: 1 }, uniqueness: true
+  validates :slug, :name, presence: true
+  validates :slug, :name, uniqueness: true
 
   has_many :articles
 
   alize :articles, :title
 
   index slug: 1
-  
+
   def to_param
     slug
   end

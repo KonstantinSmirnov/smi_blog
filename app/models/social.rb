@@ -3,6 +3,6 @@ class Social
   field :icon_text, type: String
   field :link, type: String
 
-  validates :icon_text, :link, length: { minimum: 1 }
+  validates :icon_text, :link, presence: true
 
 end
