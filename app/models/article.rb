@@ -41,7 +41,11 @@ class Article
   def to_param
     slug
   end
-  
+
+  def self.random(n = 1)
+    result = (0..Article.published.count-1).sort_by{rand}.slice(0, n).collect! do |i| Article.published.skip(i).first end
+  end
+
   before_validation do
     self.slug = Translit.convert(self.slug, :english)
     self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')

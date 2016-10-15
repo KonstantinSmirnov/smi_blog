@@ -6,6 +6,7 @@ class Blog::ArticlesController < BlogController
 
   def show
     @popular_articles = Article.published.order(views: :desc).limit(5)
+    @random_articles = Article.random(3)
     @article = Article.published.find_by(:slug => params[:id])
     @comments = @article.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10 )
     @article.update_attribute("views", @article.views + 1)

@@ -17,6 +17,7 @@ class Admin::ArticlesController < AdminController
 
   def show
     @article = Article.find_by(:slug => params[:id])
+    @random_articles = Article.random(3)
     @comments = @article.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10 )
     @new_comment = @article.comments.build
     cookies[:opened_article_id] = params[:id]
@@ -57,7 +58,7 @@ class Admin::ArticlesController < AdminController
 
       #remove empty tag
       params[:article][:tags_attributes].delete key if values["name"].blank?
-      
+
       if values["_destroy"] == "1" && values["slug"]
         tag = Tag.find_by(:slug => values["slug"])
         if tag.articles.count > 1
