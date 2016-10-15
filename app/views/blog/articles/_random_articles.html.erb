@@ -14,11 +14,9 @@
           <p>
             <%= random_article.description %>
           </p>
-          <div class="blog-article-footer">
-            <div class="continue">
-              <%= link_to "Continue Reading", article_path(random_article) %>
-            </div>
-          </div>
+          <i>
+            <%= link_to "Continue Reading", article_path(random_article) %>
+          </i>
         </div>
       </div>
     </div>
