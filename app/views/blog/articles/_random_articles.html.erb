@@ -8,6 +8,9 @@
           <h5 class="card-title">
             <%= link_to "#{random_article.title}", article_path(random_article) %>
           </h5>
+          <% random_article.images.primary_images.each do |primary_image| %>
+            <%= image_tag primary_image.image.thumb( '480x300>' ).url %>
+          <% end %>
           <p>
             <%= random_article.description %>
           </p>
