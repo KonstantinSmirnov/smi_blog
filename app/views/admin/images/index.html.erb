@@ -26,7 +26,7 @@
               Get url
             </button>
           </td>
-          <td><%= link_to "#{image['article_fields']['title']}", edit_admin_article_path(image['article_id']) %></td>
+          <td><%= link_to "#{image['article_fields']['title']}", edit_admin_article_path(image.article) %></td>
         </tr>
       <% end %>
       <tr>
