@@ -4,4 +4,14 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
+  include FactoryGirl::Syntax::Methods
+  DatabaseCleaner.strategy = :truncation
+  setup do
+    DatabaseCleaner.start
+    Rails.application.load_seed
+  end
+
+  teardown do
+    DatabaseCleaner.clean
+  end
 end

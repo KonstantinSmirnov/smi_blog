@@ -95,3 +95,9 @@ group :development do
   gem 'capistrano',         require: false
   gem 'capistrano3-puma',   require: false
 end
+
+# Testing
+group :test do
+  gem 'factory_girl_rails', "~> 4.0"
+  gem 'database_cleaner'
+end

@@ -46,6 +46,16 @@ class Article
     result = (0..Article.published.count-1).sort_by{rand}.slice(0, n).collect! do |i| Article.published.skip(i).first end
   end
 
+  def update_publication_date
+    if self.published?
+      self.published_on = DateTime.now if self.published_on == nil
+      self.save!
+    elsif self.draft?
+      self.published_on = nil
+      self.save!
+    end
+  end
+
   before_validation do
     self.slug = Translit.convert(self.slug, :english)
     self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')

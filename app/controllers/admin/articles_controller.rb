@@ -31,7 +31,7 @@ class Admin::ArticlesController < AdminController
   def create
     @article = Article.new(article_params)
     if @article.save
-      update_date_of_publication(@article)
+      @article.update_publication_date
       flash[:success] = "Article has been created"
       redirect_to edit_admin_article_path(@article)
     else
@@ -74,7 +74,7 @@ class Admin::ArticlesController < AdminController
     end
     end
     if @article.update_attributes(article_params)
-      update_date_of_publication(@article)
+      @article.update_publication_date
 
       flash.now[:success] = "Changes were saved"
       render 'edit'
@@ -115,16 +115,6 @@ class Admin::ArticlesController < AdminController
                                     :images_attributes => [:id, :description, :image, :primary_image, :_destroy],
                                     :tags_attributes => [:id, :name, :slug, :_destroy]
                                     )
-  end
-
-  def update_date_of_publication(article)
-    if article.published?
-      article.published_on = DateTime.now if article.published_on == nil
-      article.save!
-    elsif article.draft?
-      article.published_on = nil
-      article.save!
-    end
   end
 
 end
