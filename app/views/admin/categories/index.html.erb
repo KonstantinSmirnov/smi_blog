@@ -23,7 +23,7 @@
       <% @categories.each do |category| %>
         <tr>
           <td><%= category["name"] %></td>
-          <td><%= category["articles_fields"].count %></td>
+          <td><%= category.articles.count %></td>
           <td><%= category.articles.published.count %></td>
           <td>
             <% category["name"] == "(no category)" ? disabled = 'disabled' : disabled = '' %>
