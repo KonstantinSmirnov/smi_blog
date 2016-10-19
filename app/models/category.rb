@@ -10,8 +10,6 @@ class Category
 
   has_many :articles
 
-  alize :articles, :title
-
   index slug: 1
 
   def to_param
