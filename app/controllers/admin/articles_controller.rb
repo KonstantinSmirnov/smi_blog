@@ -11,7 +11,7 @@ class Admin::ArticlesController < AdminController
       end
       @articles = Article.where(filter).order('created_at DESC').paginate(:page => params[:page], :per_page => 25 )
     else
-      @articles = Article.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 25 )
+      @articles = Article.where(:status.nin => [:removed]).order('created_at DESC').paginate(:page => params[:page], :per_page => 25 )
     end
   end
 
@@ -97,9 +97,16 @@ class Admin::ArticlesController < AdminController
 
   def destroy
     @article = Article.find_by(:slug => params[:id])
-    @article.destroy
-    flash[:success] = "Article was deleted"
-    redirect_to admin_articles_path
+    if @article.removed?
+      @article.destroy
+      flash[:success] = "Article was deleted"
+      redirect_to admin_articles_path
+    else
+      @article.removed!
+      @article.update_publication_date
+      flash[:success] = "Article was moved to trash"
+      redirect_to admin_articles_path
+    end
   end
 
   private

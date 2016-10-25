@@ -16,7 +16,7 @@ class Article
   field :views, type: Integer, default: 0
   field :category_id, type: Integer
 
-  enum :status, [:draft, :published], default: :draft
+  enum :status, [:draft, :published, :removed], default: :draft
 
   validates :slug, :title, :description, :keywords, :content, presence: true
   validates :slug, uniqueness: true
@@ -50,7 +50,7 @@ class Article
     if self.published?
       self.published_on = DateTime.now if self.published_on == nil
       self.save!
-    elsif self.draft?
+    elsif !self.published?
       self.published_on = nil
       self.save!
     end
@@ -60,4 +60,5 @@ class Article
     self.slug = Translit.convert(self.slug, :english)
     self.slug = self.slug.downcase.gsub(/[^0-9a-z]/i, '-')
   end
+  
 end

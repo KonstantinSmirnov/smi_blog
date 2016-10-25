@@ -120,6 +120,10 @@ class ArticleTest < ActiveSupport::TestCase
   # test "should be destroyed with its tags" do
   #
   # end
+  
+  # test "should have status :removed after 1st deletion"
+  
+  # test "should be deleted after getting status removed"
 
 
 end
