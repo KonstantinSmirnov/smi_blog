@@ -52,9 +52,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
-# convert all dates in local timezone
-gem 'local_time'
-
 # pagination
 gem "will_paginate_mongoid"
 

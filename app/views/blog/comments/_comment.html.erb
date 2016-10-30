@@ -1,5 +1,5 @@
 <div id="<%= object.id %>">
-  <p><%= object.author_name %> | <%= local_time_ago(object.created_at) %></p>
+  <p><%= object.author_name %> | <%= time_ago_in_words(object.created_at) %> ago</p>
   <p><%= markdown(object.text) %></p>
   <hr>
 </div>
