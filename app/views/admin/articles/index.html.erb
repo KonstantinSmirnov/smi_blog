@@ -19,7 +19,7 @@
       <th>Title</th>
       <th>Category</th>
       <th>Status</th>
-      <th>at</th>
+      <th>on</th>
       <th>Views</th>
       <th>
         Options
@@ -40,7 +40,7 @@
           <td><%= link_to "#{article["title"]}", admin_article_path(article) %></td>
           <td><%= article["category_fields"] ? "#{ article["category_fields"]["name"]}" : "(none)" %></td>
           <td><%= article["status"].capitalize() %></td>
-          <td><%= local_time(article["published_on"], format: '%d.%m.%y %H:%M') if article["published_on"] %></td>
+          <td><%= article["published_on"].strftime("%b %d, %Y") if article["published_on"] %></td>
           <td><%= article["views"] %></td>
           <td>
             <%= link_to "Edit", edit_admin_article_path(article), class: "btn btn-outline-primary btn-sm" %>

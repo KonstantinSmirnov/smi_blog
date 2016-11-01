@@ -17,7 +17,7 @@
 
   <div class="form-group">
     <%= f.label :status %>
-    <%= f.select :status, Article::STATUS, class: 'form-control form-control-sm' %>  <%= local_time(@article["published_on"]) if @article.published_on != nil %>
+    <%= f.select :status, Article::STATUS, class: 'form-control form-control-sm' %>  <%= "on #{@article["published_on"].strftime("%b %d, %Y")}" if @article.published_on != nil %>
   </div>
   <div class=form-group>
     <%= f.label :category %>
