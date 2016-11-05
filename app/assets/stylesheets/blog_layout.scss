@@ -3,7 +3,7 @@
 @import 'https://fonts.googleapis.com/css?family=Poiret+One';
 
 // VARIABLES
-$dark: #28394B; //#18232F
+$dark: #112640; //#18232F
 $medium: #F76A0D; //#DE691A
 $gray: #ccc;
 $grayDark: #aaa;
@@ -490,6 +490,43 @@ footer {
     }
   }
 }
+
+/* LANDING VIDEO SECTION */
+.cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.video-section {
+  background-color: $dark;
+}
+
+.video-section .buttonBar{display:none;}
+.player {font-size: 1px;}
+
+.jumbotron {
+  color: #fff;
+  margin-top: (100vh/4);
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
+  h1 {
+    font-size: 100px;
+  }
+}
+.cover-image-indent {
+  margin-top: 80vh;
+}
+.cover-image-indent2 {
+  margin-top: 40vh;
+}
+
 
 /* COMMENTS */
 #article_comments {
