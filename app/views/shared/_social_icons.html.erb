@@ -1,5 +1,5 @@
 <% if @social_icons_list %>
   <% @social_icons_list.each do |icon| %>
-    <a href="<%= icon["link"] %>" target="_blank"><i class="fa fa-<%= icon["icon_text"] %>"></i></a>
+    <a href="<%= icon["link"] %>" target="_blank"><i class="fa fa-<%= icon["icon_text"] %> <%= controller?('home_page') ? 'text-white' : nil %>"></i></a>
   <% end %>
 <% end %>

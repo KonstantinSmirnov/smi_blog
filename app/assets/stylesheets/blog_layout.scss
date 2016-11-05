@@ -15,6 +15,9 @@ body {
   background-color: #E9E9E9;
   color: $dark;
 }
+.text-white {
+  color: $white;
+}
 .hided {
   display: none;
 }
@@ -131,10 +134,16 @@ table td {
 /* HEADER */
 nav.navbar {
   border-radius: 0px;
-  border-bottom: 1px solid $dark;
   padding-left: 0px;
   padding-right: 0px;
   margin-bottom: 24px;
+  z-index: 100;
+}
+nav.navbar-white-border {
+  border-bottom: 1px solid $white;
+}
+nav.navbar-dark-border {
+  border-bottom: 1px solid $dark;
 }
 nav .blog-logo {
   font-family: 'Poiret One', cursive;
@@ -381,6 +390,7 @@ footer {
 }
 
 .sec-main {
+  margin-top: 80vh;
   position: relative;
   height: 150px; // Height should be the same as background-img
 

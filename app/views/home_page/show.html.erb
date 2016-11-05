@@ -1,6 +1,25 @@
 <% provide(:title, "Home") %>
 
 <% if @home_page %>
+
+  <section class="cover-image video-section">
+    <div>
+      <a class="player" id="bgndVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=y0sl4fIxm4E&list=PLQhyATD_4rfdBMstiIs7SvxtVAAJj24dN&index=17',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}"></a>
+    </div>
+    <div class="jumbotron offset-md-2 col-md-8">
+      <h1 class="text-xs-center">Rails web apps</h1>
+      <p class="lead text-xs-center">
+        Interesting information about your belowed framework and many more interesting information here!
+      </p>
+      <p class="lead text-xs-center">
+        <%= link_to 'Go to blog!', articles_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+  </section>
+
+
+
+
   <section class="sec-main text-xs-center">
     <%= image_tag @home_page.title_backgroung.thumb('1000x300#').url, class: 'background-img' if @home_page.title_backgroung %>
     <h1 class="main-heading"><%= @home_page.title %></h1>
