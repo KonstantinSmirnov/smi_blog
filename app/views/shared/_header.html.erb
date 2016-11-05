@@ -1,4 +1,4 @@
-<nav class="navbar <%= controller?('home_page') ? 'navbar-white-border' : 'navbar-dark-border' %>">
+<nav class="navbar <%= should_be_white? ? 'navbar-white-border' : 'navbar-dark-border' %>">
   <div class="blog-logo">
     <%= link_to "#{@common_settings.nil? ? 'Title' : @common_settings["website_title"] }", root_path, class: "navbar-brand #{'text-white' if controller?('home_page')}" %>
   </div>
@@ -6,7 +6,7 @@
     <%= render :partial => 'shared/social_icons' %>
   </div>
   <div class="blog-links">
-    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler hidden-sm-up <%= 'text-white' if should_be_white? %>" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
       &#9776;
     </button>
     <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
@@ -15,17 +15,17 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item <%= 'active' if controller?("blog/articles") %>">
-          <%= link_to "Blog", articles_path, :class => "nav-link #{'text-white' if controller?('home_page')}" %>
+          <%= link_to "Blog", articles_path, :class => "nav-link #{'text-white' if should_be_white?}" %>
         </li>
         <li class="nav-item <%= 'active' if controller?("about_page") %>">
-          <%= link_to "About", about_page_path, :class => "nav-link #{'text-white' if controller?('home_page')}" %>
+          <%= link_to "About", about_page_path, :class => "nav-link #{'text-white' if should_be_white?}" %>
         </li>
         <% if admin_signed_in? %>
           <li class="nav-item <%= 'active' if namespace?("admin") %>">
-            <%= link_to "Admin", admin_dashboard_path, :class => "nav-link #{'text-white' if controller?('home_page')}" %>
+            <%= link_to "Admin", admin_dashboard_path, :class => "nav-link #{'text-white' if should_be_white?}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign out", destroy_admin_session_path, { data: { confirm: 'Are you sure to sign out?' }, :class => "nav-link #{'text-white' if controller?('home_page')}" } %>
+            <%= link_to "Sign out", destroy_admin_session_path, { data: { confirm: 'Are you sure to sign out?' }, :class => "nav-link #{'text-white' if should_be_white?}" } %>
           </li>
         <% end %>
       </ul>

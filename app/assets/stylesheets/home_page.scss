@@ -1,7 +1,5 @@
 .cover-image {
   position: absolute;
-  // padding-top: 0px;
-  // height: 93vh;
   top: 0;
   left: 0;
   right: 0;
@@ -14,7 +12,6 @@
 
 .video-section {
   background-color: #0B1829;
-
 }
 
 .video-section .buttonBar{display:none;}
@@ -28,4 +25,10 @@
   h1 {
     font-size: 100px;
   }
+}
+.cover-image-indent {
+  margin-top: 80vh;
+}
+.cover-image-indent2 {
+  margin-top: 40vh;
 }

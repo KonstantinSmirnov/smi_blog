@@ -2,7 +2,7 @@
 
 <% if @home_page %>
 
-  <section class="cover-image video-section">
+  <section class="cover-image video-section hidden-sm-down">
     <div>
       <a class="player" id="bgndVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=y0sl4fIxm4E&list=PLQhyATD_4rfdBMstiIs7SvxtVAAJj24dN&index=17',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}"></a>
     </div>
@@ -17,13 +17,17 @@
     </div>
   </section>
 
+  <section class="cover-image-indent hidden-sm-down">
+  </section>
 
 
-
-  <section class="sec-main text-xs-center">
-    <%= image_tag @home_page.title_backgroung.thumb('1000x300#').url, class: 'background-img' if @home_page.title_backgroung %>
+  <section class="sec-main text-xs-center hidden-md-up">
+    <%= image_tag @home_page.title_backgroung.thumb('1000x1000#').url, class: 'background-img' if @home_page.title_backgroung %>
     <h1 class="main-heading"><%= @home_page.title %></h1>
   </section>
+  <section class="cover-image-indent2 hidden-md-up">
+  </section>
+
   <br>
   <section class="sec-about">
     <div class="container text-xs-center">

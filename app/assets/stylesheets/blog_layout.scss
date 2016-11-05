@@ -390,9 +390,11 @@ footer {
 }
 
 .sec-main {
-  margin-top: 80vh;
-  position: relative;
-  height: 150px; // Height should be the same as background-img
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50vh; // Height should be the same as background-img
 
   &:after {
     content: "";
@@ -409,7 +411,7 @@ footer {
     left: 0;
     display: block;
     width: 100%;
-    height: 150px; // Should be the same height as parent
+    height: 100%; // Should be the same height as parent
     object-fit: cover;
   }
 }

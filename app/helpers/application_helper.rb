@@ -57,4 +57,8 @@ module ApplicationHelper
     end
   end
 
+  def should_be_white?
+    controller?('home_page')
+  end
+
 end
