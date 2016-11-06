@@ -9,10 +9,13 @@ class HomePage
   field :title_backgroung_uid, type: String
   field :title_backgroung_name, type: String
 
+  field :video_url, type: String
+
   # SECTION 1 (Title)
   field :title, type: String
   validates :title,
             presence: true
+  field :subtitle, type: String
   validates_property :format, of: :title_backgroung, in: ['jpeg', 'png', 'gif'],
                       message: "the formats allowed are: .jpeg, .png, .gif", if: :title_backgroung_changed?
 

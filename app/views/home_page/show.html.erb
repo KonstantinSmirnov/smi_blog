@@ -4,12 +4,12 @@
 
   <section class="cover-image video-section hidden-sm-down">
     <div>
-      <a class="player" id="bgndVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=y0sl4fIxm4E&list=PLQhyATD_4rfdBMstiIs7SvxtVAAJj24dN&index=17',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}"></a>
+      <a class="player" id="bgndVideo" data-property="{videoURL: '<%= @home_page.video_url %>',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}"></a>
     </div>
     <div class="jumbotron offset-md-2 col-md-8">
-      <h1 class="text-xs-center">Rails web apps</h1>
+      <h1 class="text-xs-center"><%= @home_page.title %></h1>
       <p class="lead text-xs-center">
-        Interesting information about your belowed framework and many more interesting information here!
+        <%= @home_page.subtitle %>
       </p>
       <p class="lead text-xs-center">
         <%= link_to 'Go to blog!', articles_path, class: 'btn btn-primary btn-lg' %>

@@ -41,7 +41,9 @@ class Admin::HomePagesController < AdminController
   def home_page_params
     params.require(:home_page).permit(
           :title,
+          :subtitle,
           :title_backgroung,
+          :video_url,
           :about_title,
           :about_content,
           :services_title,
