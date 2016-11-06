@@ -21,6 +21,7 @@ home_page = HomePage.new
 home_page.title = 'Hello world!'
 home_page.video_url = 'https://www.youtube.com/watch?v=y0sl4fIxm4E&list=PLQhyATD_4rfdBMstiIs7SvxtVAAJj24dN&index=17'
 home_page.about_title = 'About'
+home_page.subtitle = 'Interesting information about your favorite framework and many more useful articles here! '
 home_page.about_content = 'Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.'
 home_page.services_title = 'Services'
 home_page.services.build(
