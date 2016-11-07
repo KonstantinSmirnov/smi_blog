@@ -584,3 +584,15 @@ footer {
   margin-top: 1em;
   margin-bottom: 0.7em;
 }
+
+/* ALERTS */
+.notification {
+  position: absolute;
+  border: 1px solid $gray;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  z-index: 100;
+  top: 0px;
+  right: 15px;
+}
