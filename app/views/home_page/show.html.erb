@@ -6,14 +6,18 @@
     <div>
       <a class="player" id="bgndVideo" data-property="{videoURL: '<%= @home_page.video_url %>',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}"></a>
     </div>
-    <div class="jumbotron offset-md-2 col-md-8">
-      <h1 class="text-xs-center"><%= @home_page.title %></h1>
-      <p class="lead text-xs-center">
-        <%= @home_page.subtitle %>
-      </p>
-      <p class="lead text-xs-center">
-        <%= link_to 'Go to blog!', articles_path, class: 'btn btn-primary btn-lg' %>
-      </p>
+    <div class="container">
+      <div class="row">
+        <div class="jumbotron col-lg-12">
+          <h1 class="text-xs-center"><%= @home_page.title %></h1>
+          <p class="lead text-xs-center">
+            <%= @home_page.subtitle %>
+          </p>
+          <p class="lead text-xs-center">
+            <%= link_to 'Go to blog!', articles_path, class: 'btn btn-primary btn-lg' %>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
