@@ -8,7 +8,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="jumbotron col-lg-12">
+        <div class="jumbotron col-xs-12">
           <h1 class="text-xs-center"><%= @home_page.title %></h1>
           <p class="lead text-xs-center">
             <%= @home_page.subtitle %>
@@ -27,7 +27,12 @@
 
   <section class="sec-main text-xs-center hidden-md-up">
     <%= image_tag @home_page.title_backgroung.thumb('1000x1000#').url, class: 'background-img' if @home_page.title_backgroung %>
-    <h1 class="main-heading"><%= @home_page.title %></h1>
+    <div class="main-heading">
+      <h1><%= @home_page.title %></h1>
+      <p class="lead text-xs-center">
+        <%= @home_page.subtitle %>
+      </p>
+    </div>
   </section>
 
   <br>
