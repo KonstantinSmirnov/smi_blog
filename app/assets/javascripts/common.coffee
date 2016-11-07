@@ -3,4 +3,4 @@ jQuery ($) ->
     #welcome page player initialize
     $(".player").mb_YTPlayer()
 
-    $(".notification").delay(3000).toggle('fadeout')
+    $(".notification").delay(3000).fadeOut()
