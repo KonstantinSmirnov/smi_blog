@@ -14,5 +14,5 @@
   <meta name='keywords' content='<%= yield_meta_tag(:keywords, (@common_settings["default_keywords"] if @common_settings)) %>' />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script type="text/javascript" src="http://localhost:3000/widget_init.js"></script>
+  <script id="follower_widget__init_script" type="text/javascript" src="<%= request.base_url %>/widget_init.js"></script>
 </head>
