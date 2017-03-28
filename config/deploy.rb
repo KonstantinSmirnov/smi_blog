@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.6.1'
+lock '3.8.0'
 
 set :application, 'smi_blog'
 set :repo_url, 'git@github.com:KonstantinSmirnov/smi_blog.git'
@@ -115,7 +115,7 @@ namespace :deploy do
   task :migrate do
     p "do not migrate!"
   end
-  
+
   desc "Generate error 500 file which should be available even if rails app is down"
   task :generate_500_html do
    on roles(:web) do |host|
